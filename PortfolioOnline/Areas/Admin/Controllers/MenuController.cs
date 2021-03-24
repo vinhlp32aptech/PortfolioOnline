@@ -17,5 +17,11 @@ namespace PortfolioOnline.Areas.Admin.Controllers
         {
             return View();
         }
+        [HttpGet]
+        [Route("menuadd")]
+        public IActionResult Add()
+        {
+            return View("MenuAdd");
+        }
     }
 }
