@@ -1,0 +1,368 @@
+
+
+.ftco-section {
+    padding: 7em 0;
+    position: relative;
+}
+.bg-light {
+    background: #f8f9fd !important;
+}
+.ftco-faqs .myaccordion {
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.ftco-faqs .myaccordion .card,
+.ftco-faqs .myaccordion .card:last-child .card-header {
+    border: none;
+    background: transparent;
+}
+
+.ftco-faqs .myaccordion .card-header {
+    border: none;
+    background: transparent;
+}
+.ftco-faqs .myaccordion .card-header p {
+    position: relative;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: left;
+}
+
+.ftco-faqs .myaccordion .fa {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.ftco-faqs .myaccordion .btn {
+    width: 100%;
+    font-weight: 600;
+    color: black;
+    padding: 0;
+    text-transform: capitalize;
+    letter-spacing: 0;
+    border-radius: 0 !important;
+    margin-bottom: 10px;
+    border-radius: 40px !important;
+    -webkit-box-shadow: 0px 2px 8px -4px rgba(0, 0, 0, 0.21) !important;
+    -moz-box-shadow: 0px 2px 8px -4px rgba(0, 0, 0, 0.21) !important;
+    box-shadow: 0px 2px 8px -4px rgba(0, 0, 0, 0.21) !important;
+}
+
+.ftco-faqs .myaccordion .btn-link:hover,
+.ftco-faqs .myaccordion .btn-link:focus {
+    text-decoration: none;
+}
+
+.ftco-faqs button[aria-expanded="true"] {
+    background-color: #00bd56;
+    color: #fff !important;
+}
+
+.ftco-faqs button[aria-expanded="false"] {
+    background-color: #fff;
+}
+.ftco-faqs .card-body {
+    background: #fff;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    -webkit-box-shadow: 0px 2px 8px -4px rgba(0, 0, 0, 0.21) !important;
+    -moz-box-shadow: 0px 2px 8px -4px rgba(0, 0, 0, 0.21) !important;
+    box-shadow: 0px 2px 8px -4px rgba(0, 0, 0, 0.21) !important;
+}
+
+
+.ftco-faqs button[aria-expanded="true"] .fa {
+    color: #fff !important;
+}
+.ftco-faqs .myaccordion .fa {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.ftco-faqs .myaccordion .fa {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.ftco-faqs [data-toggle="collapse"].collapsed .fa:before {
+    content: "\f067";
+    font-family: "FontAwesome";
+    font-style: normal;
+}
+
+.ftco-faqs [data-toggle="collapse"] .fa:before {
+    content: "\f068";
+    font-family: "FontAwesome";
+    font-style: normal;
+}
+
+.ftco-faqs .img {
+    height: 450px;
+    -webkit-box-shadow: 0px 8px 21px -10px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0px 8px 21px -10px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 8px 21px -10px rgba(0, 0, 0, 0.12);
+}
+.img, .blog-img, .user-img {
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.icon-video {
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse 2s infinite;
+    -webkit-box-shadow: 0px 10px 30px -4px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 10px 30px -4px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 10px 30px -4px rgba(0, 0, 0, 0.15);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+}
+.align-items-center {
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+.justify-content-center {
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+}
+
+                      .post .article-v2 {
+                          padding: 0 15px;
+                      }
+
+                      .post .article-v2 .entry-title {
+                          font-size: 16px;
+                          color: #666666;
+                          font-weight: 600;
+                      }
+
+                      .post .article-v2 .article-header {
+                          margin-bottom: 15px;
+                      }
+
+                      .post .article-v2 .article-content-main {
+                          -webkit-box-shadow: 1px 0px 20px 1px rgba(0, 0, 0, 0.15);
+                          box-shadow: 1px 0px 20px 1px rgba(0, 0, 0, 0.15);
+                          padding: 30px;
+                          position: relative;
+                          background: #fff;
+                          margin-top: -75px;
+                      }
+
+                      @media only screen and (max-width: 1024px) {
+                          .post .article-v2 .article-content-main {
+                              padding: 15px;
+                              margin-bottom: 30px;
+                          }
+                      }
+
+                      .post .article-v2 .article-content p:last-of-type {
+                          margin-bottom: 0;
+                      }
+
+                      .post .article-v2 .article-thumb {
+                          position: relative;
+                          left: 25px;
+                          margin-bottom: 0;
+                      }
+
+                      .post .article-v2 .article-footer {
+                          border-top: 1px solid #ebebeb;
+                          padding-top: 15px;
+                          margin-top: 20px;
+                      }
+
+                      .post .article-v2 .article-footer .more-link {
+                          color: #ffa800;
+                      }
+
+                      .post .article-v2 .article-footer .footer-meta a {
+                          color: #aaa;
+                          font-size: 15px;
+                          margin-right: 5px;
+                      }
+
+                      .post .article-v2 .article-footer .footer-meta a i {
+                          font-size: 16px;
+                          margin-left: 2px;
+                      }
+
+
+body {
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-color: white;
+    background-repeat: no-repeat
+}
+
+.card0 {
+    box-shadow: 0px 4px 8px 0px #757575;
+    border-radius: 0px
+}
+
+.card2 {
+    margin: 0px 40px
+}
+
+.logo {
+    width: 200px;
+    height: 100px;
+    margin-top: 20px;
+    margin-left: 35px
+}
+
+.image {
+    width: 360px;
+    height: 280px
+}
+
+.border-line {
+    border-right: 1px solid #EEEEEE
+}
+
+.facebook {
+    background-color: #3b5998;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
+}
+
+.twitter {
+    background-color: #1DA1F2;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
+}
+
+.linkedin {
+    background-color: #2867B2;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
+}
+
+.line {
+    height: 1px;
+    width: 45%;
+    background-color: #E0E0E0;
+    margin-top: 10px
+}
+
+.or {
+    width: 10%;
+    font-weight: bold
+}
+
+.text-sm {
+    font-size: 14px !important
+}
+
+::placeholder {
+    color: #BDBDBD;
+    opacity: 1;
+    font-weight: 300
+}
+
+:-ms-input-placeholder {
+    color: #BDBDBD;
+    font-weight: 300
+}
+
+::-ms-input-placeholder {
+    color: #BDBDBD;
+    font-weight: 300
+}
+
+input,
+textarea {
+    padding: 10px 12px 10px 12px;
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 14px;
+    letter-spacing: 1px
+}
+
+input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #304FFE;
+    outline-width: 0
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+a {
+    color: inherit;
+    cursor: pointer
+}
+
+.btn-blue {
+    background-color: #1A237E;
+    width: 150px;
+    color: #fff;
+    border-radius: 2px
+}
+
+.btn-blue:hover {
+    background-color: #000;
+    cursor: pointer
+}
+
+.bg-blue {
+    color: #fff;
+    background-color: #1A237E
+}
+
+@media screen and (max-width: 991px) {
+    .logo {
+        margin-left: 0px
+    }
+
+    .image {
+        width: 300px;
+        height: 220px
+    }
+
+    .border-line {
+        border-right: none
+    }
+
+    .card2 {
+        border-top: 1px solid #EEEEEE !important;
+        margin: 0px 15px
+    }
+}

@@ -1,0 +1,311 @@
+.theme_bg_titl {
+    background: white;
+}
+
+
+.black_fonts{
+    color: #666666;
+}
+
+h3.small_heading_titl{
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 48px;
+    margin-bottom: 20px;
+}
+.white_fonts_title{
+    color: #666666;
+}
+
+.title_fonts_default{
+    color: white;
+}
+
+.title_fonts_default_1{
+    color: #FFD15A;
+}
+h3.title_fonts_default_2{
+    color: white;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 48px;
+    margin-bottom: 20px;
+}
+.theme_bg_title_1 {
+    background: #21277F;
+}
+h3.small_heading_title{
+    color: #0892fd;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 48px;
+    margin-bottom: 20px;
+}
+.img-responsive_1{
+    text-align: center;
+}
+
+.black_fonts_slider{
+    color: white;
+    font-size: 25px;
+
+}
+h3.small_heading_title_sli{
+    font-size: 40px;
+    font-weight: bold;
+    color: #262B33;
+    text-align: center;
+}
+.small_heading_title_sli_p{
+    font-size: 30px;
+    color: #262B33;
+    text-align: center;
+}
+.button-theme-title_marquee{
+    background: #070500;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.theme_bg_title_slider {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F2F5FA;
+}
+.marquee{
+
+    font-size: 25px;
+    font-weight: bold;
+    color: #0892fd;
+}
+
+.marquee_p{
+    font-size:25px;
+    font-weight: bold;
+    color: #262B33;
+}
+
+.marquee_p1{
+    font-size:20px;
+    color: #262B33;
+}
+.theme_bg_title_2 {
+    background: white;
+}
+
+h4.title_fonts_default_4{
+    color: #0892fd;
+    font: 50px"TT Commons", system-ui,-apple-system;
+    margin: 0px 215px 48px ;
+}
+
+
+
+
+.slider{
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.slides{
+    width: 500%;
+    height: 500px;
+    display: flex;
+
+}
+.slides input{
+    display: none;
+}
+.slide1{
+    width: 20%;
+    transition: 2s;
+}
+.slide1 img{
+    width: fit-content;
+    height: 500px;
+}
+/* css manul slide navigation */
+
+.navigation-manual{
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn{
+    border: 2px solid #40D3DC;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+    margin-right: 40px;
+}
+
+.manual-btn:hover{
+    background: #40D3DC;
+}
+
+#radio1:checked ~ .first{
+    margin-left: 0;
+}
+#radio2:checked ~ .first{
+    margin-left: -20%;
+}
+#radio3:checked ~ .first{
+    margin-left: -40%;
+}
+#radio4:checked ~ .first{
+    margin-left: -60%;
+}
+
+
+/* css for automatic navigation */
+.navigation-auto{
+    position: absolute;
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    margin-top: 460px;
+
+}
+.navigation-auto div{
+    border: 2px solid #40D3DC;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.navigation-auto div:not(:last-child){
+    margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+    background: #40D3DC;
+
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2{
+    background: #40D3DC;
+
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3{
+    background: #40D3DC;
+
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4{
+    background: #40D3DC;
+
+}
+
+
+
+
+
+
+section.blog-jumbotron{
+    color: #000000;
+    font: 16px sans-serif;
+    background: #F8F9FA;
+
+}
+h1.blog-jumbotron__title{
+    color: #23476F;
+    font: 48px "Roboto Slab",Serif;
+}
+div.blog-jumbotron__subtitle{
+    color: #23476F;
+    font: 16px Roboto, sans-serif;
+}
+div.blog-jumbotron__content{
+    color: #000000;
+    font: 16px sans-serif;
+    padding: 24px 0px 0px;
+}
+a.blog-jumbotron__cta{
+    color: #FFFFFF;
+    font: 14px Roboto,sans-serif;
+    background: #FF514E;
+    margin: 32px 0px;
+    padding: 8px 16px;
+}
+
+
+.img-responsive_cv{
+    height: 300px;
+
+}
+
+.heading_main_1{
+    color: #262B33;
+    font: 46px "TT Commons",system-ui,-apple-system;
+    margin: 0px 0px 12px;
+}
+
+.heading_main_2{
+    color: #262B33;
+    font: 20px "TT Commons",system-ui,-apple-system;
+    margin: 0px 0px 12px;
+    text-align: center;
+}
+.img-responsive_about{
+    height: 700px;
+    width: 1050px;
+}
+
+.layout_padding_1{
+    background: #F2F5FA;
+
+}
+.about-us{
+    color: black;
+    font: 40px Poppins,sans-serif;
+}
+.about_1{
+    color: #262B33;
+    font: 32px"TT Commons", system-ui, -apple-system;
+    margin: 0px 0px 8px;
+    font-weight: bold;
+}
+.about_2{
+    color: #262B33;
+    font: 26px"TT Commons", system-ui, -apple-system;
+    margin: 0px 0px 24px;
+}
+.about_3{
+    color: #262B33;
+    font: 19px"TT Commons", system-ui, -apple-system;
+    margin: 0px 0px 12px;
+}
+
+.img-responsive_1{
+    height: 100%;
+    width: 700px;
+}
+.img-responsive_about_1 {
+    height: 500px;
+    width: 1170px;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 1rem;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: normal;
+}
+
+

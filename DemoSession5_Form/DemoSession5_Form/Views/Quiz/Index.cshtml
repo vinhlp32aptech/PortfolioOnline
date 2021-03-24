@@ -1,0 +1,25 @@
+﻿
+<h3>Quiz</h3>
+
+<form method="post" asp-controller="quiz" asp-action="submit">
+
+    <ol>
+        @foreach (var question in ViewBag.questions)
+        {
+            <li>
+                @question.Content
+                <br />
+                <ol type="a">
+                    @foreach (var answer in question.Answers)
+                    {
+                        <li>
+                    <input name="questionId_@question.Id" type="radio" value="@answer.Id"/>
+                    @answer.Content
+                        </li>
+                    }
+                </ol>
+            </li>
+        }
+    </ol>
+    <input type="submit" value="Submit" />
+</form>
