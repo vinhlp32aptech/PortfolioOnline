@@ -1,0 +1,43 @@
+﻿
+
+<h3>Account page</h3>
+<br />
+<a asp-controller="account" asp-action="login">Login</a>
+<a asp-controller="account" asp-action="register">Register</a>
+<a asp-controller="product" asp-action="index">Product</a>
+<a asp-controller="demo" asp-action="index">Photo</a>
+<a asp-controller="product" asp-action="importCSV">importCSV</a>
+<a asp-controller="quiz" asp-action="index">Quiz</a>
+<h4>Search 1</h4>
+<form method="post" asp-controller="account" asp-action="search1">
+
+    Keyword <input type="text" name="keyword" value="@ViewBag.keyword" />
+    <input type="submit" name="search" value="Search" />
+</form>
+
+
+<br />
+<h4>Search 2</h4>
+<form method="get" asp-controller="account" asp-action="search2">
+
+    Keyword <input type="text" name="keyword2" value="@ViewBag.keyword2" />
+    <input type="submit" name="search2" value="Search" />
+</form>
+
+<br />
+<h4>Search 3</h4>
+<form method="post" asp-controller="account" asp-action="search3">
+
+    Min <input type="text" name="min" />
+    Max <input type="text" name="max" />
+    <input type="submit" name="search3" value="Search" />
+</form>
+
+<br />
+<h4>Search 4</h4>
+<form method="get" asp-controller="account" asp-action="search4">
+
+    Min <input type="text" name="min" value="@ViewBag.min" />
+    Max <input type="text" name="max" value="@ViewBag.max" />
+    <input type="submit" name="search4" value="Search" />
+</form>

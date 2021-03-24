@@ -1,0 +1,40 @@
+﻿@model DemoSession8_Validate.Models.Account
+<h3>Account</h3>
+<a  asp-controller="demo" asp-action="index">Demo</a>
+
+<form method="post" asp-controller="account" asp-action="save">
+
+    <table>
+        <tr>
+            <td>Username</td>
+            <td><input type="text" asp-for="Username" /></td>
+            <td><span asp-validation-for="Username"></span></td>
+        </tr>a
+        <tr>
+            <td>Password</td>
+            <td><input type="password" asp-for="Password" /></td>
+            <td><span asp-validation-for="Password"></span></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" asp-for="Email" /></td>
+            <td><span asp-validation-for="Email"></span></td>
+        </tr>
+        <tr>
+            <td>WebSite</td>
+            <td><input type="text" asp-for="Website" /></td>
+            <td><span asp-validation-for="Website"></span></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><input type="number" asp-for="Age" /></td>
+            <td><span asp-validation-for="Age"></span></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input type="submit" value="Save" /></td>
+
+        </tr>
+    </table>
+
+</form>

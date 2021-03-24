@@ -1,0 +1,35 @@
+﻿<html>
+
+    <head>
+        <title> Demo 1</title>
+        <script src="~/js/lib1.js"></script>
+    </head>
+    <body>
+        <h3>Razor World</h3>
+        @{ 
+            var username = "acc1";
+            var quantity = 20;
+            var photo = "1.jpg";
+            var price = 4.5;
+            var status = true;
+        }
+
+        Username: @username
+        <br />
+        Photo: @photo
+        <br />
+        <img src="~/images/1.jpg" width="120px" height="120px" onclick="clickMe()"/>
+        <br />
+        Quantity: @quantity
+        <br />
+        Price: @price
+        <br />
+        Status: @status
+        <br />
+        Status: @(status ? "Show" : "Hide")
+        <br /> 
+        Total: @(price * quantity)
+
+    </body>
+  
+</html>

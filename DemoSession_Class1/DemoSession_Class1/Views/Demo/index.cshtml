@@ -1,0 +1,30 @@
+﻿<h3>sadfasdf</h3>
+Username: @ViewBag.username
+<br />
+Age: @ViewBag.age
+<br />
+Status: @(ViewBag.status? "Show" : "Hide")
+<br />
+Photo: @ViewBag.photo
+<br />
+<img src="~/images/@ViewBag.photo" width="150px" height="150px"/>
+<br />
+Price: @ViewBag.price
+<br />
+Quantity: @ViewBag.quantity
+<br />
+Total: @(ViewBag.price * ViewBag.Quantity)
+<br />
+
+@if (ViewBag.age >= 18)
+{
+                <span>ban du tuoi </span>
+}
+else
+{
+    <span>ban chua du tuoi</span>
+}
+
+@foreach(var name in ViewBag.names){
+    <li>@name</li>
+}

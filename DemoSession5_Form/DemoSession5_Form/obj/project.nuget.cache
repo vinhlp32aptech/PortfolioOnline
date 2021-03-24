@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "lJOAwQTUsUR2ZNStLCzH7bSKz1SM/wDgbkeqlMp4ouhOy1bBk1yJ0ReBfAbTtUI2t3D8ZZyAypUPEoeiBHo2+g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Win\\source\\repos\\DemoSession5_Form\\DemoSession5_Form\\DemoSession5_Form.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Win\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}
