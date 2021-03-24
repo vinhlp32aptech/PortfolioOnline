@@ -1,0 +1,26 @@
+﻿<h3> Student List</h3>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Photo</th>
+        <th>BirthDay</th>
+        <th>Score</th>
+        <th>Rank</th>
+    </tr>
+    @foreach (var student in ViewBag.students) { 
+<tr>
+    <td>@student.Id</td>
+    <td>@student.Name</td>
+    <td><img src="~/images/@student.Photo" width="100px" height="100px"  /></td>
+    <td>@student.BirthDate.ToString("dd/MM/yyyy")</td>
+    <td>@student.Score</td>
+    <td>
+        @if (student.Score >= 8)
+        {<span style="color: aquamarine;"> Gioi</span>}
+        else if(student.Score >=5 && student.Score < 8){<span style="color: lightcoral;"> Kha</span>}
+        else{<span style="color: palevioletred;"> Trung Binh</span>}
+    </td>
+</tr>
+    }
+</table>
