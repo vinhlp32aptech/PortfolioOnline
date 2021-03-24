@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace PortfolioOnline.Areas.Admin.Controllers
 {
-    [Area("admin")]
-    [Route("account")]
-    [Route("admin/account")]
-    public class AccountController : Controller
+    public class MailReadController : Controller
     {
-        [Route("index")]
         public IActionResult Index()
         {
-            return View("~/Areas/Admin/Views/Account/Index.cshtml");
+            return View();
         }
     }
 }
