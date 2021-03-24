@@ -15,7 +15,7 @@ namespace PortfolioOnline.Areas.Admin.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            return View("~/Areas/Admin/Views/Hashtag/Index.cshtml");
+            return View();
         }
     }
 }

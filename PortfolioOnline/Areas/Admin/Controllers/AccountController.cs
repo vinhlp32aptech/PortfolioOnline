@@ -14,7 +14,7 @@ namespace PortfolioOnline.Areas.Admin.Controllers
         [Route("index")]
         public IActionResult Index()
         {
-            return View("~/Areas/Admin/Views/Account/Index.cshtml");
+            return View();
         }
     }
 }

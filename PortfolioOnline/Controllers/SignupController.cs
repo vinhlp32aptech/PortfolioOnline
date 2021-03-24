@@ -13,7 +13,6 @@ namespace PortfolioOnline.Controllers
         [Route("")]
         public IActionResult Index()
         {
-
             return View();
 
         }

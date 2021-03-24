@@ -19,11 +19,6 @@ namespace PortfolioOnline.Areas.Admin.Controllers
             {
                 return View();
             }
-        [HttpGet]
-        [Route("footeradd")]
-        public IActionResult Add()
-        {
-            return View("FooterAdd");
-        }
+        
     }
 }
