@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 namespace PortfolioOnline.Areas.Admin.Controllers
 {
     [Area("admin")]
-    [Route("account")]
-    [Route("admin/account")]
-    public class AccountController : Controller
+    [Route("mailcompose")]
+    [Route("admin/mailcompose")]
+    public class MailComposeController : Controller
     {
         [Route("index")]
+        [Route("")]
         public IActionResult Index()
         {
-            return View("~/Areas/Admin/Views/Account/Index.cshtml");
+            return View("~/Areas/Admin/Views/Mail/Compose.cshtml");
         }
     }
 }
