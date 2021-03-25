@@ -37,7 +37,8 @@
                 </ul>
 
                 </li>
-                <br /><br />
+                <br />
+                <br />
                 <h3>Manage Web</h3>
                 <li class="active has-sub">
                 <li>
@@ -82,14 +83,34 @@
                         <a asp-controller="servicepage" asp-action="index">Service</a>
                     </li>
                     <li>
-                        <aasp-controller="signinpage" asp-action="index">SignIn</a>
+                        <aasp-controller ="signinpage" asp-action="index">SignIn</a>
                     </li>
                     <li>
                         <a asp-controller="signuppage" asp-action="index">SignUp</a>
                     </li>
                 </ul>
                 </li>
-                <br /><br />
+                <br />
+                <li class="active has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fas fa-tachometer-alt"></i>Pages
+                    </a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a asp-controller="page" asp-action="slider">Slider </a>
+                        </li>
+
+                        <li>
+                            <a asp-controller="page" asp-action="content_page">Content page </a>
+                        </li>
+                        <li>
+                            <a asp-controller="page" asp-action="session_page">Session page </a>
+                        </li>
+
+
+                    </ul>
+                </li>
+                <br />
                 <li class="active has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fas fa-tachometer-alt"></i>Dashboard

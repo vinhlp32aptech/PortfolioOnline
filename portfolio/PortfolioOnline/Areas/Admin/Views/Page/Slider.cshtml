@@ -1,0 +1,357 @@
+﻿
+@{ ViewData["Title"] = "Slider";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; }
+<style>
+    .dropdown .dropbtn {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+
+
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+</style>
+<br />
+<br />
+<br />
+<div style="min-height: 1665.6px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Slider Manager</h1>
+                </div>
+                <div class="col-sm-6">
+                    <br />
+                    <ol class=" float-sm-right">
+                        <div class="dropdown">
+                            <button class="btn btn-primary">
+                                Page
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            &emsp;&emsp; &emsp;&emsp; &emsp;&emsp;
+                            <div class="dropdown-content">
+                                <a href="https://www.youtube.com/watch?v=K8hATlKYRMw">Page 1</a>
+                                <a href="https://www.youtube.com/watch?v=K8hATlKYRMw">Page 2</a>
+                                <a href="https://www.youtube.com/watch?v=K8hATlKYRMw">Page 3</a>
+                            </div>
+                        </div>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card collapsed-card">
+            <div class="card-header">
+                <h3 class="card-title">Slider</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body p-0" style="display: none;">
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th style="width: 1%">
+                                #
+                            </th>
+                            <th style="width: 20%">
+                                id_slider
+                            </th>
+                            <th style="width: 30%">
+                                title_slider
+                            </th>
+                            <th>
+                                content_slider
+                            </th>
+
+                            <th style="width: 20%">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                #
+                            </td>
+                            <td>
+                                <a>
+                                    id_slider  in here ---
+                                </a>
+                            </td>
+                            <td>
+                                title_slider in here ---
+                            </td>
+                            <td>
+                                content_slider  in here ---
+                            </td>
+                            <td class="project-actions text-right">
+
+                                <a class="btn btn-info btn-sm" href="#">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Edit
+                                </a>
+                                <a class="btn btn-danger btn-sm" href="#">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <div class="card collapsed-card">
+            <div class="card-header">
+                <h3 class="card-title">Slider url</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body p-0" style="display: none;">
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th style="width: 1%">
+                                #
+                            </th>
+                            <th style="width: 20%">
+                                id_url_slider
+                            </th>
+                            <th style="width: 30%">
+                                url_slider
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                #
+                            </td>
+                            <td>
+                                <a>
+                                    id_slider  in here ---
+                                </a>
+                            </td>
+                            <td>
+                                url_slider in here ---
+                            </td>
+
+                            <td class="project-actions text-right">
+
+                                <a class="btn btn-info btn-sm" href="#">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Edit
+                                </a>
+                                <a class="btn btn-danger btn-sm" href="#">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+        <div class="card collapsed-card">
+            <div class="card-header">
+                <h3 class="card-title">url of slider</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body p-0" style="display: none;">
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th style="width: 1%">
+                                #
+                            </th>
+                            <th style="width: 20%">
+                                id_url_slider
+                            </th>
+                            <th style="width: 30%">
+                                id_slider
+                            </th>
+                            <th>
+                                name_url
+                            </th>
+                            <th>
+                                url_slider
+                            </th>
+
+                            <th style="width: 20%">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                #
+                            </td>
+                            <td>
+                                <a>
+                                    id_url_slider  in here ---
+                                </a>
+                            </td>
+                            <td>
+                                id_slider in here ---
+                            </td>
+                            <td>
+                                name_url  in here ---
+                            </td>
+                            <td>
+                                url_slider  in here ---
+                            </td>
+                            <td class="project-actions text-right">
+
+                                <a class="btn btn-info btn-sm" href="#">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Edit
+                                </a>
+                                <a class="btn btn-danger btn-sm" href="#">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <div class="card collapsed-card">
+            <div class="card-header">
+                <h3 class="card-title">slider photo</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body p-0" style="display: none;">
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th style="width: 1%">
+                                #
+                            </th>
+                            <th style="width: 20%">
+                                id_slider
+                            </th>
+                            <th style="width: 30%">
+                                photo
+                            </th>
+
+
+                            <th style="width: 20%">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                #
+                            </td>
+                            <td>
+                                <a>
+                                    id_slider  in here ---
+                                </a>
+                            </td>
+                            <td>
+                                <img alt="Avatar" class="table-avatar" src="~/admin/dist/img/avatar4.png">
+                            </td>
+
+                            <td class="project-actions text-right">
+
+                                <a class="btn btn-info btn-sm" href="#">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Edit
+                                </a>
+                                <a class="btn btn-danger btn-sm" href="#">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+
+    </section>
+    <!-- /.content -->
+</div>
