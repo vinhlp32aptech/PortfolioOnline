@@ -1,7 +1,44 @@
 ﻿
 @{ ViewData["Title"] = "Slider";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; }
+<style>
+    .dropdown .dropbtn {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
 
+
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+</style>
 <br />
 <br />
 <br />
@@ -14,8 +51,20 @@
                     <h1>Slider Manager</h1>
                 </div>
                 <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item active"></li>
+                    <br />
+                    <ol class=" float-sm-right">
+                        <div class="dropdown">
+                            <button class="btn btn-primary">
+                                Page
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            &emsp;&emsp; &emsp;&emsp; &emsp;&emsp;
+                            <div class="dropdown-content">
+                                <a href="https://www.youtube.com/watch?v=K8hATlKYRMw">Page 1</a>
+                                <a href="https://www.youtube.com/watch?v=K8hATlKYRMw">Page 2</a>
+                                <a href="https://www.youtube.com/watch?v=K8hATlKYRMw">Page 3</a>
+                            </div>
+                        </div>
                     </ol>
                 </div>
             </div>
