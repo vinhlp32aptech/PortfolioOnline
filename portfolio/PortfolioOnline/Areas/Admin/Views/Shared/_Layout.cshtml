@@ -30,7 +30,9 @@
 
     <!-- Main CSS-->
     <link href="~/admin/css/theme.css" rel="stylesheet" media="all">
-
+    <link rel="stylesheet" href="~/admin/plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/admin/dist/css/adminlte.min.css">
 </head>
 
 <body class="animsition">
@@ -73,6 +75,7 @@
                                 </li>
                             </ul>
                         </li>
+
                         <li>
                             <a href="chart.html">
                                 <i class="fas fa-chart-bar"></i>Charts
@@ -160,13 +163,13 @@
         </header>
         <!-- END HEADER MOBILE-->
         <!-- MENU SIDEBAR-->
-        <partial name="_LeftMenu"/>
+        <partial name="_LeftMenu" />
         <!-- END MENU SIDEBAR-->
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
             <partial name="_Navbar" />
-            
+
             <!-- HEADER DESKTOP-->
             <!-- MAIN CONTENT-->
             @RenderBody()
@@ -199,7 +202,13 @@
 
     <!-- Main JS-->
     <script src="~/admin/js/main.js"></script>
-
+    <script src="~/admin/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/admin/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/admin/dist/js/demo.js"></script>
 </body>
 
 </html>
