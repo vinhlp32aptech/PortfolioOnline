@@ -50,50 +50,53 @@
                 <li>
                     <a asp-controller="socialweb" asp-action="index">SocialNetwork</a>
                 </li>
-                <a class="js-arrow" href="#">
-                    <i class="fas fa-tachometer-alt"></i>Mail
-                </a>
-                <ul class="list-unstyled navbar__sub-list js-sub-list">
-                    <li>
-                        <a asp-controller="mailinbox" asp-action="index">Inbox</a>
-                    </li>
-                    <li>
-                        <a asp-controller="mailcompose" asp-action="index">Compose</a>
-                    </li>
-                    <li>
-                        <a asp-controller="mailread" asp-action="index">Read</a>
-                    </li>
+                <li class="active has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fas fa-tachometer-alt"></i>Mail
+                    </a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a asp-controller="mailinbox" asp-action="index">Inbox</a>
+                        </li>
+                        <li>
+                            <a asp-controller="mailcompose" asp-action="index">Compose</a>
+                        </li>
+                        <li>
+                            <a asp-controller="mailread" asp-action="index">Read</a>
+                        </li>
 
-                </ul>
-                <br />
-                <a class="js-arrow" href="#">
-                    <i class="fas fa-tachometer-alt"></i>Pages
-                </a>
-                <ul class="list-unstyled navbar__sub-list js-sub-list">
-                    <li>
-                        <a asp-controller="indexpage" asp-action="index">Index</a>
-                    </li>
-                    <li>
-                        <a asp-controller="aboutpage" asp-action="index">About</a>
-                    </li>
-                    <li>
-                        <a asp-controller="contactpage" asp-action="index">Contact</a>
-                    </li>
-                    <li>
-                        <a asp-controller="servicepage" asp-action="index">Service</a>
-                    </li>
-                    <li>
-                        <aasp-controller ="signinpage" asp-action="index">SignIn</a>
-                    </li>
-                    <li>
-                        <a asp-controller="signuppage" asp-action="index">SignUp</a>
-                    </li>
-                </ul>
+                    </ul>
                 </li>
-                <br />
+                    
                 <li class="active has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fas fa-tachometer-alt"></i>Pages
+                    </a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a asp-controller="indexpage" asp-action="index">Index</a>
+                        </li>
+                        <li>
+                            <a asp-controller="aboutpage" asp-action="index">About</a>
+                        </li>
+                        <li>
+                            <a asp-controller="contactpage" asp-action="index">Contact</a>
+                        </li>
+                        <li>
+                            <a asp-controller="servicepage" asp-action="index">Service</a>
+                        </li>
+                        <li>
+                            <aasp-controller ="signinpage" asp-action="index">SignIn</a>
+                        </li>
+                        <li>
+                            <a asp-controller="signuppage" asp-action="index">SignUp</a>
+                        </li>
+                    </ul>
+                </li>
+               
+                <li class="active has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fas fa-tachometer-alt"></i>Pages Manager
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
@@ -110,7 +113,7 @@
 
                     </ul>
                 </li>
-                <br />
+                
                 <li class="active has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fas fa-tachometer-alt"></i>Dashboard
