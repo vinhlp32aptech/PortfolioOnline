@@ -9,7 +9,7 @@
 <br />
 <div class="container">
     <h2>Compose</h2>
-    <button type="button" class="btn btn-success"><i class="fas fa-plus">ADD</i></button>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
 
     <table class="table table-hover">
         <thead>
@@ -31,7 +31,7 @@
                 <td>john@example.com</td>
                 <td>john@example.com</td>
                 <td>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-edit"></i></button>
                     <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                 </td>
             </tr>
@@ -42,7 +42,7 @@
                 <td>mary@example.com</td>
                 <td>john@example.com</td>
                 <td>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-edit"></i></button>
                     <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                 </td>
             </tr>
@@ -54,11 +54,62 @@
                 <td>july@example.com</td>
                 <td>john@example.com</td>
                 <td>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-success"data-toggle="modal" data-target="#myModal" onclick="clearTextBox();" ><i class="fas fa-edit"></i></button>
                     <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="myModalLabel">Footers</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="EmployeeId">#</label>
+                        <input type="text" class="form-control" id="ComposeID" placeholder="ID" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Id_Email_Customer</label>
+                        <input type="text" class="form-control" id="IdEmailCustomer" placeholder="Id Email Customer" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Email</label>
+                        <input type="text" class="form-control" id="Email" placeholder="Email" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Name">Date_and_Time</label>
+                        <input type="text" class="form-control" id="DateandTime" placeholder="Date and Time" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Message</label>
+                        <input type="text" class="form-control" id="Message" placeholder="Message" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Chọn menus cha</label>
+                        <select class="form-control">
+                            <option value="0">Chọn danh mục cha</option>
+
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
+                @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 

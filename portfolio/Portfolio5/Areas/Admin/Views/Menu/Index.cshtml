@@ -6,39 +6,134 @@
 
 
 
-
-
+<script src="~/js/jquery-3.6.0.min.js"></script>
+<!--<script>
+    $(function () {
+        var PlaceHolderHere = $('PlaceHolderHere');
+        $('button[data-toggle="ajax-modal"').click(function (event) {
+            var url = $(this).data('url');
+            $.get(url).done(function (data) {
+                PlaceHolderHere.html(data);
+                PlaceHolderHere.find('.modal').modal('show')
+            })
+        });
+    });
+</script>
 
 <h1>Menus</h1>
 
 <br />
 <br />
 <div class="container">
-    <h1>Menus</h1>
-    <a class="btn btn-success float-right m-2" asp-controller="menu" asp-action="menuadd">Add</a>
+    <h1>Menus</h1>-->
+@*<a class="btn btn-success float-right m-2" asp-controller="menu" asp-action="add">Add</a>
 
-    <table class="table table-hover">
+        <div id="PlaceHolderHere"></div>
+
+        <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#addMenu" data-url="@Url.Action("Add")">Add</button>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name munus</th>
+                    <th scope="col">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Mark</td>
+
+                    <td>
+                        <button type="button" class="text-primary ml-2"><i class="fas fa-edit"></i></button>                                                                                                                                       </button>
+                        <button type="button" class="text-danger ml-1"><i class="fa fa-trash-alt fa-lg"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>*@
+
+
+<br />
+<br />
+<br />
+<br />
+
+
+
+<div class="container">
+    <h2>Menus</h2>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">ADD/Edit</button><br /><br />
+    <table class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name munus</th>
                 <th scope="col">Action</th>
-
             </tr>
         </thead>
-        <tbody>
+        <tbody class="tbody">
             <tr>
                 <td>1</td>
                 <td>Mark</td>
 
                 <td>
-                    <button type="button" class="text-primary ml-2"><i class="fas fa-edit"></i></button>                                                                                                                                       </button>
-                    <button type="button" class="text-danger ml-1"><i class="fa fa-trash-alt fa-lg"></i></button>
+                    @*<button type="button" class="text-primary ml-2"><i class="fas fa-edit"></i></button>*@
+
+
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-edit"></i></button>
+
+
+                    <button type="button" class="btn btn-danger"><i class="fa fa-trash-alt fa-lg"></i></button>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="myModalLabel">Menus</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">      
+                        <label for="EmployeeId">#</label>
+                        <input type="text" class="form-control" id="MenusID" placeholder="ID" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Name">Name Menus</label>
+                        <input type="text" class="form-control" id="Name" placeholder="Name" />
+                    </div>
+
+                   
+
+                    <div class="form-group">
+                        <label>Chọn menus cha</label>
+                        <select class="form-control">
+                            <option value="0">Chọn danh mục cha</option>
+
+                        </select>
+                    </div>
+                </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                        <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
+                        @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+            </div>
+            </div>
+        </div>
+
+
+
+
+
 
 
 

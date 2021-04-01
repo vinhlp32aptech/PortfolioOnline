@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,12 @@ namespace Portfolio5.Areas.Admin.Controllers
         {
             return View();
         }
+       [HttpGet]
+       public IActionResult Add()
+        {
+            
+            return PartialView("Add");
+        }
+
     }
 }
