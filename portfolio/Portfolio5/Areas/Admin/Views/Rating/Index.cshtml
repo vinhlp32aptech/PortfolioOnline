@@ -17,13 +17,23 @@
             <tr>
                 <th>Id Rating</th>
                 <th>Id Reviewer</th>
-                <th>Icon Owner</th>
+                <th>Id Account</th>
                 <th>Start Of Raing</th>
                 <th>Num Of Rating</th>
                 <th>Action</th>
             </tr>
         </thead>
-        <tbody>
+        @foreach (var rating in ViewBag.ratings)
+        {
+    <tr>
+        <td>@rating.IdRating</td>
+        <td>@rating.IdAcc</td>
+        <td>@rating.IdReviewer</td>
+        <td>@rating.StarOfRating</td>
+        <td>@rating.NumOfRating</td>
+    </tr>
+        }
+        @*<tbody>
             <tr>
                 <td>John</td>
                 <td>Doe</td>
@@ -57,7 +67,7 @@
                     <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                 </td>
             </tr>
-        </tbody>
+        </tbody>*@
     </table>
 </div>
 
@@ -80,8 +90,8 @@
                         <input type="text" class="form-control" id="IdReviewer" placeholder="Id Reviewer" disabled="disabled" />
                     </div>
                     <div class="form-group">
-                        <label for="IconOwner">Icon Owner</label>
-                        <input type="text" class="form-control" id="IconOwner" placeholder="Icon Owner" />
+                        <label for="Id Account">#</label>
+                        <input type="text" class="form-control" id="IdAccount" placeholder="Id Account" disabled="disabled" />
                     </div>
                     <div class="form-group">
                         <label for="StartOfRaing">Start Of Raing</label>

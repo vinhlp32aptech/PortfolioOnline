@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Portfolio5.Areas.Admin.Services;
 using Portfolio5.Models;
 using Portfolio5.Services;
 using System;
@@ -33,6 +34,8 @@ namespace Portfolio5
             services.AddDbContext<DatabaseContext>(option => option.UseLazyLoadingProxies().UseSqlServer(connectionString));
 
             services.AddScoped<AccountService, AccountServiceImpl>();
+            services.AddScoped<RatingService, RatingServiceImpl>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
