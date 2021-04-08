@@ -11,7 +11,7 @@
 <br />
 <div class="container">
     <h2>HASHTAG</h2>
-    <button type="button" class="btn btn-success"><i class="fas fa-plus">ADD</i></button>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -27,7 +27,7 @@
                 <td>Doe</td>
                 <td>john@example.com</td>
                 <td>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-success"data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-edit"></i></button>
                     <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                 </td>
             </tr>
@@ -36,7 +36,7 @@
                 <td>Moe</td>
                 <td>mary@example.com</td>
                 <td>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-edit"></i></button>
                     <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                 </td>
             </tr>
@@ -45,11 +45,60 @@
                 <td>Dooley</td>
                 <td>july@example.com</td>
                 <td>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-edit"></i></button>
                     <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="myModalLabel">Inbox</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="IdHashtag">#</label>
+                        <input type="text" class="form-control" id="IdHashtag" placeholder="ID" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="NameHashtag">NameHashtag</label>
+                        <input type="text" class="form-control" id="NameHashtag" placeholder="NameHashtag" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="Status">Status</label>
+                        <input type="text" class="form-control" id="Status" placeholder="Status" />
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <label>Chọn menus cha</label>
+                        <select class="form-control">
+                            <option value="0">Chọn danh mục cha</option>
+
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
+                @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
 
