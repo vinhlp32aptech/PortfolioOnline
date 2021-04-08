@@ -90,14 +90,14 @@ create table user_role
 	id_role varchar(20),
 	id_acc varchar(20),
 	
-	primary keyid_role id_acc 
+	primary key (id_role, id_acc) 
 );
 
 create table [role]
 (
 	id_role varchar(20) primary key,
 	name_role nvarchar(100),
-	desc nvarchar(1000),
+	[desc] nvarchar(1000),
 	
 );
 -- manage web

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Portfolio5.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +13,21 @@ namespace Portfolio5.Areas.Admin.Controllers
     [Route("admin/account")]
     public class AccountController : Controller
     {
+
+        private AccountService AccountService;
+        private IWebHostEnvironment webHostEnvironment;
+
+        public AccountController(AccountService _accountService, IWebHostEnvironment _webHostEnvironment)
+        {
+            AccountService = _accountService;
+            this.webHostEnvironment = _webHostEnvironment;
+        }
+
         [Route("index")]
         public IActionResult Index()
         {
-            return View("~/Areas/Admin/Views/Account/Index.cshtml");
+            ViewBag.accounts = AccountService.FindAll();
+            return View("index");
         }
     }
 }
