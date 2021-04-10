@@ -10,5 +10,7 @@ namespace Portfolio5.Models
         public string IdMenu { get; set; }
         public string NameMenu { get; set; }
         public string UrlMenu { get; set; }
+        public DateTime? Datecreated { get; set; }
+        public DateTime? Dateupdated { get; set; }
     }
 }

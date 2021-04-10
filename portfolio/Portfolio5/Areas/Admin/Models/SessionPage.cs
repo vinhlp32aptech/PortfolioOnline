@@ -20,6 +20,8 @@ namespace Portfolio5.Models
         public string NameSess { get; set; }
         public string TitleSess { get; set; }
         public string ContentSess { get; set; }
+        public DateTime? Datecreated { get; set; }
+        public DateTime? Dateupdated { get; set; }
 
         public virtual ContentPage IdContentPageNavigation { get; set; }
         public virtual ICollection<IconSessionPage> IconSessionPages { get; set; }

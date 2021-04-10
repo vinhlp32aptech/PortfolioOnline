@@ -11,7 +11,9 @@ namespace Portfolio5.Models
         public string IdAcc { get; set; }
         public string IdReviewer { get; set; }
         public bool? StarOfRating { get; set; }
-        public bool? NumOfRating { get; set; }
+        public string NumOfRating { get; set; }
+        public DateTime? Datecreated { get; set; }
+        public DateTime? Dateupdated { get; set; }
 
         public virtual Account IdAccNavigation { get; set; }
     }
