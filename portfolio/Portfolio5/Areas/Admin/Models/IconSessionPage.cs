@@ -10,6 +10,8 @@ namespace Portfolio5.Models
         public string IdIconSess { get; set; }
         public string IdSess { get; set; }
         public string IconSess { get; set; }
+        public DateTime? Datecreated { get; set; }
+        public DateTime? Dateupdated { get; set; }
 
         public virtual SessionPage IdSessNavigation { get; set; }
     }

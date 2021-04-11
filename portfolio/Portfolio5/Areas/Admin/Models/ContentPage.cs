@@ -14,6 +14,8 @@ namespace Portfolio5.Models
 
         public string IdContentPage { get; set; }
         public string NamePage { get; set; }
+        public DateTime? Datecreated { get; set; }
+        public DateTime? Dateupdated { get; set; }
 
         public virtual ICollection<SessionPage> SessionPages { get; set; }
     }

@@ -30,8 +30,7 @@ namespace Portfolio5.Models
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<SessionPage> SessionPages { get; set; }
         public virtual DbSet<Slider> Sliders { get; set; }
-        public virtual DbSet<SliderPhoto> SliderPhotos { get; set; }
-        public virtual DbSet<SliderUrl> SliderUrls { get; set; }
+        public virtual DbSet<SliderPart> SliderParts { get; set; }
         public virtual DbSet<SocialUser> SocialUsers { get; set; }
         public virtual DbSet<SocialWeb> SocialWebs { get; set; }
         public virtual DbSet<SubtitleSessionPage> SubtitleSessionPages { get; set; }
@@ -56,7 +55,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<Account>(entity =>
             {
                 entity.HasKey(e => e.IdAcc)
-                    .HasName("PK__account__6BE8F064099544F3");
+                    .HasName("PK__account__6BE8F06416453FEE");
 
                 entity.ToTable("account");
 
@@ -94,7 +93,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<ContentPage>(entity =>
             {
                 entity.HasKey(e => e.IdContentPage)
-                    .HasName("PK__content___249939A64BD9C782");
+                    .HasName("PK__content___249939A67A0A8711");
 
                 entity.ToTable("content_page");
 
@@ -102,6 +101,14 @@ namespace Portfolio5.Models
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("id_content_page");
+
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
+
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.Property(e => e.NamePage)
                     .HasMaxLength(50)
@@ -112,7 +119,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<Follow>(entity =>
             {
                 entity.HasKey(e => e.IdFollow)
-                    .HasName("PK__follow__C9ED4B392B3E3B72");
+                    .HasName("PK__follow__C9ED4B396DC3418C");
 
                 entity.ToTable("follow");
 
@@ -120,6 +127,14 @@ namespace Portfolio5.Models
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("id_follow");
+
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
+
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.Property(e => e.IdAcc)
                     .HasMaxLength(20)
@@ -144,7 +159,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<FooterContact>(entity =>
             {
                 entity.HasKey(e => e.IdWebContact)
-                    .HasName("PK__footer_c__1CC567BACD482E3F");
+                    .HasName("PK__footer_c__1CC567BAD816F86E");
 
                 entity.ToTable("footer_contact");
 
@@ -157,6 +172,14 @@ namespace Portfolio5.Models
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("content_contact");
+
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
+
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.Property(e => e.IconContact)
                     .HasMaxLength(200)
@@ -172,7 +195,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<Hashtag>(entity =>
             {
                 entity.HasKey(e => e.IdHashtag)
-                    .HasName("PK__hashtag__660123E1C48F1E8E");
+                    .HasName("PK__hashtag__660123E11F1DDE1B");
 
                 entity.ToTable("hashtag");
 
@@ -180,6 +203,14 @@ namespace Portfolio5.Models
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("id_hashtag");
+
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
+
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.Property(e => e.NameHashtag)
                     .HasMaxLength(30)
@@ -192,7 +223,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<HashtagUser>(entity =>
             {
                 entity.HasKey(e => new { e.IdHashtag, e.IdAcc })
-                    .HasName("PK__hashtag___30BFACE727EBB8A7");
+                    .HasName("PK__hashtag___30BFACE7661B3F03");
 
                 entity.ToTable("hashtag_user");
 
@@ -205,6 +236,14 @@ namespace Portfolio5.Models
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("id_acc");
+
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
+
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.Property(e => e.NameHashtag)
                     .HasMaxLength(30)
@@ -227,7 +266,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<IconSessionPage>(entity =>
             {
                 entity.HasKey(e => e.IdIconSess)
-                    .HasName("PK__icon_ses__C1A68C0BAC931440");
+                    .HasName("PK__icon_ses__C1A68C0BC86FDAB2");
 
                 entity.ToTable("icon_session_page");
 
@@ -235,6 +274,14 @@ namespace Portfolio5.Models
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("id_icon_sess");
+
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
+
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.Property(e => e.IconSess)
                     .HasMaxLength(500)
@@ -255,7 +302,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<Menu>(entity =>
             {
                 entity.HasKey(e => e.IdMenu)
-                    .HasName("PK__menu__68A1D9DBBBE498E7");
+                    .HasName("PK__menu__68A1D9DB4FDA1058");
 
                 entity.ToTable("menu");
 
@@ -263,6 +310,14 @@ namespace Portfolio5.Models
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("id_menu");
+
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
+
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.Property(e => e.NameMenu)
                     .HasMaxLength(50)
@@ -278,7 +333,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<PhotoSessionPage>(entity =>
             {
                 entity.HasKey(e => e.IdPhotoSess)
-                    .HasName("PK__photo_se__343ED9247A8E5184");
+                    .HasName("PK__photo_se__343ED924C0D5C9EE");
 
                 entity.ToTable("photo_session_page");
 
@@ -286,6 +341,14 @@ namespace Portfolio5.Models
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("id_photo_sess");
+
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
+
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.Property(e => e.IdSess)
                     .HasMaxLength(20)
@@ -306,7 +369,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<Rating>(entity =>
             {
                 entity.HasKey(e => e.IdRating)
-                    .HasName("PK__rating__12074E47A1CFBCFA");
+                    .HasName("PK__rating__12074E476955D9FA");
 
                 entity.ToTable("rating");
 
@@ -314,6 +377,14 @@ namespace Portfolio5.Models
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("id_rating");
+
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
+
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.Property(e => e.IdAcc)
                     .HasMaxLength(20)
@@ -326,8 +397,11 @@ namespace Portfolio5.Models
                     .HasColumnName("id_reviewer");
 
                 entity.Property(e => e.NumOfRating)
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
                     .HasColumnName("num_of_rating")
-                    .HasDefaultValueSql("((1))");
+                    .HasDefaultValueSql("((1))")
+                    .IsFixedLength(true);
 
                 entity.Property(e => e.StarOfRating).HasColumnName("star_of_rating");
 
@@ -340,7 +414,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.HasKey(e => e.IdRole)
-                    .HasName("PK__role__3D48441DD660E1E6");
+                    .HasName("PK__role__3D48441D6950C75F");
 
                 entity.ToTable("role");
 
@@ -348,6 +422,14 @@ namespace Portfolio5.Models
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("id_role");
+
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
+
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.Property(e => e.Desc)
                     .HasMaxLength(1000)
@@ -361,7 +443,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<SessionPage>(entity =>
             {
                 entity.HasKey(e => e.IdSess)
-                    .HasName("PK__session___D692B7821044A5B7");
+                    .HasName("PK__session___D692B782E99CC201");
 
                 entity.ToTable("session_page");
 
@@ -374,6 +456,14 @@ namespace Portfolio5.Models
                     .HasMaxLength(1000)
                     .IsUnicode(false)
                     .HasColumnName("content_sess");
+
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
+
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.Property(e => e.IdContentPage)
                     .HasMaxLength(20)
@@ -399,7 +489,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<Slider>(entity =>
             {
                 entity.HasKey(e => e.IdSlider)
-                    .HasName("PK__slider__CADCE756214C1EC7");
+                    .HasName("PK__slider__CADCE75692E71BD6");
 
                 entity.ToTable("slider");
 
@@ -408,56 +498,39 @@ namespace Portfolio5.Models
                     .IsUnicode(false)
                     .HasColumnName("id_slider");
 
-                entity.Property(e => e.ContentSlider)
-                    .HasMaxLength(500)
-                    .IsUnicode(false)
-                    .HasColumnName("content_slider");
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
 
-                entity.Property(e => e.TitleSlider)
-                    .HasMaxLength(200)
-                    .IsUnicode(false)
-                    .HasColumnName("title_slider");
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
             });
 
-            modelBuilder.Entity<SliderPhoto>(entity =>
+            modelBuilder.Entity<SliderPart>(entity =>
             {
-                entity.HasKey(e => e.IdSliderPhoto)
-                    .HasName("PK__slider_p__5D9D2B1B436240CB");
+                entity.HasKey(e => e.IdSliderPart)
+                    .HasName("PK__slider_p__DA162D1E20D5E76F");
 
-                entity.ToTable("slider_photo");
+                entity.ToTable("slider_part");
 
-                entity.Property(e => e.IdSliderPhoto)
+                entity.Property(e => e.IdSliderPart)
                     .HasMaxLength(20)
                     .IsUnicode(false)
-                    .HasColumnName("id_slider_photo");
+                    .HasColumnName("id_slider_part");
 
-                entity.Property(e => e.IdSlider)
-                    .HasMaxLength(20)
+                entity.Property(e => e.ContentPart)
+                    .HasMaxLength(1000)
                     .IsUnicode(false)
-                    .HasColumnName("id_slider");
+                    .HasColumnName("content_part");
 
-                entity.Property(e => e.Photo)
-                    .HasMaxLength(255)
-                    .IsUnicode(false)
-                    .HasColumnName("photo");
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
 
-                entity.HasOne(d => d.IdSliderNavigation)
-                    .WithMany(p => p.SliderPhotos)
-                    .HasForeignKey(d => d.IdSlider)
-                    .HasConstraintName("FK_slider_photo_slider");
-            });
-
-            modelBuilder.Entity<SliderUrl>(entity =>
-            {
-                entity.HasKey(e => e.IdUrlSlider)
-                    .HasName("PK__slider_u__53162B18B322DEEB");
-
-                entity.ToTable("slider_url");
-
-                entity.Property(e => e.IdUrlSlider)
-                    .HasMaxLength(20)
-                    .IsUnicode(false)
-                    .HasColumnName("id_url_slider");
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.Property(e => e.IdSlider)
                     .HasMaxLength(20)
@@ -466,8 +539,16 @@ namespace Portfolio5.Models
 
                 entity.Property(e => e.NameUrl)
                     .HasMaxLength(100)
-                    .IsUnicode(false)
                     .HasColumnName("name_url");
+
+                entity.Property(e => e.Photo)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("photo");
+
+                entity.Property(e => e.TitlePart)
+                    .HasMaxLength(100)
+                    .HasColumnName("title_part");
 
                 entity.Property(e => e.UrlSlider)
                     .HasMaxLength(1000)
@@ -475,15 +556,15 @@ namespace Portfolio5.Models
                     .HasColumnName("url_slider");
 
                 entity.HasOne(d => d.IdSliderNavigation)
-                    .WithMany(p => p.SliderUrls)
+                    .WithMany(p => p.SliderParts)
                     .HasForeignKey(d => d.IdSlider)
-                    .HasConstraintName("FK_slider_url_slider");
+                    .HasConstraintName("FK_slider_part_slider");
             });
 
             modelBuilder.Entity<SocialUser>(entity =>
             {
                 entity.HasKey(e => e.IdSocialUser)
-                    .HasName("PK__social_u__82A2A774F99AD514");
+                    .HasName("PK__social_u__82A2A7746CE3034A");
 
                 entity.ToTable("social_user");
 
@@ -491,6 +572,14 @@ namespace Portfolio5.Models
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("id_social_user");
+
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
+
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.Property(e => e.IconSoc)
                     .HasMaxLength(100)
@@ -521,7 +610,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<SocialWeb>(entity =>
             {
                 entity.HasKey(e => e.IdSoccialWeb)
-                    .HasName("PK__social_w__68B762A848B8122C");
+                    .HasName("PK__social_w__68B762A8F3510B0F");
 
                 entity.ToTable("social_web");
 
@@ -529,6 +618,14 @@ namespace Portfolio5.Models
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("id_soccial_web");
+
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
+
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.Property(e => e.IconSoc)
                     .HasMaxLength(100)
@@ -549,7 +646,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<SubtitleSessionPage>(entity =>
             {
                 entity.HasKey(e => e.IdSubtitleSess)
-                    .HasName("PK__subtitle__EC9C00C63F157157");
+                    .HasName("PK__subtitle__EC9C00C61DF53F99");
 
                 entity.ToTable("subtitle_session_page");
 
@@ -562,6 +659,14 @@ namespace Portfolio5.Models
                     .HasMaxLength(1000)
                     .IsUnicode(false)
                     .HasColumnName("content_subtitle");
+
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
+
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.Property(e => e.IdSess)
                     .HasMaxLength(20)
@@ -582,7 +687,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<UrlSessionPage>(entity =>
             {
                 entity.HasKey(e => e.IdUrlSess)
-                    .HasName("PK__url_sess__5D2DFA4B5F1605C5");
+                    .HasName("PK__url_sess__5D2DFA4BBB40F38B");
 
                 entity.ToTable("url_session_page");
 
@@ -590,6 +695,14 @@ namespace Portfolio5.Models
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("id_url_sess");
+
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
+
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.Property(e => e.IdSess)
                     .HasMaxLength(20)
@@ -610,7 +723,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasKey(e => e.IdUser)
-                    .HasName("PK__user__D2D14637C79AA5AF");
+                    .HasName("PK__user__D2D146377FA23070");
 
                 entity.ToTable("user");
 
@@ -630,6 +743,14 @@ namespace Portfolio5.Models
                     .HasMaxLength(255)
                     .IsUnicode(false)
                     .HasColumnName("avatar");
+
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
+
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.Property(e => e.Dob)
                     .HasColumnType("datetime")
@@ -668,13 +789,13 @@ namespace Portfolio5.Models
                     .WithOne(p => p.User)
                     .HasForeignKey<User>(d => d.IdAcc)
                     .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("FK__user__id_acc__398D8EEE");
+                    .HasConstraintName("FK__user__id_acc__3B75D760");
             });
 
             modelBuilder.Entity<UserRole>(entity =>
             {
                 entity.HasKey(e => new { e.IdRole, e.IdAcc })
-                    .HasName("PK__user_rol__6BF6CB1B1665B8F8");
+                    .HasName("PK__user_rol__6BF6CB1B4093AFA6");
 
                 entity.ToTable("user_role");
 
@@ -687,6 +808,14 @@ namespace Portfolio5.Models
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("id_acc");
+
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
+
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.HasOne(d => d.IdAccNavigation)
                     .WithMany(p => p.UserRoles)
@@ -704,7 +833,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<View>(entity =>
             {
                 entity.HasKey(e => e.IdView)
-                    .HasName("PK__view__5CB912ADC3FD5A5F");
+                    .HasName("PK__view__5CB912AD00CE838D");
 
                 entity.ToTable("view");
 
@@ -712,6 +841,14 @@ namespace Portfolio5.Models
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("id_view");
+
+                entity.Property(e => e.Datecreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datecreated");
+
+                entity.Property(e => e.Dateupdated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateupdated");
 
                 entity.Property(e => e.IdAcc)
                     .HasMaxLength(20)

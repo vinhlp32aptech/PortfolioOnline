@@ -11,5 +11,7 @@ namespace Portfolio5.Models
         public string NameSoc { get; set; }
         public string IconSoc { get; set; }
         public string UrlSoc { get; set; }
+        public DateTime? Datecreated { get; set; }
+        public DateTime? Dateupdated { get; set; }
     }
 }

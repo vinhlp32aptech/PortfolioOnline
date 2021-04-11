@@ -17,6 +17,8 @@ namespace Portfolio5.Models
         public string Website { get; set; }
         public string Job { get; set; }
         public short? Project { get; set; }
+        public DateTime? Datecreated { get; set; }
+        public DateTime? Dateupdated { get; set; }
         public string IdAcc { get; set; }
 
         public virtual Account IdAccNavigation { get; set; }

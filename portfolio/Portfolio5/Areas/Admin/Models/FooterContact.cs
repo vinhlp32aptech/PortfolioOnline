@@ -11,5 +11,7 @@ namespace Portfolio5.Models
         public string NameContact { get; set; }
         public string IconContact { get; set; }
         public string ContentContact { get; set; }
+        public DateTime? Datecreated { get; set; }
+        public DateTime? Dateupdated { get; set; }
     }
 }

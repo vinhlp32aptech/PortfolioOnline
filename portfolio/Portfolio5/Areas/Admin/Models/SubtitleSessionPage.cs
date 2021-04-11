@@ -11,6 +11,8 @@ namespace Portfolio5.Models
         public string IdSess { get; set; }
         public string SubtitleSess { get; set; }
         public string ContentSubtitle { get; set; }
+        public DateTime? Datecreated { get; set; }
+        public DateTime? Dateupdated { get; set; }
 
         public virtual SessionPage IdSessNavigation { get; set; }
     }

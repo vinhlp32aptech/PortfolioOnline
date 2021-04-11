@@ -24,6 +24,8 @@ create table [user](
 	website varchar(200),
 	job nvarchar(50)  ,
 	project smallint,
+	datecreated datetime,
+	dateupdated datetime,
 	id_acc varchar(20) references account(id_acc) on delete cascade on update cascade,
 	constraint account_user unique(id_acc)
 
@@ -35,7 +37,9 @@ create table social_user
 	name_soc varchar(30) ,
 	icon_soc varchar(100),
 	url_soc varchar(255),
-	id_acc varchar(20)
+	id_acc varchar(20),
+	datecreated datetime,
+	dateupdated datetime
 
 );
 
@@ -48,7 +52,9 @@ create table rating
 	id_acc varchar(20),
 	id_reviewer  varchar(20),
 	star_of_rating bit,
-	num_of_rating bit default(1)
+	num_of_rating char default(1),
+	datecreated datetime,
+	dateupdated datetime
 	
 );
 
@@ -57,7 +63,9 @@ create table [view]
 	id_view varchar(20) primary key ,
 	id_acc varchar(20),
 	id_viewer varchar(20),
-	num_of_view bit default(1)
+	num_of_view bit default(1),
+	datecreated datetime,
+	dateupdated datetime
 
 );
 
@@ -66,7 +74,9 @@ create table follow
 	id_follow  varchar(20) primary key,
 	id_acc varchar(20),
 	id_follower varchar(20),
-	num_of_follow bit default(1)
+	num_of_follow bit default(1),
+	datecreated datetime,
+	dateupdated datetime
 
 );
 
@@ -74,7 +84,9 @@ create table hashtag
 (
 	id_hashtag varchar(20) primary key ,
 	name_hashtag varchar(30),
-	stat bit
+	stat bit,
+	datecreated datetime,
+	dateupdated datetime
 );
 
 create table hashtag_user
@@ -82,6 +94,8 @@ create table hashtag_user
 	id_hashtag varchar(20),
 	id_acc varchar(20),
 	name_hashtag varchar(30),
+	datecreated datetime,
+	dateupdated datetime,
 	primary key(id_hashtag, id_acc)
 );
 
@@ -89,7 +103,8 @@ create table user_role
 (
 	id_role varchar(20),
 	id_acc varchar(20),
-	
+	datecreated datetime,
+	dateupdated datetime,
 	primary key (id_role, id_acc) 
 );
 
@@ -98,6 +113,8 @@ create table [role]
 	id_role varchar(20) primary key,
 	name_role nvarchar(100),
 	[desc] nvarchar(1000),
+	datecreated datetime,
+	dateupdated datetime
 	
 );
 -- manage web
@@ -107,14 +124,18 @@ create table footer_contact
 	id_web_contact varchar(20) primary key,
 	name_contact varchar(50) ,
 	icon_contact varchar(200),
-	content_contact varchar(100) 
+	content_contact varchar(100) ,
+	datecreated datetime,
+	dateupdated datetime
 );
 
 create table menu
 (
 	id_menu varchar(20) primary key,
 	name_menu varchar(50) ,
-	url_menu varchar(200)
+	url_menu varchar(200),
+	datecreated datetime,
+	dateupdated datetime
 );
 
 create table social_web
@@ -122,41 +143,40 @@ create table social_web
 	id_soccial_web varchar(20) primary key,
 	name_soc varchar(30) ,
 	icon_soc varchar(100),
-	url_soc varchar(255)
+	url_soc varchar(255),
+	datecreated datetime,
+	dateupdated datetime
 	
 );
 
 create table slider 
 (
-	id_slider varchar(20) primary key,
-	title_slider varchar(200) , 
-	content_slider varchar(500) 
-	
-);
+	id_slider  varchar(20) primary key,
+	datecreated datetime,
+	dateupdated datetime
 
-create table slider_url
+)
+
+create table slider_part
 (
-	id_url_slider  varchar(20) primary key,
-	name_url varchar(100) ,
+	id_slider_part varchar(20) primary key,
+	title_part nvarchar(100),
+	content_part varchar(1000),
+	name_url nvarchar(100),
 	url_slider varchar(1000),
-	id_slider varchar(20)
-	
-);
-
-
-
-create table slider_photo
-(
-	id_slider_photo  varchar(20) primary key,
 	photo varchar(255),
-	id_slider varchar(20)
-
-);
+	id_slider varchar(20),
+	datecreated datetime,
+	dateupdated datetime
+	
+)
 
 create table content_page
 (
 	id_content_page  varchar(20) primary key,
-	name_page varchar(50) 
+	name_page varchar(50) ,
+	datecreated datetime,
+	dateupdated datetime
 );
 
 create table session_page
@@ -166,7 +186,8 @@ create table session_page
 	name_sess varchar(100) ,
 	title_sess varchar(500) ,	
 	content_sess varchar(1000) ,	
-	
+	datecreated datetime,
+	dateupdated datetime
 );
 
 
@@ -176,7 +197,8 @@ create table subtitle_session_page
 	id_sess varchar(20),
 	subtitle_sess varchar(500),
 	content_subtitle varchar(1000) ,
-   	
+   	datecreated datetime,
+	dateupdated datetime
 );
 
 create table photo_session_page
@@ -184,7 +206,8 @@ create table photo_session_page
 	id_photo_sess varchar(20) PRIMARY KEY,
 	id_sess varchar(20),
 	photo_sess varchar(500),
-		
+	datecreated datetime,
+	dateupdated datetime
 );
 
 create table icon_session_page
@@ -192,7 +215,8 @@ create table icon_session_page
 	id_icon_sess  varchar(20) PRIMARY KEY,
 	id_sess  varchar(20),
 	icon_sess varchar(500),
-		
+	datecreated datetime,
+	dateupdated datetime
 );
 
 create table url_session_page
@@ -200,7 +224,8 @@ create table url_session_page
 	id_url_sess varchar(20) PRIMARY KEY,
 	id_sess varchar(20),
 	url_sess varchar(500),
-			
+	datecreated datetime,
+	dateupdated datetime
 );
 
 -- manage user
@@ -234,13 +259,10 @@ FOREIGN KEY (id_hashtag) REFERENCES hashtag(id_hashtag);
 
 -- manage web
 
-ALTER TABLE slider_url
-ADD CONSTRAINT FK_slider_url_slider
+ALTER TABLE slider_part
+ADD CONSTRAINT FK_slider_part_slider
 FOREIGN KEY (id_slider) REFERENCES slider(id_slider);
 
-ALTER TABLE slider_photo
-ADD CONSTRAINT FK_slider_photo_slider
-FOREIGN KEY (id_slider) REFERENCES slider(id_slider);
 
 ALTER TABLE session_page
 ADD CONSTRAINT FK_session_page_content_page

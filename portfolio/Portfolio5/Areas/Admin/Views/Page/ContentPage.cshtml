@@ -52,7 +52,8 @@
                                 name_page
                             </th>
 
-                            <th style="width: 20%">
+                            <th style="width: 10%">
+                                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#content_page" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
                             </th>
                         </tr>
                     </thead>
@@ -94,4 +95,34 @@
 
     </section>
     <!-- /.content -->
+</div>
+<div class="modal fade" id="content_page" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+             
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="IdView">id_content_page </label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">name_page </label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                   
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
+                @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
