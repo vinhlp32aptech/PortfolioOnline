@@ -16,11 +16,22 @@
             <tr>
                 <th>Id View</th>
                 <th>Id Account</th>
+                <th>Id Viewer</th>
                 <th>Num Of View</th>
                 <th>Action</th>
             </tr>
         </thead>
-        <tbody>
+        @foreach (var view in ViewBag.views)
+        {
+            <tr>
+                <td>@view.IdView</td>
+                <td>@view.IdAcc</td>
+                <td>@view.IdViewer</td>
+                <td>@view.NumOfView</td>
+                <td> <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+            </tr>
+        }
+        @*<tbody>
             <tr>
                 <td>John</td>
                 <td>Doe</td>
@@ -48,7 +59,7 @@
                     <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                 </td>
             </tr>
-        </tbody>
+        </tbody>*@
     </table>
 </div>
 
