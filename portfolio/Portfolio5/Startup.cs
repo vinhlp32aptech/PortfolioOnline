@@ -36,6 +36,7 @@ namespace Portfolio5
             services.AddScoped<AccountService, AccountServiceImpl>();
             services.AddScoped<RatingService, RatingServiceImpl>();
             services.AddScoped<HashtagService, HashtagServiceImpl>();
+            services.AddScoped<RoleService, RoleServiceImpl>();
 
         }
 
