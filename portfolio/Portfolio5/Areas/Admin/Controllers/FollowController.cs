@@ -28,14 +28,18 @@ namespace Portfolio5.Areas.Admin.Controllers
         public IActionResult Index()
         {
             ViewBag.follows = followService.FindAll();
-            return View("~/Areas/Admin/Views/Follow/Index.cshtml", new Follow());
+            return View("index", new Follow());
+           
         }
-        [Route("index")]
+        [Route("add")]
         [HttpPost]
-        public IActionResult Index(Follow follow)
+        public IActionResult Add(Follow follow)
         {
+
+            follow.Datecreated = DateTime.Now;
+            follow.Dateupdated = DateTime.Now;
             followService.Create(follow);
-            return View("~/Areas/Admin/Views/Follow/Index.cshtml");
+            return RedirectToAction("index");
         }
 
        

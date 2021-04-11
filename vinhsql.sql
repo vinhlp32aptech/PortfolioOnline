@@ -1,4 +1,4 @@
-create DATABASE portfolio
+drop DATABASE portfolio
 
 use portfolio
 
