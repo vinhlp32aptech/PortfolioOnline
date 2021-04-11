@@ -36,6 +36,9 @@ namespace Portfolio5
             services.AddScoped<AccountService, AccountServiceImpl>();
             services.AddScoped<RatingService, RatingServiceImpl>();
             services.AddScoped<HashtagService, HashtagServiceImpl>();
+            services.AddScoped<ViewService, ViewServiceImpl>();
+            services.AddScoped<FollowService, FollowServiceImpl>();
+
 
         }
 
@@ -56,7 +59,7 @@ namespace Portfolio5
             app.UseStaticFiles();
 
             app.UseRouting();
-
+           
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
