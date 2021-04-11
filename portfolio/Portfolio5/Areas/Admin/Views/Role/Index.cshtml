@@ -3,7 +3,6 @@
     ViewData["Title"] = "Role";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
 <br />
 <br />
 <br />
@@ -11,7 +10,7 @@
 <div class="container">
     <h2>Role</h2>
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
-   
+    <form action="/" method="post">
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -34,19 +33,19 @@
                         <td>@role.Datecreated</td>
                         <td>@role.Dateupdated</td>
                         <td>
-
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-edit"></i></button>
+                            
+                            <a type="button" class="btn btn-success" asp-controller="role" asp-action="update" asp-route-id="@role.IdRole"><i class="fas fa-edit"></i></a>
                             <a type="button" class="btn btn-danger" asp-controller="role" asp-action="delete" asp-route-id="@role.IdRole" onclick="return confirm('Are you sure?')"><i class="far fa-trash-alt"></i></a>
-                            @*<a asp-controller="account" asp-action="delete" asp-route-id="@list.Id" onclick="return confirm('Are you sure?')">Delete</a>*@
+
                         </td>
                     </tr>
-                    
+
                 }
 
 
             </tbody>
         </table>
-        
+    </form>
 
 </div>
 
@@ -62,8 +61,8 @@
                 <form asp-controller="role" asp-action="add" method="post">
 
                     <div class="form-group">
-                        <label>Chọn account cha</label>
-                        <select class="form-control" asp-for="NameRole">
+                        <label>Select Role</label>
+                        <select class="form-control" asp-for="NameRole" id="selectRole">
                             <option value="Admin">Admin</option>
                             <option value="Manager">Manager</option>
                             <option value="User">User</option>
@@ -77,8 +76,8 @@
                         <label for="descRole">Description</label>
                         <input type="text" class="form-control" id="descRole" placeholder="Description" asp-for="Desc" />
                     </div>
-                    
-                    <input type="submit"  value="ADD" />
+
+                    <input type="submit" value="ADD" class="btn btn-primary"/>
                 </form>
             </div>
             <div class="modal-footer">
@@ -90,5 +89,4 @@
         </div>
     </div>
 </div>
-
 
