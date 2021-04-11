@@ -11,7 +11,7 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Session page Manager</h1>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
+                    
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -62,7 +62,9 @@
                                 content_sess
                             </th>
 
-                            <th style="width: 20%">
+                            <
+                            <th style="width: 10%">
+                                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#session_page" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
                             </th>
                         </tr>
                     </thead>
@@ -141,8 +143,8 @@
                             <th style="width: 30%">
                                 content_subtitle
                             </th>
-                            <th style="width: 20%">
-
+                            <th style="width: 10%">
+                                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#subtitle_session_page" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
                             </th>
 
                         </tr>
@@ -220,7 +222,8 @@
                                 photo_sess
                             </th>
 
-                            <th style="width: 20%">
+                            <th style="width: 10%">
+                                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#photo_session_page" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
                             </th>
                         </tr>
                     </thead>
@@ -292,7 +295,8 @@
                             </th>
 
 
-                            <th style="width: 20%">
+                            <th style="width: 10%">
+                                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#url_session_page" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
                             </th>
                         </tr>
                     </thead>
@@ -342,6 +346,119 @@
     </section>
     <!-- /.content -->
 </div>
+<div class="modal fade" id="session_page" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+               
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="IdView">id_content_page </label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">name_sess </label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">title_sess </label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">content_sess</label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                   
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
+                @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="slider_part" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="IdView">id_subtitle_sess </label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">id_sess </label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">subtitle_sess </label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">content_subtitle </label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
+                @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="photo_session_page" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+               
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="IdView">id_photo_sess </label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">id_sess </label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">photo_sess </label>
+                        <input type="file" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
+                @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -349,31 +466,24 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">×</button>
-                <h4 class="modal-title" id="myModalLabel">Views Network</h4>
+                
             </div>
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="IdView">Id View</label>
+                        <label for="IdView">id_url_sess </label>
                         <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
                     </div>
                     <div class="form-group">
-                        <label for="IdAccount">Id Account</label>
+                        <label for="IdAccount">id_sess </label>
                         <input type="text" class="form-control" id="IdAccount" placeholder="Id Account" disabled="disabled" />
                     </div>
 
                     <div class="form-group">
-                        <label for="NumOfView">Num Of View</label>
+                        <label for="NumOfView">url_sess </label>
                         <input type="text" class="form-control" id="NumOfView" placeholder="Num Of View" />
                     </div>
 
-                    <div class="form-group">
-                        <label>Chọn Views cha</label>
-                        <select class="form-control">
-                            <option value="0">Chọn danh mục cha</option>
-
-                        </select>
-                    </div>
                 </form>
             </div>
             <div class="modal-footer">

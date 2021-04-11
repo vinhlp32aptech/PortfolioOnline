@@ -95,10 +95,12 @@
                             <th style="width: 1%">
                                 #
                             </th>
-                            <th style="width: 20%">
+                            <th style="width: 80%">
                                 id_slider
                             </th>
-                         
+                            <th style="width: 10%">
+                                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#slider " onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -114,7 +116,6 @@
                             </td>
                           
                             <td class="project-actions text-right">
-
                                 <a class="btn btn-info btn-sm" href="#">
                                     <i class="fas fa-pencil-alt">
                                     </i>
@@ -164,8 +165,8 @@
                             <th style="width: 20%">
                                 photo
                             </th>
-                            <th style="width: 20%">
-                                
+                            <th style="width: 10%">
+                                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#slider_url" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
                             </th>
 
                         </tr>
@@ -231,26 +232,26 @@
                             <th style="width: 1%">
                                 #
                             </th>
-                            <th style="width: 20%">
+                            <th style="width: 5%">
                                 id_slider_part
                             </th>
-                            <th style="width: 20%">
+                            <th style="width: 10%">
                                 title_part
                             </th>
-                            <th style="width: 20%">
+                            <th style="width: 10%">
                                 content_part
                             </th>
-                            <th style="width: 20%">
+                            <th style="width: 10%">
                                 name_url
                             </th>
                             <th style="width: 20%">
                                 url_slider
                             </th>
-                            <th style="width: 20%">
+                            <th style="width: 24%">
                                 photo
                             </th>
-                            <th style="width: 20%">
-                              
+                            <th style="width: 10%">
+                                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#slider_part" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
                             </th>
                         </tr>
                     </thead>
@@ -304,4 +305,118 @@
 
     </section>
     <!-- /.content -->
+</div>
+<div class="modal fade" id="slider" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+               
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="IdView">Id Slider</label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    
+
+                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
+                @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="slider_part" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>              
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="IdView">id_slider_part</label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">id_slider</label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">title_part</label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">content_part</label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">name_url</label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">url_slider</label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">photo</label>
+                        <input type="file" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
+                @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="slider_url" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+               
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="IdView">id_url_slider </label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">photo </label>
+                        <input type="file" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">url_slider </label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">name_url </label>
+                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
+                @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
