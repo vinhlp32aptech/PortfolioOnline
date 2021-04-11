@@ -39,9 +39,16 @@ namespace Portfolio5.Areas.Admin.Controllers
             follow.Datecreated = DateTime.Now;
             follow.Dateupdated = DateTime.Now;
             followService.Create(follow);
+            
             return RedirectToAction("index");
         }
 
-       
+        [Route("delete/{id}")]
+
+        public IActionResult Delete(string id)
+        {
+            followService.Delete(id);
+            return RedirectToAction("index");
+        }
     }
 }

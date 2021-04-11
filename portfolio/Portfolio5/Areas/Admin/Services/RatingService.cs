@@ -9,5 +9,7 @@ namespace Portfolio5.Areas.Admin.Services
     public interface RatingService
     {
         public List<Rating> FindAll();
+        Rating Create(Rating rating);
+        void Delete(string id);
     }
 }

@@ -25,5 +25,11 @@ namespace Portfolio5.Areas.Admin.Services
             db.SaveChanges();
             return follow;
         }
+
+        public void Delete(string id)
+        {
+            db.Follows.Remove(db.Follows.Find(id));
+            db.SaveChanges();
+        }
     }
 }

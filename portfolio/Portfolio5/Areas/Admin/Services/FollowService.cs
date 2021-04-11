@@ -10,6 +10,6 @@ namespace Portfolio5.Areas.Admin.Services
     {
         public List<Follow> FindAll();
         Follow Create(Follow follow);
-
+        void Delete(string id);
     }
 }

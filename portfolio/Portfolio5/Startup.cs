@@ -39,6 +39,7 @@ namespace Portfolio5
             services.AddScoped<ViewService, ViewServiceImpl>();
             services.AddScoped<FollowService, FollowServiceImpl>();
             services.AddScoped<RoleService, RoleServiceImpl>();
+            services.AddScoped<SocialUserService, SocialUserServiceImpl>();
 
         }
 

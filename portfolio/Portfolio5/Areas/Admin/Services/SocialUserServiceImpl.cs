@@ -6,29 +6,29 @@ using System.Threading.Tasks;
 
 namespace Portfolio5.Areas.Admin.Services
 {
-    public class RatingServiceImpl : RatingService
+    public class SocialUserServiceImpl : SocialUserService
     {
         private DatabaseContext db;
 
-        public RatingServiceImpl(DatabaseContext _db)
+        public SocialUserServiceImpl(DatabaseContext _db)
         {
             db = _db;
         }
 
-        public List<Rating> FindAll()
+        public List<SocialUser> FindAll()
         {
-            return db.Ratings.ToList();
+            return db.SocialUsers.ToList();
         }
-        public Rating Create(Rating rating)
+        public SocialUser Create(SocialUser socialUser)
         {
-            db.Ratings.Add(rating);
+            db.SocialUsers.Add(socialUser);
             db.SaveChanges();
-            return rating;
+            return socialUser;
         }
 
         public void Delete(string id)
         {
-            db.Ratings.Remove(db.Ratings.Find(id));
+            db.SocialUsers.Remove(db.SocialUsers.Find(id));
             db.SaveChanges();
         }
     }

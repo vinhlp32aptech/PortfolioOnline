@@ -20,20 +20,30 @@
             <tr>
                 <th>Id Follow</th>
                 <th>Id Account</th>
+                <td>Id Follower</td>
                 <th>Num Of Follow</th>
+                <th>Date Create</th>
+                <th>Date update</th>
                 <th>Action</th>
             </tr>
         </thead>
         @foreach (var follow in ViewBag.follows)
         {
-            <tr>
-                <td>@follow.IdFollow</td>
-                <td>@follow.IdAcc</td>
-                <td>@follow.IdFollower</td>
-                <td>@follow.NumOfFollow</td>
+    <tr>
+        <td>@follow.IdFollow</td>
+        <td>@follow.IdAcc</td>
+        <td>@follow.IdFollower</td>
+        <td>@follow.NumOfFollow</td>
+        <td>@follow.Datecreated</td>
+        <td>@follow.Dateupdated</td>
+        <td>     
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-edit"></i></button>         
+                    <a asp-action="delete" asp-controller="follow" asp-route-id="@follow.IdFollow" onclick="return confirm('Are u sure ?')" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                    @*<button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>*@
+               
+        </td>
 
-                <td> <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
-            </tr>
+    </tr>
         }
 
     </table>
@@ -50,6 +60,7 @@
                 </div>
                 <div class="modal-body">
                     <form method="post" asp-action="add" asp-controller="follow" >
+
                         <div class="form-group">
                             <label for="Id Follow">#</label>
                             <input type="text" asp-for="IdFollow" class="form-control" id="IdFollow" placeholder="Id Follow" />
@@ -68,8 +79,9 @@
                         </div>
                         <div class="modal-footer">
                             <input type="submit" value="Add" class="btn btn-primary" id="btnAdd" />
-                        </div>
-                    </form>
+                           
+                            </div>
+</form>
                 </div>
                 <!--<div class="modal-footer">
                     <input type="submit" class="btn btn-primary" id="btnAdd" value="Add" />

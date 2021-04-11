@@ -19,5 +19,17 @@ namespace Portfolio5.Areas.Admin.Services
         {
             return db.Views.ToList();
         }
+
+        public View Create(View view)
+        {
+            db.Views.Add(view);
+            db.SaveChanges();
+            return view;
+        }
+        public void Delete(string id)
+        {
+            db.Views.Remove(db.Views.Find(id));
+            db.SaveChanges();
+        }
     }
 }
