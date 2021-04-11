@@ -48,7 +48,6 @@ namespace Portfolio5.Areas.Admin.Controllers
 
             role.Datecreated = DateTime.Now;
             role.Dateupdated = DateTime.Now;
-           
             if(role.NameRole == "Admin")
             {
                 if (Roleservice.CountIdById("Admin") != 0)
