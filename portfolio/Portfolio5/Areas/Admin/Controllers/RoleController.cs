@@ -39,12 +39,16 @@ namespace Portfolio5.Areas.Admin.Controllers
         [Route("add")]
         public IActionResult Add(Role role)
         {
-           
             var numAlpha = new Regex("(?<Alpha>[a-zA-Z]*)(?<Numeric>[0-9]*)");
-            var match = numAlpha.Match(Roleservice.GetNewestId(role.NameRole));
+            int num = 0;
+            if (Roleservice.GetNewestId(role.NameRole) != null)
+            {
+                var match = numAlpha.Match(Roleservice.GetNewestId(role.NameRole));
+                //var alpha = match.Groups["Alpha"].Value;
+                 num = Int32.Parse(match.Groups["Numeric"].Value);
 
-            //var alpha = match.Groups["Alpha"].Value;
-            int num = Int32.Parse( match.Groups["Numeric"].Value);
+            }
+
 
             role.Datecreated = DateTime.Now;
             role.Dateupdated = DateTime.Now;

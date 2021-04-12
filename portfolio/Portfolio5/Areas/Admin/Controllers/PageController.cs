@@ -13,36 +13,25 @@ namespace Portfolio5.Areas.Admin.Controllers
     [Route("admin/page")]
     public class PageController : Controller
     {
-        private SliderService accountService;
+        private SliderService sliderService;
         private IWebHostEnvironment webHostEnvironment;
-        public PageController(SliderService _sliderService, IWebHostEnvironment _webHostEnvironment)
+
+        public PageController(SliderService sliderService, IWebHostEnvironment webHostEnvironment)
         {
-            accountService = _sliderService;
-            webHostEnvironment = _webHostEnvironment;
+            this.sliderService = sliderService;
+            this.webHostEnvironment = webHostEnvironment;
         }
+
         [Route("slider")]
         public IActionResult Index()
         {
-            ViewBag.slider = accountService.FindAllSlider();       
+            ViewBag.slider = sliderService.FindAllSlider();       
             return View("slider");
         }
 
-        [Route("content_page")]
-        public IActionResult content_page()
-        {
-            return View("ContentPage");
-        }
-        [Route("session_page")]
-        public IActionResult session_page()
-        {
-            return View("SessionPage");
-        }
+    
    
       
-        [Route("index")]
-        
-
-       
         
     }
 }

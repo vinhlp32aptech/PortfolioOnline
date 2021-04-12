@@ -75,6 +75,8 @@
                     <div class="form-group">
                         <label for="descRole">Description</label>
                         <input type="text" class="form-control" id="descRole" placeholder="Description" asp-for="Desc" />
+                        <td><span asp-validation-for="Desc"></span></td>
+
                     </div>
 
                     <input type="submit" value="ADD" class="btn btn-primary"/>
