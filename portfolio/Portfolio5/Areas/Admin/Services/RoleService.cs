@@ -14,6 +14,7 @@ namespace Portfolio5.Areas.Admin.Services
         int CountIdById(string id);
         Role Create(Role role);
         void Delete(string idRole);
-
+        string GetNewestId(string keyword);
+        Role Update(Role role);
     }
 }

@@ -21,11 +21,11 @@ namespace Portfolio5.Models
 
         [Required]
         public string Dateupdated { get; set; }
-
+        
     }
 
     [ModelMetadataType(typeof(RoleMetaData))]
-    public partial class Account
+    public partial class Role
     {
 
     }
