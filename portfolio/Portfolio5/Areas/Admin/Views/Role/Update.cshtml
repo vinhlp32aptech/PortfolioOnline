@@ -12,14 +12,8 @@
 <form asp-controller="role" asp-action="update" method="post">
 
     <div class="form-group">
-        <label>Select Role</label>
-        <select class="form-control" asp-for="NameRole" id="selectRole">
-            <option value="Admin">Admin</option>
-            <option value="Manager">Manager</option>
-            <option value="User">User</option>
-            <option value="Enterprise">Enterprise</option>
-
-        </select>
+        <label >NameRole</label>
+        <input type="text" class="form-control" asp-for="NameRole" disabled="disabled"/>
     </div>
 
 

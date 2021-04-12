@@ -1,4 +1,5 @@
-﻿
+﻿@model Portfolio5.Models.Account
+
 @{
     ViewData["Title"] = "Account";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -16,11 +17,10 @@
             <tr>
                 <th>Id Account</th>
                 <th>Username</th>
-                <th>Password</th>
                 <th>Email</th>
-                <th>Status</th>
+                <th>DateCreated</th>
+                <th>DateUpdated</th>
                 <th>Action</th>
-
             </tr>
         </thead>
         <tbody>
@@ -29,16 +29,14 @@
                 <tr>
                     <td>@account.IdAcc</td>
                     <td>@account.Username</td>
-                    <td>@account.Pass</td>
                     <td>@account.Email</td>
-                    <td>@account.Stat</td>
+                    <td>@account.Datecreated</td>
+                    <td>@account.Dateupdated</td>
                     <td>
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-edit"></i></button>
-                        <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                        <a type="button" class="btn btn-danger" asp-controller="account" asp-action="delete" asp-route-id="@account.IdAcc" onclick="return confirm('Are you sure?')"><i class="far fa-trash-alt"></i></a>
                     </td>
                 </tr>
             }
-
 
         </tbody>
     </table>
@@ -53,37 +51,32 @@
                 <h4 class="modal-title" id="myModalLabel">Inbox</h4>
             </div>
             <div class="modal-body">
-                <form asp-controller="account" asp-action="">
-                    <div class="form-group">
-                        <label for="IdAccount">#</label>
-                        <input type="text" class="form-control" id="IdAccount" placeholder="ID" disabled="disabled" />
-                    </div>
+                <form asp-controller="account" asp-action="add" method="post">
+
                     <div class="form-group">
                         <label for="Name">Username</label>
-                        <input type="text" class="form-control" id="Username" placeholder="Username" />
+                        <input type="text" class="form-control" asp-for="Username" id="Username" placeholder="Username" />
                     </div>
-
-
                     <div class="form-group">
                         <label for="Name">Password</label>
-                        <input type="text" class="form-control" id="Password" placeholder="Password" />
+                        <input type="password" class="form-control" asp-for="Pass" id="Password" placeholder="Password" />
                     </div>
                     <div class="form-group">
                         <label for="Name">Email</label>
-                        <input type="text" class="form-control" id="Email" placeholder="Email" />
-                    </div>
-                    <div class="form-group">
-                        <label for="Name">Status</label>
-                        <input type="text" class="form-control" id="Status" placeholder="Status" />
+                        <input type="text" class="form-control" asp-for="Email" id="Email" placeholder="Email" />
                     </div>
 
                     <div class="form-group">
-                        <label>Chọn account cha</label>
-                        <select class="form-control">
-                            <option value="0">Chọn danh mục cha</option>
+                        <label>Choose Role</label>
+                        <select class="form-control" id="selectRole" name="selectRole">
+                            @foreach (var role in ViewBag.listRoles)
+                            {
+                            <option value="@role.NameRole">@role.NameRole</option>
+                            }
 
                         </select>
                     </div>
+                    <input type="submit" class="btn btn-primary"  value="ADD" />
                 </form>
             </div>
             <div class="modal-footer">
@@ -91,8 +84,8 @@
                 <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>-->
                 <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>
+    </div>
+</div>
 

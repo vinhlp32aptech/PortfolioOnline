@@ -29,7 +29,7 @@ namespace Portfolio5.Areas.Admin.Controllers
         [Route("")]
         public IActionResult Index()
         {
-       
+
             List<Role> role = Roleservice.FindAll();
             ViewBag.roles = role;
             return View();
@@ -45,69 +45,31 @@ namespace Portfolio5.Areas.Admin.Controllers
             {
                 var match = numAlpha.Match(Roleservice.GetNewestId(role.NameRole));
                 //var alpha = match.Groups["Alpha"].Value;
-                 num = Int32.Parse(match.Groups["Numeric"].Value);
+                num = Int32.Parse(match.Groups["Numeric"].Value);
 
             }
 
 
             role.Datecreated = DateTime.Now;
             role.Dateupdated = DateTime.Now;
-            if(role.NameRole == "Admin")
+
+            if (Roleservice.CountIdById(role.NameRole) != 0)
             {
-                if (Roleservice.CountIdById("Admin") != 0)
-                {
-                    role.IdRole = role.NameRole + (num + 1);
-                    Roleservice.Create(role);
-                }
-                else
-                {
-                    role.IdRole = role.NameRole + 1;
-                    Roleservice.Create(role);
-                }
+                role.IdRole = role.NameRole + (num + 1);
+                Roleservice.Create(role);
             }
-            else if(role.NameRole == "Manager"){
-                if (Roleservice.CountIdById("Manager") != 0)
-                {
-                    role.IdRole = role.NameRole + (num + 1);
-                    Roleservice.Create(role);
-                }
-                else
-                {
-                    role.IdRole = role.NameRole + 1;
-                    Roleservice.Create(role);
-                }
-            }
-            else if (role.NameRole == "User")
+            else
             {
-                if (Roleservice.CountIdById("User") != 0)
-                {
-                    role.IdRole = role.NameRole + (num + 1);
-                    Roleservice.Create(role);
-                }
-                else
-                {
-                    role.IdRole = role.NameRole + 1;
-                    Roleservice.Create(role);
-                }
+                role.IdRole = role.NameRole + 1;
+                Roleservice.Create(role);
             }
-            else if (role.NameRole == "Enterprise")
-            {
-                if (Roleservice.CountIdById("Enterprise") != 0)
-                {
-                    role.IdRole = role.NameRole + (num + 1);
-                    Roleservice.Create(role);
-                }
-                else
-                {
-                    role.IdRole = role.NameRole + 1;
-                    Roleservice.Create(role);
-                }
-            }
-                    return RedirectToAction("index");
+
+
+            return RedirectToAction("index");
 
         }
 
-        
+
         [Route("delete/{idRole}")]
         public IActionResult Delete(string idRole)
         {
@@ -119,7 +81,7 @@ namespace Portfolio5.Areas.Admin.Controllers
         [Route("update/{id}")]
         public IActionResult Update(string id)
         {
-           
+
             return View("update", Roleservice.FindById(id));
         }
 
@@ -129,11 +91,8 @@ namespace Portfolio5.Areas.Admin.Controllers
         {
             var currentRole = Roleservice.FindById(role.IdRole);
             currentRole.Dateupdated = DateTime.Now;
-            currentRole.NameRole = role.NameRole;
             currentRole.Desc = role.Desc;
             Roleservice.Update(currentRole);
-
-
             return RedirectToAction("index");
         }
     }
