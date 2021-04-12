@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Portfolio5.Areas.Admin.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +13,17 @@ namespace Portfolio5.Areas.Admin.Controllers
     [Route("admin/page")]
     public class PageController : Controller
     {
-
+        private SliderService accountService;
+        private IWebHostEnvironment webHostEnvironment;
+        public PageController(SliderService _sliderService, IWebHostEnvironment _webHostEnvironment)
+        {
+            accountService = _sliderService;
+            webHostEnvironment = _webHostEnvironment;
+        }
         [Route("slider")]
         public IActionResult Index()
         {
+            ViewBag.slider = accountService.FindAllSlider();       
             return View("slider");
         }
 
@@ -28,6 +37,12 @@ namespace Portfolio5.Areas.Admin.Controllers
         {
             return View("SessionPage");
         }
+   
+      
+        [Route("index")]
+        
 
+       
+        
     }
 }
