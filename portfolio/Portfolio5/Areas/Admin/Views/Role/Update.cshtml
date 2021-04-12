@@ -1,0 +1,32 @@
+﻿@model Portfolio5.Models.Role
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<h1>Update</h1>
+<form asp-controller="role" asp-action="update" method="post">
+
+    <div class="form-group">
+        <label>Select Role</label>
+        <select class="form-control" asp-for="NameRole" id="selectRole">
+            <option value="Admin">Admin</option>
+            <option value="Manager">Manager</option>
+            <option value="User">User</option>
+            <option value="Enterprise">Enterprise</option>
+
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <label for="descRole">Description</label>
+        <input type="text" class="form-control" asp-for="Desc" />
+    </div>
+    <input type="hidden" asp-for="IdRole" />
+    <input type="submit" value="Update" class="btn btn-primary" />
+</form>
