@@ -36,6 +36,58 @@ namespace Portfolio5.Areas.Admin.Controllers
             socialUser.Datecreated = DateTime.Now;
             socialUser.Dateupdated = DateTime.Now;
             socialUserService.Create(socialUser);
+            //if (socialUser.NameSoc == "Admin")
+            //{
+            //    if (socialUserService.CountIdById("Admin") != 0)
+            //    {
+            //        socialUser.IdSocialUser = socialUser.NameSoc + (socialUserService.CountIdById("Admin") + 1);
+            //        socialUserService.Create(socialUser);
+            //    }
+            //    else
+            //    {
+            //        socialUser.IdSocialUser = socialUser.NameSoc + 1;
+            //        socialUserService.Create(socialUser);
+            //    }
+            //}
+            //else if (socialUser.NameSoc == "Manager")
+            //{
+            //    if (socialUserService.CountIdById("Manager") != 0)
+            //    {
+            //        socialUser.IdSocialUser = socialUser.NameSoc + (socialUserService.CountIdById("Manager") + 1);
+            //        socialUserService.Create(socialUser);
+            //    }
+            //    else
+            //    {
+            //        socialUser.IdSocialUser = socialUser.NameSoc + 1;
+            //        socialUserService.Create(socialUser);
+            //    }
+            //}
+            //else if (socialUser.NameSoc == "User")
+            //{
+            //    if (socialUserService.CountIdById("User") != 0)
+            //    {
+            //        socialUser.IdSocialUser = socialUser.NameSoc + (socialUserService.CountIdById("User") + 1);
+            //        socialUserService.Create(socialUser);
+            //    }
+            //    else
+            //    {
+            //        socialUser.IdSocialUser = socialUser.NameSoc + 1;
+            //        socialUserService.Create(socialUser);
+            //    }
+            //}
+            //else if (socialUser.NameSoc == "Enterprise")
+            //{
+            //    if (socialUserService.CountIdById("Enterprise") != 0)
+            //    {
+            //        socialUser.IdSocialUser = socialUser.NameSoc + (socialUserService.CountIdById("Enterprise") + 1);
+            //        socialUserService.Create(socialUser);
+            //    }
+            //    else
+            //    {
+            //        socialUser.IdSocialUser = socialUser.NameSoc + 1;
+            //        socialUserService.Create(socialUser);
+            //    }
+            //}
 
             return RedirectToAction("index");
         }

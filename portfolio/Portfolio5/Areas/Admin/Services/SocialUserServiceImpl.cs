@@ -31,5 +31,20 @@ namespace Portfolio5.Areas.Admin.Services
             db.SocialUsers.Remove(db.SocialUsers.Find(id));
             db.SaveChanges();
         }
+
+        //public SocialUser FindById(string idSocialUser)
+        //{
+        //    return db.SocialUsers.SingleOrDefault(p => p.IdSocialUser == idSocialUser);
+        //}
+
+        //public int CountId()
+        //{
+        //    return db.SocialUsers.Count();
+        //}
+
+        //public int CountIdById(string id)
+        //{
+        //    return db.SocialUsers.Where(p => p.IdSocialUser.Contains(id)).Count();
+        //}
     }
 }

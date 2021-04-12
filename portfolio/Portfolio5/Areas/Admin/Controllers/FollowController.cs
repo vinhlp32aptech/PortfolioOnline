@@ -50,5 +50,27 @@ namespace Portfolio5.Areas.Admin.Controllers
             followService.Delete(id);
             return RedirectToAction("index");
         }
+        [Route("edit/{id}")]
+        public IActionResult Edit(string id)
+        {
+
+            return View("Edit", followService.Find(id));
+        }
+        [HttpPost]
+        [Route("edit/{id}")]
+        public IActionResult Edit(Follow follow)
+        {
+            var currentFollow = followService.Find(follow.IdFollow);
+            currentFollow.Dateupdated = DateTime.Now;
+            currentFollow.IdAcc = follow.IdAcc;
+            currentFollow.IdFollower = follow.IdFollower;
+            currentFollow.NumOfFollow = follow.NumOfFollow;
+
+            followService.Update(currentFollow);
+
+
+            return RedirectToAction("index");
+        }
+
     }
 }

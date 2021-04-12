@@ -31,5 +31,16 @@ namespace Portfolio5.Areas.Admin.Services
             db.Follows.Remove(db.Follows.Find(id));
             db.SaveChanges();
         }
+
+        public Follow Find(string idFollow)
+        {
+            return db.Follows.SingleOrDefault(p => p.IdFollow == idFollow);
+        }
+        public Follow Update(Follow follow)
+        {
+            db.Entry(follow).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return follow;
+        }
     }
 }

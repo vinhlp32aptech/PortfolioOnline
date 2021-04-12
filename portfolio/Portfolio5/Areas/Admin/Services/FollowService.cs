@@ -11,5 +11,7 @@ namespace Portfolio5.Areas.Admin.Services
         public List<Follow> FindAll();
         Follow Create(Follow follow);
         void Delete(string id);
+        Follow Find(string id);
+        Follow Update(Follow follow);
     }
 }
