@@ -48,5 +48,26 @@ namespace Portfolio5.Areas.Admin.Controllers
             viewService.Delete(id);
             return RedirectToAction("index");
         }
+        [Route("edit/{id}")]
+        public IActionResult Edit(string id)
+        {
+
+            return View("Edit", viewService.Find(id));
+        }
+        [HttpPost]
+        [Route("edit/{id}")]
+        public IActionResult Edit(View view)
+        {
+            var currentView = viewService.Find(view.IdView);
+            currentView.Dateupdated = DateTime.Now;
+            currentView.IdAcc = view.IdAcc;
+            currentView.IdViewer = view.IdViewer;
+            currentView.NumOfView = view.NumOfView;
+
+            viewService.Update(currentView);
+
+
+            return RedirectToAction("index");
+        }
     }
 }

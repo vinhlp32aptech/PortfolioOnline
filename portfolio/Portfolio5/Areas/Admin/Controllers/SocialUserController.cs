@@ -99,5 +99,27 @@ namespace Portfolio5.Areas.Admin.Controllers
             socialUserService.Delete(id);
             return RedirectToAction("index");
         }
+        [Route("edit/{id}")]
+        public IActionResult Edit(string id)
+        {
+
+            return View("Edit", socialUserService.Find(id));
+        }
+        [HttpPost]
+        [Route("edit/{id}")]
+        public IActionResult Edit(SocialUser socialUser)
+        {
+            var currentSocialUser = socialUserService.Find(socialUser.IdSocialUser);
+            currentSocialUser.Dateupdated = DateTime.Now;
+            currentSocialUser.NameSoc = socialUser.NameSoc;
+            currentSocialUser.IconSoc = socialUser.IconSoc;
+            currentSocialUser.UrlSoc = socialUser.UrlSoc;
+            currentSocialUser.IdAcc = socialUser.IdAcc;
+
+            socialUserService.Update(currentSocialUser);
+
+
+            return RedirectToAction("index");
+        }
     }
 }

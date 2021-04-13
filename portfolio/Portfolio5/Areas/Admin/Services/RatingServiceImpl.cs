@@ -31,5 +31,17 @@ namespace Portfolio5.Areas.Admin.Services
             db.Ratings.Remove(db.Ratings.Find(id));
             db.SaveChanges();
         }
+
+        public Rating Find(string idRating)
+        {
+            return db.Ratings.SingleOrDefault(p => p.IdRating == idRating);
+        }
+
+        public Rating Update(Rating rating)
+        {
+            db.Entry(rating).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return rating;
+        }
     }
 }

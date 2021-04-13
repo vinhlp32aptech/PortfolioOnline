@@ -35,7 +35,7 @@
                 <td>@socialUser.Datecreated</td>
                 <td>@socialUser.Dateupdated</td>
                 <td>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-edit"></i></button>
+                    <a asp-action="edit" asp-controller="socialUser" asp-route-id="@socialUser.IdSocialUser" class="btn btn-success"><i class="fas fa-edit"></i></a>
                     <a asp-action="delete" asp-controller="socialUser" asp-route-id="@socialUser.IdSocialUser" onclick="return confirm('Are u sure ?')" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
                   
 

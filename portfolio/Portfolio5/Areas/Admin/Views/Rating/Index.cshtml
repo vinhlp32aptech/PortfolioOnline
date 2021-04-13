@@ -36,7 +36,7 @@
                 <td>@rating.Datecreated</td>
                 <td>@rating.Dateupdated</td>
                 <td>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-edit"></i></button>
+                    <a asp-action="edit" asp-controller="rating" asp-route-id="@rating.IdRating" class="btn btn-success"><i class="fas fa-edit"></i></a>
                     <a asp-action="delete" asp-controller="rating" asp-route-id="@rating.IdRating" onclick="return confirm('Are u sure ?')" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
                 
 
