@@ -61,14 +61,10 @@
                 <form asp-controller="role" asp-action="add" method="post">
 
                     <div class="form-group">
-                        <label>Select Role</label>
-                        <select class="form-control" asp-for="NameRole" id="selectRole">
-                            <option value="Admin">Admin</option>
-                            <option value="Manager">Manager</option>
-                            <option value="User">User</option>
-                            <option value="Enterprise">Enterprise</option>
+                        <label for="NameRole">NameRole</label>
+                        <input type="text" class="form-control" id="NameRole" placeholder="Role" asp-for="NameRole" />
+                        <td><span asp-validation-for="NameRole"></span></td>
 
-                        </select>
                     </div>
 
 
@@ -82,12 +78,7 @@
                     <input type="submit" value="ADD" class="btn btn-primary"/>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
-                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>-->
-                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+           
         </div>
     </div>
 </div>
