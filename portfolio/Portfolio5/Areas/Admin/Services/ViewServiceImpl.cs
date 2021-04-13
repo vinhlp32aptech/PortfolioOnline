@@ -12,7 +12,7 @@ namespace Portfolio5.Areas.Admin.Services
 
         public ViewServiceImpl(DatabaseContext _db)
         {
-            this.db = _db;
+            db = _db;
         }
 
         public List<View> FindAll()
@@ -30,6 +30,16 @@ namespace Portfolio5.Areas.Admin.Services
         {
             db.Views.Remove(db.Views.Find(id));
             db.SaveChanges();
+        }
+        public View Find(string idView)
+        {
+            return db.Views.SingleOrDefault(p => p.IdView == idView);
+        }
+        public View Update(View view)
+        {
+            db.Entry(view).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return view;
         }
     }
 }

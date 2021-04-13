@@ -48,5 +48,28 @@ namespace Portfolio5.Areas.Admin.Controllers
             ratingService.Delete(id);
             return RedirectToAction("index");
         }
+
+        [Route("edit/{id}")]
+        public IActionResult Edit(string id)
+        {
+
+            return View("Edit", ratingService.Find(id));
+        }
+        [HttpPost]
+        [Route("edit/{id}")]
+        public IActionResult Edit(Rating rating)
+        {
+            var currentRating = ratingService.Find(rating.IdRating);
+            currentRating.Dateupdated = DateTime.Now;
+            currentRating.IdAcc = rating.IdAcc;
+            currentRating.IdReviewer = rating.IdReviewer;
+            currentRating.StarOfRating = rating.StarOfRating;
+            currentRating.NumOfRating = rating.NumOfRating;
+
+            ratingService.Update(currentRating);
+
+
+            return RedirectToAction("index");
+        }
     }
 }

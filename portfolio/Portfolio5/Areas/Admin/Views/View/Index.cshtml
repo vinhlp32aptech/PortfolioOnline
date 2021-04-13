@@ -33,7 +33,7 @@
                 <td>@view.Datecreated</td>
                 <td>@view.Dateupdated</td>
                 <td>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-edit"></i></button>
+                    <a asp-action="edit" asp-controller="view" asp-route-id="@view.IdView" class="btn btn-success"><i class="fas fa-edit"></i></a>
                     <a asp-action="delete" asp-controller="view" asp-route-id="@view.IdView" onclick="return confirm('Are u sure ?')" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
                     @*<button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>*@
 

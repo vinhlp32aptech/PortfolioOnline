@@ -32,6 +32,18 @@ namespace Portfolio5.Areas.Admin.Services
             db.SaveChanges();
         }
 
+        public SocialUser Find(string idSocialUser)
+        {
+            return db.SocialUsers.SingleOrDefault(p => p.IdSocialUser == idSocialUser);
+        }
+
+        public SocialUser Update(SocialUser socialUser)
+        {
+            db.Entry(socialUser).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return socialUser;
+        }
+
         //public SocialUser FindById(string idSocialUser)
         //{
         //    return db.SocialUsers.SingleOrDefault(p => p.IdSocialUser == idSocialUser);

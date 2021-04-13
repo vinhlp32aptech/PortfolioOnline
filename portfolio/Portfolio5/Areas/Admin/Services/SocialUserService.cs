@@ -14,5 +14,7 @@ namespace Portfolio5.Areas.Admin.Services
         //int CountIdById(string id);
         SocialUser Create(SocialUser socialUser);
         void Delete(string id);
+        SocialUser Find(string id);
+        SocialUser Update(SocialUser socialUser);
     }
 }
