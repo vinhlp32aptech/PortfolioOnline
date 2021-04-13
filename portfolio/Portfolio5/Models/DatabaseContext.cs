@@ -19,6 +19,7 @@ namespace Portfolio5.Models
 
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<ContentPage> ContentPages { get; set; }
+        public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Follow> Follows { get; set; }
         public virtual DbSet<FooterContact> FooterContacts { get; set; }
         public virtual DbSet<Hashtag> Hashtags { get; set; }
@@ -28,6 +29,7 @@ namespace Portfolio5.Models
         public virtual DbSet<PhotoSessionPage> PhotoSessionPages { get; set; }
         public virtual DbSet<Rating> Ratings { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<SendMail> SendMails { get; set; }
         public virtual DbSet<SessionPage> SessionPages { get; set; }
         public virtual DbSet<Slider> Sliders { get; set; }
         public virtual DbSet<SliderPart> SliderParts { get; set; }
@@ -39,7 +41,14 @@ namespace Portfolio5.Models
         public virtual DbSet<UserRole> UserRoles { get; set; }
         public virtual DbSet<View> Views { get; set; }
 
-      
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Server=DESKTOP-S9DPSKD;Database=portfolio;user id=sa;password=8464");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -48,7 +57,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<Account>(entity =>
             {
                 entity.HasKey(e => e.IdAcc)
-                    .HasName("PK__account__6BE8F06416453FEE");
+                    .HasName("PK__account__6BE8F0649E9F51B7");
 
                 entity.ToTable("account");
 
@@ -86,7 +95,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<ContentPage>(entity =>
             {
                 entity.HasKey(e => e.IdContentPage)
-                    .HasName("PK__content___249939A67A0A8711");
+                    .HasName("PK__content___249939A6DDCB88EC");
 
                 entity.ToTable("content_page");
 
@@ -109,10 +118,59 @@ namespace Portfolio5.Models
                     .HasColumnName("name_page");
             });
 
+            modelBuilder.Entity<Feedback>(entity =>
+            {
+                entity.HasKey(e => e.IdFeedback)
+                    .HasName("PK__feedback__36BC8630DCFC4F6E");
+
+                entity.ToTable("feedback");
+
+                entity.Property(e => e.IdFeedback)
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
+                    .HasColumnName("id_feedback");
+
+                entity.Property(e => e.Datereply)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datereply");
+
+                entity.Property(e => e.Datesend)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datesend");
+
+                entity.Property(e => e.Fullname)
+                    .HasMaxLength(100)
+                    .HasColumnName("fullname");
+
+                entity.Property(e => e.IdAcc)
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
+                    .HasColumnName("id_acc");
+
+                entity.Property(e => e.Mail)
+                    .HasMaxLength(100)
+                    .HasColumnName("mail");
+
+                entity.Property(e => e.Mess)
+                    .HasMaxLength(1000)
+                    .HasColumnName("mess");
+
+                entity.Property(e => e.ReplyMail)
+                    .HasMaxLength(1000)
+                    .HasColumnName("reply_mail");
+
+                entity.Property(e => e.Stat).HasColumnName("stat");
+
+                entity.HasOne(d => d.IdAccNavigation)
+                    .WithMany(p => p.Feedbacks)
+                    .HasForeignKey(d => d.IdAcc)
+                    .HasConstraintName("FK_feedback_account");
+            });
+
             modelBuilder.Entity<Follow>(entity =>
             {
                 entity.HasKey(e => e.IdFollow)
-                    .HasName("PK__follow__C9ED4B396DC3418C");
+                    .HasName("PK__follow__C9ED4B3928E26782");
 
                 entity.ToTable("follow");
 
@@ -152,7 +210,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<FooterContact>(entity =>
             {
                 entity.HasKey(e => e.IdWebContact)
-                    .HasName("PK__footer_c__1CC567BAD816F86E");
+                    .HasName("PK__footer_c__1CC567BA4678E23C");
 
                 entity.ToTable("footer_contact");
 
@@ -188,7 +246,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<Hashtag>(entity =>
             {
                 entity.HasKey(e => e.IdHashtag)
-                    .HasName("PK__hashtag__660123E11F1DDE1B");
+                    .HasName("PK__hashtag__660123E11D3E7CE3");
 
                 entity.ToTable("hashtag");
 
@@ -216,7 +274,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<HashtagUser>(entity =>
             {
                 entity.HasKey(e => new { e.IdHashtag, e.IdAcc })
-                    .HasName("PK__hashtag___30BFACE7661B3F03");
+                    .HasName("PK__hashtag___30BFACE743ECFBD5");
 
                 entity.ToTable("hashtag_user");
 
@@ -259,7 +317,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<IconSessionPage>(entity =>
             {
                 entity.HasKey(e => e.IdIconSess)
-                    .HasName("PK__icon_ses__C1A68C0BC86FDAB2");
+                    .HasName("PK__icon_ses__C1A68C0B270EE3A4");
 
                 entity.ToTable("icon_session_page");
 
@@ -295,7 +353,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<Menu>(entity =>
             {
                 entity.HasKey(e => e.IdMenu)
-                    .HasName("PK__menu__68A1D9DB4FDA1058");
+                    .HasName("PK__menu__68A1D9DBC933B068");
 
                 entity.ToTable("menu");
 
@@ -326,7 +384,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<PhotoSessionPage>(entity =>
             {
                 entity.HasKey(e => e.IdPhotoSess)
-                    .HasName("PK__photo_se__343ED924C0D5C9EE");
+                    .HasName("PK__photo_se__343ED924324CFAAB");
 
                 entity.ToTable("photo_session_page");
 
@@ -362,7 +420,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<Rating>(entity =>
             {
                 entity.HasKey(e => e.IdRating)
-                    .HasName("PK__rating__12074E476955D9FA");
+                    .HasName("PK__rating__12074E47FEFD6582");
 
                 entity.ToTable("rating");
 
@@ -407,7 +465,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.HasKey(e => e.IdRole)
-                    .HasName("PK__role__3D48441D6950C75F");
+                    .HasName("PK__role__3D48441D6B3EB31D");
 
                 entity.ToTable("role");
 
@@ -433,10 +491,41 @@ namespace Portfolio5.Models
                     .HasColumnName("name_role");
             });
 
+            modelBuilder.Entity<SendMail>(entity =>
+            {
+                entity.HasKey(e => e.IdSendmail)
+                    .HasName("PK__send_mai__0C5A08C1F1BC79A6");
+
+                entity.ToTable("send_mail");
+
+                entity.Property(e => e.IdSendmail)
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
+                    .HasColumnName("id_sendmail");
+
+                entity.Property(e => e.Datesend)
+                    .HasColumnType("datetime")
+                    .HasColumnName("datesend");
+
+                entity.Property(e => e.Fullname)
+                    .HasMaxLength(100)
+                    .HasColumnName("fullname");
+
+                entity.Property(e => e.Mail)
+                    .HasMaxLength(100)
+                    .HasColumnName("mail");
+
+                entity.Property(e => e.Mess)
+                    .HasMaxLength(1000)
+                    .HasColumnName("mess");
+
+                entity.Property(e => e.Stat).HasColumnName("stat");
+            });
+
             modelBuilder.Entity<SessionPage>(entity =>
             {
                 entity.HasKey(e => e.IdSess)
-                    .HasName("PK__session___D692B782E99CC201");
+                    .HasName("PK__session___D692B782AA0C71C0");
 
                 entity.ToTable("session_page");
 
@@ -482,7 +571,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<Slider>(entity =>
             {
                 entity.HasKey(e => e.IdSlider)
-                    .HasName("PK__slider__CADCE75692E71BD6");
+                    .HasName("PK__slider__CADCE7564F77A666");
 
                 entity.ToTable("slider");
 
@@ -503,7 +592,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<SliderPart>(entity =>
             {
                 entity.HasKey(e => e.IdSliderPart)
-                    .HasName("PK__slider_p__DA162D1E20D5E76F");
+                    .HasName("PK__slider_p__DA162D1EEC4401B6");
 
                 entity.ToTable("slider_part");
 
@@ -557,7 +646,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<SocialUser>(entity =>
             {
                 entity.HasKey(e => e.IdSocialUser)
-                    .HasName("PK__social_u__82A2A7746CE3034A");
+                    .HasName("PK__social_u__82A2A7749A61F340");
 
                 entity.ToTable("social_user");
 
@@ -603,7 +692,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<SocialWeb>(entity =>
             {
                 entity.HasKey(e => e.IdSoccialWeb)
-                    .HasName("PK__social_w__68B762A8F3510B0F");
+                    .HasName("PK__social_w__68B762A89CB305B7");
 
                 entity.ToTable("social_web");
 
@@ -639,7 +728,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<SubtitleSessionPage>(entity =>
             {
                 entity.HasKey(e => e.IdSubtitleSess)
-                    .HasName("PK__subtitle__EC9C00C61DF53F99");
+                    .HasName("PK__subtitle__EC9C00C6A91A368E");
 
                 entity.ToTable("subtitle_session_page");
 
@@ -680,7 +769,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<UrlSessionPage>(entity =>
             {
                 entity.HasKey(e => e.IdUrlSess)
-                    .HasName("PK__url_sess__5D2DFA4BBB40F38B");
+                    .HasName("PK__url_sess__5D2DFA4B2488F314");
 
                 entity.ToTable("url_session_page");
 
@@ -716,7 +805,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasKey(e => e.IdUser)
-                    .HasName("PK__user__D2D146377FA23070");
+                    .HasName("PK__user__D2D146375DB907CC");
 
                 entity.ToTable("user");
 
@@ -782,13 +871,13 @@ namespace Portfolio5.Models
                     .WithOne(p => p.User)
                     .HasForeignKey<User>(d => d.IdAcc)
                     .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("FK__user__id_acc__3B75D760");
+                    .HasConstraintName("FK__user__id_acc__398D8EEE");
             });
 
             modelBuilder.Entity<UserRole>(entity =>
             {
                 entity.HasKey(e => new { e.IdRole, e.IdAcc })
-                    .HasName("PK__user_rol__6BF6CB1B4093AFA6");
+                    .HasName("PK__user_rol__6BF6CB1B3A93F773");
 
                 entity.ToTable("user_role");
 
@@ -826,7 +915,7 @@ namespace Portfolio5.Models
             modelBuilder.Entity<View>(entity =>
             {
                 entity.HasKey(e => e.IdView)
-                    .HasName("PK__view__5CB912AD00CE838D");
+                    .HasName("PK__view__5CB912AD76078C15");
 
                 entity.ToTable("view");
 

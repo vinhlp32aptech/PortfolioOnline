@@ -1,4 +1,4 @@
-drop DATABASE portfolio
+create DATABASE portfolio
 
 use portfolio
 
@@ -42,7 +42,6 @@ create table social_user
 	dateupdated datetime
 
 );
-
 
 
 
@@ -117,6 +116,29 @@ create table [role]
 	dateupdated datetime
 	
 );
+
+create table send_mail
+(
+	id_sendmail varchar(20) primary key,
+	fullname nvarchar(100),
+	mail nvarchar(100),
+	mess nvarchar(1000),
+	datesend datetime,
+	stat bit
+)
+
+create table feedback
+(
+	id_feedback varchar(20) primary key,
+	fullname nvarchar(100),
+	mail nvarchar(100),
+	mess nvarchar(1000),
+	reply_mail nvarchar(1000),
+	datesend datetime,
+	datereply datetime,
+	id_acc varchar(20),
+	stat bit
+)
 -- manage web
 
 create table footer_contact
@@ -257,6 +279,9 @@ ALTER TABLE hashtag_user
 ADD CONSTRAINT FK_hashtag_user_hashtag
 FOREIGN KEY (id_hashtag) REFERENCES hashtag(id_hashtag);
 
+ALTER TABLE feedback
+ADD CONSTRAINT FK_feedback_account
+FOREIGN KEY (id_acc) REFERENCES account(id_acc);
 -- manage web
 
 ALTER TABLE slider_part
