@@ -226,6 +226,8 @@ namespace Portfolio5.Areas.Admin.Controllers
             return View("UpdateSessionPage", sessionPageService.FindByIdSessionPage(id));
         }
 
+
+
         [HttpPost]
         [Route("updatesessionpage/{id}")]
         public IActionResult UpdateSessionPage(SessionPage sessionPage)

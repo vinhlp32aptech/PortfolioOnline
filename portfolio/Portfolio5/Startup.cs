@@ -47,7 +47,7 @@ namespace Portfolio5
             services.AddScoped<PhotoSessionPageService, PhotoSessionPageServiceImpl>();
             services.AddScoped<SubtitleSessionPageService, SubtitleSessionPageServiceImpl>();
             services.AddScoped<UrlSessionPageService, UrlSessionPageServiceImpl>();
-
+            services.AddScoped<SocialUserService, SocialUserServiceImpl>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
