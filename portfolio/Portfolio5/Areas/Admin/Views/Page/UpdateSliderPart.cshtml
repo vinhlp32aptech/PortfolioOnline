@@ -1,0 +1,63 @@
+﻿@model Portfolio5.Models.SliderPart
+@{
+    ViewData["Title"] = "UpdateSliderPart";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h1>Update Slider Part</h1>
+<form method="post" asp-action="UpdateSliderPart" asp-controller="page" enctype="multipart/form-data">
+    <table class="table table-hover">
+        <thead>
+
+            <tr>
+
+                <td> Id Slider Part</td>
+                <td> <input type="text" asp-for="IdSliderPart" class="form-control" id="IdView" placeholder="IdSliderPart"  /></td>
+            </tr>
+            <tr>
+
+                <td> IdSlider</td>
+                <td> <input type="text" asp-for="IdSlider" class="form-control" id="IdView" placeholder="IdSlider"  /></td>
+            </tr>
+            <tr>
+
+                <td>Content Part</td>
+                <td> <input type="text" asp-for="ContentPart" class="form-control" id="IdView" placeholder="ContentPart" /></td>
+            </tr>
+            <tr>
+
+                <td>Name Url</td>
+                <td> <input type="text" asp-for="NameUrl" class="form-control" id="IdView" placeholder="NameUrl" /></td>
+            </tr>
+            <tr>
+
+                <td>Url Slider</td>
+                <td> <input type="text" asp-for="UrlSlider" class="form-control" id="IdView" placeholder="UrlSlider" /></td>
+            </tr>
+            <tr>
+
+                <td> Photo</td>
+                <td>
+                    <input type="file" name="file" class="form-control" id="IdView" />
+                    <img src="~/Images/@Model.Photo" alt="Alternate Text" height="100" width="100" />
+                </td>
+            </tr>
+
+
+            <tr style="width: 10%">
+                <td>&nbsp;</td>
+                <td> <button type="submit" class="btn btn-success"> <i class="fas fa-plus">Update</i></button></td>
+
+            </tr>
+
+
+        </thead>
+
+    </table>
+    <input type="hidden" asp-for="IdSliderPart" name="name" value="" />
+</form>

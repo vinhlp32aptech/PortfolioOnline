@@ -1,21 +1,32 @@
-﻿
+﻿@model Portfolio5.Models.AllSessionPage
 @{ ViewData["Title"] = "SessionPage";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; }
 <br />
 <br />
 <br />
-<div style="min-height: 1665.6px;">
+<div style="min-height: 665.6px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Session page Manager</h1>
-                    
+                    <h1>SessionPage Manager</h1>
                 </div>
                 <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item active"></li>
+                    <br />
+                    <ol class=" float-sm-right">
+                        <div class="dropdown">
+                            <button class="btn btn-primary">
+                                Page
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            &emsp;&emsp; &emsp;&emsp; &emsp;&emsp;
+                            <div class="dropdown-content">
+                                <a href="https://www.youtube.com/watch?v=K8hATlKYRMw">Page 1</a>
+                                <a href="https://www.youtube.com/watch?v=K8hATlKYRMw">Page 2</a>
+                                <a href="https://www.youtube.com/watch?v=K8hATlKYRMw">Page 3</a>
+                            </div>
+                        </div>
                     </ol>
                 </div>
             </div>
@@ -23,475 +34,407 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
+    <div class="card-header">
+        <h3 class="card-title">Session Page</h3>
+    </div>
 
-        <!-- Default box -->
-        <div class="card collapsed-card">
-            <div class="card-header">
-                <h3 class="card-title">session_page</h3>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>IdSess</th>
+                <th>IdContentPage</th>
+                <th>NameSess</th>
+                <th>TitleSess</th>
+                <th>ContentSess</th>
+                <th>Date Create</th>
+                <th>Date update</th>
+                <th style="width: 10%">
+                    <button type="button" class="btn btn-success " data-toggle="modal" data-target="#sessionpage" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
+                </th>
 
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="card-body p-0" style="display: none;">
-                <table class="table table-striped projects">
-                    <thead>
-                        <tr>
-                            <th style="width: 1%">
-                                #
-                            </th>
-                            <th style="width: 10%">
-                                id_sess
-                            </th>
-                            <th style="width: 10%">
-                                id_content_page
-                            </th>
-                            <th style="width: 20%">
-                                name_sess
-                            </th>
-                            <th style="width: 19%">
-                                title_sess
-                            </th>
-                            <th style="width: 20%">
-                                content_sess
-                            </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sessionPage in ViewBag.sessionPages)
+            {
+                <tr>
 
-                            <
-                            <th style="width: 10%">
-                                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#session_page" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                    <td>@sessionPage.IdSess</td>
+                    <td>@sessionPage.IdContentPage</td>
+                    <td>@sessionPage.NameSess</td>
+                    <td>@sessionPage.TitleSess</td>
+                    <td>@sessionPage.ContentSess</td>
+                    <td>@sessionPage.Datecreated</td>
+                    <td>@sessionPage.Dateupdated</td>
 
-                        <tr>
-                            <td>
-                                #
-                            </td>
-                            <td>
-                                <a>
-                                    id_sess  in here ---
-                                </a>
-                            </td>
-                            <td>
-                                id_content_page in here ---
-                            </td>
-                            <td>
-                                name_sess  in here ---
-                            </td>
-                            <td>
-                                title_sess  in here ---
-                            </td>
-                            <td>
-                                content_sess  in here ---
-                            </td>
+                    <td>
 
-                            <td class="project-actions text-right">
+                        <a type="button" class="btn btn-success" asp-controller="page" asp-action="updatesessionpage" asp-route-id="@sessionPage.IdSess"><i class="fas fa-edit"></i></a>
+                        <a type="button" class="btn btn-danger" asp-controller="page" asp-action="deletesessionpage" asp-route-id="@sessionPage.IdSess" onclick="return confirm('Are you sure delete @sessionPage.IdSess ? ')"><i class="far fa-trash-alt"></i></a>
 
-                                <a class="btn btn-info btn-sm" href="#">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Edit
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="#">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Delete
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!-- /.card-body -->
-        </div>
-        <div class="card collapsed-card">
-            <div class="card-header">
-                <h3 class="card-title">Subtitle session page </h3>
-
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="card-body p-0" style="display: none;">
-                <table class="table table-striped projects">
-                    <thead>
-                        <tr>
-                            <th style="width: 1%">
-                                #
-                            </th>
-                            <th style="width: 10%">
-                                id_subtitle_sess
-                            </th>
-                            <th style="width: 10%">
-                                id_sess
-                            </th>
-                            <th style="width: 20%">
-                                subtitle_sess
-                            </th>
-                            <th style="width: 30%">
-                                content_subtitle
-                            </th>
-                            <th style="width: 10%">
-                                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#subtitle_session_page" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
-                            </th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr>
-                            <td>
-                                #
-                            </td>
-                            <td>
-                                <a>
-                                    id_subtitle_sess  in here ---
-                                </a>
-                            </td>
-                            <td>
-                                id_sess in here ---
-                            </td>
-                            <td>
-                                subtitle_sess in here ---
-                            </td>
-                            <td>
-                                content_subtitle in here ---
-                            </td>
-
-
-                            <td class="project-actions text-right">
-
-                                <a class="btn btn-info btn-sm" href="#">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Edit
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="#">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Delete
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!-- /.card-body -->
-        </div>
-        <!-- /.card -->
-        <div class="card collapsed-card">
-            <div class="card-header">
-                <h3 class="card-title">Photo session page</h3>
-
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="card-body p-0" style="display: none;">
-                <table class="table table-striped projects">
-                    <thead>
-                        <tr>
-                            <th style="width: 1%">
-                                #
-                            </th>
-                            <th style="width: 20%">
-                                id_photo_sess
-                            </th>
-                            <th style="width: 20%">
-                                id_sess
-                            </th>
-
-                            <th style="width: 29%">
-                                photo_sess
-                            </th>
-
-                            <th style="width: 10%">
-                                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#photo_session_page" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr>
-                            <td>
-                                #
-                            </td>
-                            <td>
-                                <a>
-                                    id_photo_sess  in here ---
-                                </a>
-                            </td>
-                            <td>
-                                id_sess in here ---
-                            </td>
-                            <td>
-                                photo_sess  in here ---
-                            </td>
-
-                            <td class="project-actions text-right">
-
-                                <a class="btn btn-info btn-sm" href="#">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Edit
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="#">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Delete
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!-- /.card-body -->
-        </div>
-        <div class="card collapsed-card">
-            <div class="card-header">
-                <h3 class="card-title">Url session page</h3>
-
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="card-body p-0" style="display: none;">
-                <table class="table table-striped projects">
-                    <thead>
-                        <tr>
-                            <th style="width: 1%">
-                                #
-                            </th>
-                            <th style="width: 10%">
-                                id_url_sess
-                            </th>
-                            <th style="width: 10%">
-                                id_sess
-                            </th>
-                            <th style="width: 40%">
-                                url_sess
-                            </th>
-
-
-                            <th style="width: 10%">
-                                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#url_session_page" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr>
-                            <td>
-                                #
-                            </td>
-                            <td>
-                                <a>
-                                    id_url_sess  in here ---
-                                </a>
-                            </td>
-                            <td>
-                                <a>
-                                    id_sess  in here ---
-                                </a>
-                            </td>
-                            <td>
-                                <a>
-                                    url_sess  in here ---
-                                </a>
-                            </td>
-
-
-                            <td class="project-actions text-right">
-
-                                <a class="btn btn-info btn-sm" href="#">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Edit
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="#">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Delete
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!-- /.card-body -->
-        </div>
-
-    </section>
-    <!-- /.content -->
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
-<div class="modal fade" id="session_page" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- /.card-body -->
+
+<div style="min-height: 665.6px;">
+    <div class="card-header">
+        <h3 class="card-title">Icon SessionPage</h3>
+
+
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id IconSess</th>
+                <th>Id Sess</th>
+                <th>Icon Sess</th>
+
+                <th>Date created</th>
+                <th>Date updated</th>
+                <th style="width: 10%">
+                    <button type="button" class="btn btn-success " data-toggle="modal" data-target="#iconsessionpage" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var iconSessionPage in ViewBag.iconSessionPages)
+            {
+                <tr>
+                    <td>@iconSessionPage.IdIconSess</td>
+                    <td>@iconSessionPage.IdSess</td>
+                    <td><img src="~/Images/@iconSessionPage.IconSess" alt="Alternate Text" height="100" width="100" /></td>
+
+                    <td>@iconSessionPage.Datecreated</td>
+                    <td>@iconSessionPage.Dateupdated</td>
+
+                    <td>
+
+                        <a type="button" class="btn btn-success" asp-controller="page" asp-action="updateiconsessionpage" asp-route-id="@iconSessionPage.IdIconSess"><i class="fas fa-edit"></i></a>
+                        <a type="button" class="btn btn-danger" asp-controller="page" asp-action="deleteiconsessionpage" asp-route-id="@iconSessionPage.IdIconSess" onclick="return confirm('Are you sure delete @iconSessionPage.IdIconSess ? ')"><i class="far fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+    <!-- /.card-body -->
+    <div style="min-height: 665.6px;">
+        <div class="card-header">
+            <h3 class="card-title">Photo SessionPage</h3>
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id Photo Sess</th>
+                    <th>Id Sess</th>
+                    <th>Photo Sess</th>
+                    <th>Date Create</th>
+                    <th>Date update</th>
+                    <th style="width: 10%">
+                        <button type="button" class="btn btn-success " data-toggle="modal" data-target="#photosessionpage" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var photoSessionPage in ViewBag.photoSessionPages)
+                {
+                    <tr>
+
+                        <td>@photoSessionPage.IdPhotoSess</td>
+                        <td>@photoSessionPage.IdSess</td>
+
+                        <td><img src="~/Images/@photoSessionPage.PhotoSess" alt="Alternate Text" height="100" width="100" /></td>
+
+                        <td>@photoSessionPage.Datecreated</td>
+                        <td>@photoSessionPage.Dateupdated</td>
+
+                        <td>
+
+                            <a type="button" class="btn btn-success" asp-controller="page" asp-action="updatephotosessionpage" asp-route-id="@photoSessionPage.IdPhotoSess"><i class="fas fa-edit"></i></a>
+                            <a type="button" class="btn btn-danger" asp-controller="page" asp-action="deletephotosessionpage" asp-route-id="@photoSessionPage.IdPhotoSess" onclick="return confirm('Are you sure delete @photoSessionPage.IdPhotoSess ? ')"><i class="far fa-trash-alt"></i></a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+    <div style="min-height: 665.6px;">
+        <div class="card-header">
+            <h3 class="card-title">Subtitle Session Page</h3>
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id Subtitle Sess</th>
+                    <th>Id Sess</th>
+                    <th>Subtitle Sess</th>
+                    <th>Content Subtitle</th>
+                    <th>Date created</th>
+                    <th>Date updated</th>
+
+                    <th style="width: 10%">
+                        <button type="button" class="btn btn-success " data-toggle="modal" data-target="#subtitlesessionpage" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var subtitleSessionPage in ViewBag.subtitleSessionPages)
+                {
+                    <tr>
+
+                        <td>@subtitleSessionPage.IdSubtitleSess</td>
+                        <td>@subtitleSessionPage.IdSess</td>
+                        <td>@subtitleSessionPage.SubtitleSess</td>
+                        <td>@subtitleSessionPage.ContentSubtitle</td>
+                        <td>@subtitleSessionPage.Datecreated</td>
+                        <td>@subtitleSessionPage.Dateupdated</td>
+
+                        <td>
+
+                            <a type="button" class="btn btn-success" asp-controller="page" asp-action="updatesubtitlesessionpage" asp-route-id="@subtitleSessionPage.IdSubtitleSess"><i class="fas fa-edit"></i></a>
+                            <a type="button" class="btn btn-danger" asp-controller="page" asp-action="deletesubtitlesessionpage" asp-route-id="@subtitleSessionPage.IdSubtitleSess" onclick="return confirm('Are you sure delete @subtitleSessionPage.IdSubtitleSess ? ')"><i class="far fa-trash-alt"></i></a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+    <div style="min-height: 665.6px;">
+        <div class="card-header">
+            <h3 class="card-title">Url Session Page</h3>
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id Url Sess</th>
+                    <th>Id Sess</th>
+                    <th>Url Sess</th>
+
+                    <th>Date Create</th>
+                    <th>Date update</th>
+                    <th style="width: 10%">
+                        <button type="button" class="btn btn-success " data-toggle="modal" data-target="#urlsessionpage" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var urlSessionPage in ViewBag.urlSessionPages)
+                {
+                    <tr>
+
+                        <td>@urlSessionPage.IdUrlSess</td>
+                        <td>@urlSessionPage.IdSess</td>
+                        <td>@urlSessionPage.UrlSess</td>
+                        <td>@urlSessionPage.Datecreated</td>
+                        <td>@urlSessionPage.Dateupdated</td>
+
+                        <td>
+
+                            <a type="button" class="btn btn-success" asp-controller="page" asp-action="updateurlsessionpage" asp-route-id="@urlSessionPage.IdUrlSess"><i class="fas fa-edit"></i></a>
+                            <a type="button" class="btn btn-danger" asp-controller="page" asp-action="deleteurlsessionpage" asp-route-id="@urlSessionPage.IdUrlSess" onclick="return confirm('Are you sure delete @urlSessionPage.IdUrlSess ? ')"><i class="far fa-trash-alt"></i></a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+<!-- /.card-body -->
+
+
+
+
+
+<div class="modal fade" id="sessionpage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">×</button>
-               
             </div>
-            <div class="modal-body">
-                <form>
+            <form method="post" asp-action="addsessionpage" asp-controller="page" enctype="multipart/form-data">
+                <div class="modal-body">
+
                     <div class="form-group">
-                        <label for="IdView">id_content_page </label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                        <label for="IdView">IdSess</label>
+                        <input type="text" asp-for="SessionPage.IdSess" class="form-control" id="IdView" placeholder="IdSess" />
                     </div>
                     <div class="form-group">
-                        <label for="IdView">name_sess </label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                        <label for="IdView">IdContentPage</label>
+                        <input type="text" asp-for="SessionPage.IdContentPage" class="form-control" id="IdView" placeholder="IdContentPage" />
                     </div>
                     <div class="form-group">
-                        <label for="IdView">title_sess </label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                        <label for="IdView">NameSess</label>
+                        <input type="text" asp-for="SessionPage.NameSess" class="form-control" id="IdView" placeholder="NameSess" />
                     </div>
                     <div class="form-group">
-                        <label for="IdView">content_sess</label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                        <label for="IdView">TitleSess</label>
+                        <input type="text" asp-for="SessionPage.TitleSess" class="form-control" id="IdView" placeholder="TitleSess" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">ContentSess</label>
+                        <input type="text" asp-for="SessionPage.ContentSess" class="form-control" id="IdView" placeholder="ContentSess" />
+                    </div>             
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+
+
+                    @*<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>*@
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="iconsessionpage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <form method="post" asp-action="addiconsessionpage" asp-controller="page" enctype="multipart/form-data">
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="IdView">Id Icon Sess</label>
+                        <input type="text" asp-for="IconSessionPage.IdIconSess" class="form-control" id="IdView" placeholder="Id Icon Sess" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">Id Sess</label>
+                        <input type="text" asp-for="IconSessionPage.IdSess" class="form-control" id="IdView" placeholder="Id Sess" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">Icon Sess</label>
+                        <input type="text" asp-for="IconSessionPage.IconSess" class="form-control" id="IdView" placeholder="Icon Sess" />
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+
+
+                    @*<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>*@
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="photosessionpage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <form method="post" asp-action="addphotosessionpage" asp-controller="page" enctype="multipart/form-data">
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="IdView">Id Photo Sess</label>
+                        <input type="text" asp-for="PhotoSessionPage.IdPhotoSess" class="form-control" id="IdView" placeholder="Id Photo Sess" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">IdSess</label>
+                        <input type="text" asp-for="PhotoSessionPage.IdSess" class="form-control" id="IdView" placeholder="Id Sess" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="IdView">Photo</label>
+                        <input type="file" name="file" class="form-control" id="IdView" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+
+
+                    @*<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>*@
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="subtitlesessionpage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <form method="post" asp-action="addsubtitlesessionpage" asp-controller="page" enctype="multipart/form-data">
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="IdView">Id Subtitle Sess</label>
+                        <input type="text" asp-for="SubtitleSessionPage.IdSubtitleSess" class="form-control" id="IdView" placeholder="Id Subtitle Sess" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">IdSess</label>
+                        <input type="text" asp-for="SubtitleSessionPage.IdSess" class="form-control" id="IdView" placeholder="Id Sess" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">SubtitleSess</label>
+                        <input type="text" asp-for="SubtitleSessionPage.SubtitleSess" class="form-control" id="IdView" placeholder="Subtitle Sess" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">ContentSubtitle</label>
+                        <input type="text" asp-for="SubtitleSessionPage.ContentSubtitle" class="form-control" id="IdView" placeholder="Content Subtitle" />
                     </div>
                    
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
 
 
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
-                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
-                @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+                    @*<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>*@
+                </div>
+            </form>
         </div>
     </div>
 </div>
-<div class="modal fade" id="slider_part" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="urlsessionpage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">×</button>
-                
             </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="IdView">id_subtitle_sess </label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
-                    </div>
-                    <div class="form-group">
-                        <label for="IdView">id_sess </label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
-                    </div>
-                    <div class="form-group">
-                        <label for="IdView">subtitle_sess </label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
-                    </div>
-                    <div class="form-group">
-                        <label for="IdView">content_subtitle </label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
-                    </div>
+            <form method="post" asp-action="addurlsessionpage" asp-controller="page" enctype="multipart/form-data">
+                <div class="modal-body">
 
-
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
-                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
-                @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="photo_session_page" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-               
-            </div>
-            <div class="modal-body">
-                <form>
                     <div class="form-group">
-                        <label for="IdView">id_photo_sess </label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                        <label for="IdView">IdUrlSess</label>
+                        <input type="text" asp-for="UrlSessionPage.IdUrlSess" class="form-control" id="IdView" placeholder="Id Url Sess" />
                     </div>
                     <div class="form-group">
-                        <label for="IdView">id_sess </label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                        <label for="IdView">IdSess</label>
+                        <input type="text" asp-for="UrlSessionPage.IdSess" class="form-control" id="IdView" placeholder="Id Sess" />
                     </div>
                     <div class="form-group">
-                        <label for="IdView">photo_sess </label>
-                        <input type="file" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                        <label for="IdView">UrlSess</label>
+                        <input type="text" asp-for="UrlSessionPage.UrlSess" class="form-control" id="IdView" placeholder="Url Sess" />
                     </div>
                     
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
 
 
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
-                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
-                @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+                    @*<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>*@
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-                
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="IdView">id_url_sess </label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
-                    </div>
-                    <div class="form-group">
-                        <label for="IdAccount">id_sess </label>
-                        <input type="text" class="form-control" id="IdAccount" placeholder="Id Account" disabled="disabled" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="NumOfView">url_sess </label>
-                        <input type="text" class="form-control" id="NumOfView" placeholder="Num Of View" />
-                    </div>
-
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
-                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
-                @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>

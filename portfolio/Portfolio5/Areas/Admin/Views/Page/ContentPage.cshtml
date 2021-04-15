@@ -1,4 +1,4 @@
-﻿
+﻿@model Portfolio5.Models.ContentPage
 @{ ViewData["Title"] = "ContentPage";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; }
 <br />
@@ -22,107 +22,83 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
+  
 
         <!-- Default box -->
-        <div class="card collapsed-card">
-            <div class="card-header">
+ 
                 <h3 class="card-title">Content page</h3>
 
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="card-body p-0" style="display: none;">
-                <table class="table table-striped projects">
-                    <thead>
-                        <tr>
-                            <th style="width: 1%">
-                                #
-                            </th>
-                            <th style="width: 20%">
-                                id_content_page
-                            </th>
-                            <th style="width: 20%">
-                                name_page
-                            </th>
+       
+                
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>IdContentPage</th>
+                                <th>NamePage</th>
+                                <th>Datecreated</th>
+                                <th>Dateupdated</th>
 
-                            <th style="width: 10%">
-                                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#content_page" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                                <th style="width: 10%">
+                                    <button type="button" class="btn btn-success " data-toggle="modal" data-target="#contentPage" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
+                                </th>
 
-                        <tr>
-                            <td>
-                                #
-                            </td>
-                            <td>
-                                <a>
-                                    id_content_page  in here ---
-                                </a>
-                            </td>
-                            <td>
-                                name_page in here ---
-                            </td>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                            <td class="project-actions text-right">
+                            @foreach (var contentPage in ViewBag.contentPages)
+                            {
+                                <tr>
+                                    <td>@contentPage.IdContentPage</td>
+                                    <td>@contentPage.NamePage</td>
+                                    <td>@contentPage.Datecreated</td>
+                                    <td>@contentPage.Dateupdated</td>
 
-                                <a class="btn btn-info btn-sm" href="#">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Edit
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="#">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Delete
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                                    <td>
+
+                                        <a type="button" class="btn btn-success" asp-controller="page" asp-action="UpdateContentPage" asp-route-id="@contentPage.IdContentPage"><i class="fas fa-edit"></i></a>
+                                        <a type="button" class="btn btn-danger" asp-controller="page" asp-action="DeleteContentPage" asp-route-id="@contentPage.IdContentPage" onclick="return confirm('Are you sure delete @contentPage.IdContentPage ? ')"><i class="far fa-trash-alt"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+         
             <!-- /.card-body -->
-        </div>
 
 
-    </section>
+
+   
     <!-- /.content -->
 </div>
-<div class="modal fade" id="content_page" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="contentPage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">×</button>
-             
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="IdView">id_content_page </label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
-                    </div>
-                    <div class="form-group">
-                        <label for="IdView">name_page </label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
-                    </div>
-                   
 
-                </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
-                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
-                @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+            <form method="post" asp-action="addcontentpage" asp-controller="page" enctype="multipart/form-data" >
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="IdView">id content page </label>
+                            <input type="text" asp-for="IdContentPage" class="form-control" id="IdView" placeholder="Id View"  />
+                        </div>
+                        <div class="form-group">
+                            <label for="IdView">name page </label>
+                            <input type="text" asp-for="NamePage" class="form-control" id="IdView" placeholder="Id View"  />
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+             </form>
         </div>
     </div>
 </div>

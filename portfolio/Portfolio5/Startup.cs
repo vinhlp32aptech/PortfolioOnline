@@ -39,6 +39,14 @@ namespace Portfolio5
             services.AddScoped<ViewService, ViewServiceImpl>();
             services.AddScoped<FollowService, FollowServiceImpl>();
             services.AddScoped<RoleService, RoleServiceImpl>();
+            services.AddScoped<SliderService, SliderServiceImpl>();
+            services.AddScoped<SliderPartService, SliderPartServiceImpl>();
+            services.AddScoped<ContentPageService, ContentPageServiceImpl>();
+            services.AddScoped<SessionPageService, SessionPageServiceImpl>();
+            services.AddScoped<IconSessionPageService, IconSessionPageServiceImpl>();
+            services.AddScoped<PhotoSessionPageService, PhotoSessionPageServiceImpl>();
+            services.AddScoped<SubtitleSessionPageService, SubtitleSessionPageServiceImpl>();
+            services.AddScoped<UrlSessionPageService, UrlSessionPageServiceImpl>();
 
         }
 

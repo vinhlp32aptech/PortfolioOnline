@@ -12,7 +12,6 @@ namespace Portfolio5.Models
 
         [Required]
         public string NameRole { get; set; }
-
         [Required]
         public string Desc { get; set; }
 

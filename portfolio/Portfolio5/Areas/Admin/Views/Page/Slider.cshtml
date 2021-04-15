@@ -1,44 +1,8 @@
 ﻿
+@model Portfolio5.Models.AllSlider
 @{ ViewData["Title"] = "Slider";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; }
-<style>
-    .dropdown .dropbtn {
-        font-size: 16px;
-        border: none;
-        outline: none;
-        color: white;
-        padding: 14px 16px;
-        background-color: inherit;
-        font-family: inherit;
-        margin: 0;
-    }
 
-
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-        .dropdown-content a {
-            float: none;
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-
-
-
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-</style>
 <br />
 <br />
 <br />
@@ -72,350 +36,165 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
-
-        <!-- Default box -->
-        <div class="card collapsed-card">
             <div class="card-header">
                 <h3 class="card-title">Slider</h3>
-
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
             </div>
-            <div class="card-body p-0" style="display: none;">
-                <table class="table table-striped projects">
+           
+                <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th style="width: 1%">
-                                #
-                            </th>
-                            <th style="width: 80%">
-                                id_slider
-                            </th>
+                            <th>Id Slider</th>
+                            <th>Date Create</th>
+                            <th>Date update</th>
                             <th style="width: 10%">
-                                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#slider " onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
+                                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#slider" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
                             </th>
+
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach (var slider in ViewBag.sliders)
+                        {
+                            <tr>
+                                <td>@slider.IdSlider</td>
+                                <td>@slider.Datecreated</td>
+                                <td>@slider.Dateupdated</td>
 
-                        <tr>
-                            <td>
-                                #
-                            </td>
-                            <td>
-                                <a>
-                                    id_slider  in here ---
-                                </a>
-                            </td>
-                          
-                            <td class="project-actions text-right">
-                                <a class="btn btn-info btn-sm" href="#">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Edit
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="#">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Delete
-                                </a>
-                            </td>
-                        </tr>
+                                <td>
+
+                                    <a type="button" class="btn btn-success" asp-controller="page" asp-action="update" asp-route-id="@slider.IdSlider"><i class="fas fa-edit"></i></a>
+                                    <a type="button" class="btn btn-danger" asp-controller="page" asp-action="delete" asp-route-id="@slider.IdSlider" onclick="return confirm('Are you sure delete @slider.IdSlider ? ')"><i class="far fa-trash-alt"></i></a>
+
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
             <!-- /.card-body -->
-        </div>
-        <div class="card collapsed-card">
+   
+ 
             <div class="card-header">
-                <h3 class="card-title">Slider url</h3>
+                <h3 class="card-title">Slider part</h3>
 
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
+
             </div>
-            <div class="card-body p-0" style="display: none;">
-                <table class="table table-striped projects">
+            
+                <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th style="width: 1%">
-                                #
-                            </th>
-                            <th style="width: 20%">
-                                id_url_slider
-                            </th>
-                            <th style="width: 20%">
-                                url_slider
-                            </th>
-                            <th style="width: 20%">
-                                name_url
-                            </th>
-                            <th style="width: 20%">
-                                photo
-                            </th>
+                            <th>Id Slider Part</th>
+                            <th>Id Slider</th>
+                            <th>Title Part</th>
+                            <th>Url Slider</th>
+                            <th>Name Url</th>
+                            <th>Photo</th>
+
+                            <th>Date created</th>
+                            <th>Date updated</th>
                             <th style="width: 10%">
-                                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#slider_url" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
+                                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#sliderPart" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
                             </th>
 
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach (var sliderPart in ViewBag.sliderParts)
+                        {
+                            <tr>
+                                <td>@sliderPart.IdSliderPart</td>
+                                <td>@sliderPart.IdSlider</td>
+                                <td>@sliderPart.TitlePart</td>
+                                <td>@sliderPart.UrlSlider</td>
+                                <td>@sliderPart.NameUrl</td>
+                                <td><img src="~/Images/@sliderPart.Photo" alt="Alternate Text" height="100" width="100" /></td>
+                                <td>@sliderPart.Datecreated</td>
+                                <td>@sliderPart.Dateupdated</td>
+                                <td>
 
-                        <tr>
-                            <td>
-                                #
-                            </td>
-                            <td>
-                                <a>
-                                    id_slider  in here ---
-                                </a>
-                            </td>
-                            <td>
-                                url_slider in here ---
-                            </td>
-                            <td>
-                                url_slider in here ---
-                            </td>
-                            <td>
-                                url_slider in here ---
-                            </td>
-
-                            <td class="project-actions text-right">
-
-                                <a class="btn btn-info btn-sm" href="#">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Edit
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="#">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Delete
-                                </a>
-                            </td>
-                        </tr>
+                                    <a type="button" class="btn btn-success" asp-controller="page" asp-action="UpdateSliderPart" asp-route-id="@sliderPart.IdSliderPart"><i class="fas fa-edit"></i></a>
+                                    <a type="button" class="btn btn-danger" asp-controller="page" asp-action="deletePart" asp-route-id="@sliderPart.IdSliderPart" onclick="return confirm('Are you sure delete @sliderPart.IdSliderPart ? ')"><i class="far fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
-            </div>
+    
             <!-- /.card-body -->
-        </div>
-        <!-- /.card -->
-        <div class="card collapsed-card">
-            <div class="card-header">
-                <h3 class="card-title">slider_part</h3>
+ 
 
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="card-body p-0" style="display: none;">
-                <table class="table table-striped projects">
-                    <thead>
-                        <tr>
-                            <th style="width: 1%">
-                                #
-                            </th>
-                            <th style="width: 5%">
-                                id_slider_part
-                            </th>
-                            <th style="width: 10%">
-                                title_part
-                            </th>
-                            <th style="width: 10%">
-                                content_part
-                            </th>
-                            <th style="width: 10%">
-                                name_url
-                            </th>
-                            <th style="width: 20%">
-                                url_slider
-                            </th>
-                            <th style="width: 24%">
-                                photo
-                            </th>
-                            <th style="width: 10%">
-                                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#slider_part" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
 
-                        <tr>
-                            <td>
-                                #
-                            </td>
-                            <td>
-                                <a>
-                                    id_url_slider  in here ---
-                                </a>
-                            </td>
-                            <td>
-                                id_slider in here ---
-                            </td>
-                            <td>
-                                name_url  in here ---
-                            </td>
-                            <td>
-                                url_slider  in here ---
-                            </td>
-                            <td>
-                                url_slider  in here ---
-                            </td>
-                            <td>
-                                url_slider  in here ---
-                            </td>
 
-                            <td class="project-actions text-right">
 
-                                <a class="btn btn-info btn-sm" href="#">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Edit
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="#">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Delete
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!-- /.card-body -->
-        </div>
-
-    </section>
-    <!-- /.content -->
-</div>
 <div class="modal fade" id="slider" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-               
-            </div>
-            <div class="modal-body">
-                <form>
+            <form method="post" asp-action="addslider" asp-controller="page" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+
+                </div>
+                <div class="modal-body">
                     <div class="form-group">
                         <label for="IdView">Id Slider</label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
+                        <input type="text" asp-for="Slider.IdSlider" class="form-control" placeholder="Id Slider" />
                     </div>
-                    
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
 
-                    
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
-                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
-                @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+                    @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
-<div class="modal fade" id="slider_part" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>              
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="IdView">id_slider_part</label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
-                    </div>
-                    <div class="form-group">
-                        <label for="IdView">id_slider</label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
-                    </div>
-                    <div class="form-group">
-                        <label for="IdView">title_part</label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
-                    </div>
-                    <div class="form-group">
-                        <label for="IdView">content_part</label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
-                    </div>
-                    <div class="form-group">
-                        <label for="IdView">name_url</label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
-                    </div>
-                    <div class="form-group">
-                        <label for="IdView">url_slider</label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
-                    </div>
-                    <div class="form-group">
-                        <label for="IdView">photo</label>
-                        <input type="file" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
-                    </div>
-
-
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
-                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
-                @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="slider_url" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="sliderPart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">×</button>
-               
             </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="IdView">id_url_slider </label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
-                    </div>
-                    <div class="form-group">
-                        <label for="IdView">photo </label>
-                        <input type="file" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
-                    </div>
-                    <div class="form-group">
-                        <label for="IdView">url_slider </label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
-                    </div>
-                    <div class="form-group">
-                        <label for="IdView">name_url </label>
-                        <input type="text" class="form-control" id="IdView" placeholder="Id View" disabled="disabled" />
-                    </div>
+            <form method="post" asp-action="addsliderPart" asp-controller="page" enctype="multipart/form-data">
+                <div class="modal-body">
 
+                    <div class="form-group">
+                        <label for="IdView">IdSliderPart</label>
+                        <input type="text" asp-for="SliderPart.IdSliderPart" class="form-control" id="IdView" placeholder="Id View"  />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">IdSlider</label>
+                        <input type="text" asp-for="SliderPart.IdSlider" class="form-control" id="IdView" placeholder="Id View" />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">TitlePart</label>
+                        <input type="text" asp-for="SliderPart.TitlePart" class="form-control" id="IdView" placeholder="Id View"  />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">ContentPart</label>
+                        <input type="text" asp-for="SliderPart.ContentPart" class="form-control" id="IdView" placeholder="Id View"  />
+                    </div>
+                    <div class="form-group">
+                        <label for="IdView">NameUrl</label>
+                        <input type="text" asp-for="SliderPart.NameUrl" class="form-control" id="IdView" placeholder="Id View"  />
+                    </div>
+                   
 
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
-                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
-                @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+                    <div class="form-group">
+                        <label for="IdView">Photo</label>
+                        <input type="file" name="file" class="form-control" id="IdView" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+
+                   
+                    @*<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>*@
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
+@*--------------------------------------*@

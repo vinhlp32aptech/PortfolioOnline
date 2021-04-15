@@ -1,0 +1,46 @@
+﻿@model Portfolio5.Models.SubtitleSessionPage
+@{
+    ViewData["Title"] = "UpdateSliderPart";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h1>Update Subtitle Session Page</h1>
+<form method="post" asp-action="updatesubtitlesessionpage" asp-controller="page" enctype="multipart/form-data">
+    <table class="table table-hover">
+        <thead>
+
+            <tr>
+
+                <td> Id Subtitle Sess</td>
+                <td> <input type="text" asp-for="IdSubtitleSess" class="form-control" id="IdView" placeholder="IdSubtitleSess"  /></td>
+            </tr>
+            <tr>
+
+                <td> Id Sess</td>
+                <td> <input type="text" asp-for="IdSess" class="form-control" id="IdView" placeholder="IdSess"  /></td>
+            </tr>
+            <tr>
+
+                <td>Content Subtitle</td>
+                <td> <input type="text" asp-for="ContentSubtitle" class="form-control" id="IdView" placeholder="ContentSubtitle" /></td>
+            </tr>
+           
+         
+
+            <tr style="width: 10%">
+                <td>&nbsp;</td>
+                <td> <button type="submit" class="btn btn-success"> <i class="fas fa-plus">Update</i></button></td>
+
+            </tr>
+
+
+        </thead>
+
+    </table>
+    <input type="hidden" asp-for="IdSubtitleSess" name="name" value="" />
+</form>

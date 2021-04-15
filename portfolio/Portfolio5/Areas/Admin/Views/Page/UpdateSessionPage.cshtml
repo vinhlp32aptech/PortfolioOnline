@@ -1,0 +1,55 @@
+﻿@model Portfolio5.Models.SessionPage
+@{
+    ViewData["Title"] = "UpdateSliderPart";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h1>Update Session Page</h1>
+<form method="post" asp-action="updatesessionpage" asp-controller="page" enctype="multipart/form-data">
+    <table class="table table-hover">
+        <thead>
+
+            <tr>
+
+                <td>Id Sess</td>
+                <td> <input type="text" asp-for="IdSess" class="form-control" id="IdView" placeholder="Id Sess"  /></td>
+            </tr>
+            <tr>
+
+                <td> Id Content Page</td>
+                <td> <input type="text" asp-for="IdContentPage" class="form-control" id="IdView" placeholder="Id Content Page"  /></td>
+            </tr>
+            <tr>
+
+                <td>Name Sess</td>
+                <td> <input type="text" asp-for="NameSess" class="form-control" id="IdView" placeholder="Name Sess" /></td>
+            </tr>
+            <tr>
+
+                <td>Title Sess</td>
+                <td> <input type="text" asp-for="TitleSess" class="form-control" id="IdView" placeholder="Title Sess" /></td>
+            </tr>
+            <tr>
+
+                <td>ContentSess</td>
+                <td> <input type="text" asp-for="ContentSess" class="form-control" id="IdView" placeholder="Content Sess" /></td>
+            </tr>
+           
+
+
+            <tr style="width: 10%">
+                <td>&nbsp;</td>
+                <td> <button type="submit" class="btn btn-success"> <i class="fas fa-plus">Update</i></button></td>
+
+            </tr>
+
+        </thead>
+
+    </table>
+    <input type="hidden" asp-for="IdSess" name="name" value="" />
+</form>
