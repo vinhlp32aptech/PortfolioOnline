@@ -1,4 +1,4 @@
-﻿
+﻿@model Portfolio5.Models.SocialUser
 @{
     ViewData["Title"] = "Social NetWork";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -19,55 +19,30 @@
                 <th>Icon Social</th>
                 <th>URl Social</th>
                 <th>Id Account</th>
+                <th>Date Create</th>
+                <th>Date update</th>
                 <th>Action</th>
             </tr>
         </thead>
-        <tbody>
+        @foreach (var socialUser in ViewBag.socialUsers)
+        {
             <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-                <td>john@example.com</td>
-                <td>july@example.com</td>
+                <td>@socialUser.IdSocialUser</td>
+                <td>@socialUser.NameSoc</td>
+                <td>@socialUser.IconSoc</td>
+                <td>@socialUser.UrlSoc</td>
+                <td>@socialUser.IdAcc</td>
+                <td>@socialUser.Datecreated</td>
+                <td>@socialUser.Dateupdated</td>
                 <td>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                    <a asp-action="edit" asp-controller="socialUser" asp-route-id="@socialUser.IdSocialUser" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                    <a asp-action="delete" asp-controller="socialUser" asp-route-id="@socialUser.IdSocialUser" onclick="return confirm('Are u sure ?')" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                  
+
                 </td>
+
             </tr>
-            <tr>
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>mary@example.com</td>
-                <td>mary@example.com</td>
-                <td>july@example.com</td>
-                <td>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                </td>
-            </tr>
-            <tr>
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>mary@example.com</td>
-                <td>mary@example.com</td>
-                <td>july@example.com</td>
-                <td>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                </td>
-            </tr>
-            <tr>
-                <td>July</td>
-                <td>Dooley</td>
-                <td>july@example.com</td>
-                <td>july@example.com</td>
-                <td>july@example.com</td>
-                <td>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                </td>
-            </tr>
-        </tbody>
+        }
     </table>
 </div>
 
@@ -81,43 +56,52 @@
                 <h4 class="modal-title" id="myModalLabel">Social Network</h4>
             </div>
             <div class="modal-body">
-                <form>
+                <form method="post" asp-action="add" asp-controller="socialUser">
                     <div class="form-group">
-                        <label for="IdSocialNetworkUser">#</label>
-                        <input type="text" class="form-control" id="IdSocialNetworkUser" placeholder="Id Social Network User" disabled="disabled" />
-                    </div>
+            <label for="IdSocialNetworkUser">Id SocialNetwork User</label>
+            <input type="text" asp-for="IdSocialUser" class="form-control" id="IdSocialNetworkUser" placeholder="Id Social Network User"  />
+        </div>
 
-                    <div class="form-group">
-                        <label for="NameSocial">Name Social</label>
-                        <input type="text" class="form-control" id="NameSocial" placeholder="Name Social" />
-                    </div>
+        <div class="form-group">
+            <label for="NameSocial">Name Social</label>
+            <input type="text" asp-for="NameSoc" class="form-control" id="NameSocial" placeholder="Name Social" />
+        </div>
+                    @*<div class="form-group">
+                        <label>Chọn account cha</label>
+                        <select class="form-control" asp-for="NameSoc">
+                            <option value="Admin">Admin</option>
+                            <option value="Manager">Manager</option>
+                            <option value="User">User</option>
+                            <option value="Enterprise">Enterprise</option>
+
+
+                        </select>
+                    </div>*@
                     <div class="form-group">
                         <label for="IconSocial">Icon Social</label>
-                        <input type="text" class="form-control" id="Icon Social" placeholder="Icon Social" />
+                        <input type="text" asp-for="IconSoc" class="form-control" id="Icon Social" placeholder="Icon Social" />
                     </div>
                     <div class="form-group">
                         <label for="URlSocial">URl Social</label>
-                        <input type="text" class="form-control" id="URlSocial" placeholder="URl Social" />
+                        <input type="text" asp-for="UrlSoc" class="form-control" id="URlSocial" placeholder="URl Social" />
                     </div>
                     <div class="form-group">
-                        <label for="IdAccount">#</label>
-                        <input type="text" class="form-control" id="IdAccount" placeholder="Id Account" disabled="disabled" />
-                    </div>
-                    <div class="form-group">
-                        <label>Chọn ratting cha</label>
-                        <select class="form-control">
-                            <option value="0">Chọn danh mục cha</option>
+            <label for="idaccount">id account</label>
+            <input type="text" asp-for="IdAcc" class="form-control" id="idaccount" placeholder="id account"  />
+        </div>
 
-                        </select>
+                    <div class="modal-footer">
+                        <input type="submit" value="Add" class="btn btn-primary" id="btnAdd" />
+
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
+            <!--<div class="modal-footer">
                 <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
-                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
+                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>-->
                 @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>-->
         </div>
     </div>
 </div>

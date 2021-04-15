@@ -1,4 +1,4 @@
-﻿
+﻿@model Portfolio5.Models.Rating
 @{
     ViewData["Title"] = "Rating";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -20,21 +20,30 @@
                 <th>Id Account</th>
                 <th>Start Of Raing</th>
                 <th>Num Of Rating</th>
+                <th>Date Create</th>
+                <th>Date update</th>
                 <th>Action</th>
             </tr>
         </thead>
         @foreach (var rating in ViewBag.ratings)
         {
-    <tr>
-        <td>@rating.IdRating</td>
-        <td>@rating.IdAcc</td>
-        <td>@rating.IdReviewer</td>
-        <td>@rating.StarOfRating</td>
-        <td>@rating.NumOfRating</td>
-        <td> <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
-    </tr>
+            <tr>
+                <td>@rating.IdRating</td>
+                <td>@rating.IdAcc</td>
+                <td>@rating.IdReviewer</td>
+                <td>@rating.StarOfRating</td>
+                <td>@rating.NumOfRating</td>
+                <td>@rating.Datecreated</td>
+                <td>@rating.Dateupdated</td>
+                <td>
+                    <a asp-action="edit" asp-controller="rating" asp-route-id="@rating.IdRating" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                    <a asp-action="delete" asp-controller="rating" asp-route-id="@rating.IdRating" onclick="return confirm('Are u sure ?')" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                
+
+                </td>
+            </tr>
         }
-        
+
     </table>
 </div>
 
@@ -47,42 +56,39 @@
                 <h4 class="modal-title" id="myModalLabel">Ratings</h4>
             </div>
             <div class="modal-body">
-                <form>
+                <form  method="post" asp-action="add" asp-controller="rating">
                     <div class="form-group">
-                        <label for="Id Rating">#</label>
-                        <input type="text" class="form-control" id="IdRating" placeholder="Id Rating" disabled="disabled" />
+                        <label for="Id Rating">Id Rating</label>
+                        <input type="text" asp-for="IdRating" class="form-control" id="IdRating" placeholder="Id Rating" />
                     </div>
                     <div class="form-group">
-                        <label for="Id Reviewer">#</label>
-                        <input type="text" class="form-control" id="IdReviewer" placeholder="Id Reviewer" disabled="disabled" />
+                        <label for="Id Reviewer">Id Reviewer</label>
+                        <input type="text" asp-for="IdReviewer" class="form-control" id="IdReviewer" placeholder="Id Reviewer" />
                     </div>
                     <div class="form-group">
-                        <label for="Id Account">#</label>
-                        <input type="text" class="form-control" id="IdAccount" placeholder="Id Account" disabled="disabled" />
+                        <label for="Id Account">Id Account</label>
+                        <input type="text" asp-for="IdAcc" class="form-control" id="IdAccount" placeholder="Id Account" />
                     </div>
                     <div class="form-group">
                         <label for="StartOfRaing">Start Of Raing</label>
-                        <input type="text" class="form-control" id="StartOfRaing" placeholder="Start Of Raing" />
+                        <input type="text" asp-for="StarOfRating" class="form-control" id="StartOfRaing" placeholder="Start Of Raing" />
                     </div>
                     <div class="form-group">
                         <label for="NumOfRating">Num Of Rating</label>
-                        <input type="text" class="form-control" id="NumOfRating" placeholder="Num Of Rating" />
+                        <input type="text" asp-for="NumOfRating" class="form-control" id="NumOfRating" placeholder="Num Of Rating" />
                     </div>
-                    <div class="form-group">
-                        <label>Chọn ratting cha</label>
-                        <select class="form-control">
-                            <option value="0">Chọn danh mục cha</option>
+                    <div class="modal-footer">
+                        <input type="submit" value="Add" class="btn btn-primary" id="btnAdd" />
 
-                        </select>
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
+            <!--<div class="modal-footer">
                 <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
-                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>
+                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>-->
                 @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>-->
         </div>
     </div>
 </div>

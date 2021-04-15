@@ -39,9 +39,38 @@ namespace Portfolio5.Areas.Admin.Controllers
             follow.Datecreated = DateTime.Now;
             follow.Dateupdated = DateTime.Now;
             followService.Create(follow);
+            
             return RedirectToAction("index");
         }
 
-       
+        [Route("delete/{id}")]
+
+        public IActionResult Delete(string id)
+        {
+            followService.Delete(id);
+            return RedirectToAction("index");
+        }
+        [Route("edit/{id}")]
+        public IActionResult Edit(string id)
+        {
+
+            return View("Edit", followService.Find(id));
+        }
+        [HttpPost]
+        [Route("edit/{id}")]
+        public IActionResult Edit(Follow follow)
+        {
+            var currentFollow = followService.Find(follow.IdFollow);
+            currentFollow.Dateupdated = DateTime.Now;
+            currentFollow.IdAcc = follow.IdAcc;
+            currentFollow.IdFollower = follow.IdFollower;
+            currentFollow.NumOfFollow = follow.NumOfFollow;
+
+            followService.Update(currentFollow);
+
+
+            return RedirectToAction("index");
+        }
+
     }
 }

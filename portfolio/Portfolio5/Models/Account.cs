@@ -9,6 +9,7 @@ namespace Portfolio5.Models
     {
         public Account()
         {
+            Feedbacks = new HashSet<Feedback>();
             Follows = new HashSet<Follow>();
             HashtagUsers = new HashSet<HashtagUser>();
             Ratings = new HashSet<Rating>();
@@ -26,6 +27,7 @@ namespace Portfolio5.Models
         public bool? Stat { get; set; }
 
         public virtual User User { get; set; }
+        public virtual ICollection<Feedback> Feedbacks { get; set; }
         public virtual ICollection<Follow> Follows { get; set; }
         public virtual ICollection<HashtagUser> HashtagUsers { get; set; }
         public virtual ICollection<Rating> Ratings { get; set; }

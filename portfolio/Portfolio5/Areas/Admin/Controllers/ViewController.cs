@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio5.Areas.Admin.Services;
+using Portfolio5.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,9 +27,47 @@ namespace Portfolio5.Areas.Admin.Controllers
         public IActionResult Index()
         {
             ViewBag.views = viewService.FindAll();
-            return View("~/Areas/Admin/Views/View/Index.cshtml");
+            return View("index", new View());
+
+        }
+        [Route("add")]
+        [HttpPost]
+        public IActionResult Add(View view)
+        {
+
+            view.Datecreated = DateTime.Now;
+            view.Dateupdated = DateTime.Now;
+            viewService.Create(view);
+
+            return RedirectToAction("index");
+        }
+        [Route("delete/{id}")]
+
+        public IActionResult Delete(string id)
+        {
+            viewService.Delete(id);
+            return RedirectToAction("index");
+        }
+        [Route("edit/{id}")]
+        public IActionResult Edit(string id)
+        {
+
+            return View("Edit", viewService.Find(id));
+        }
+        [HttpPost]
+        [Route("edit/{id}")]
+        public IActionResult Edit(View view)
+        {
+            var currentView = viewService.Find(view.IdView);
+            currentView.Dateupdated = DateTime.Now;
+            currentView.IdAcc = view.IdAcc;
+            currentView.IdViewer = view.IdViewer;
+            currentView.NumOfView = view.NumOfView;
+
+            viewService.Update(currentView);
 
 
+            return RedirectToAction("index");
         }
     }
 }
