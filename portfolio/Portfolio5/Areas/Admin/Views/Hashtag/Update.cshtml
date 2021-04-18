@@ -1,0 +1,21 @@
+﻿@model Portfolio5.Models.Hashtag
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<h1>Update</h1>
+<form asp-controller="hashtag" asp-action="update" method="post">
+
+    <div class="form-group">
+        <label >Name</label>
+        <input type="text" class="form-control" asp-for="NameHashtag"/>
+    </div>
+
+    <input type="hidden" asp-for="IdHashtag" />
+    <input type="submit" value="Update" class="btn btn-primary" />
+</form>
