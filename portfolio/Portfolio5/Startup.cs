@@ -24,12 +24,12 @@ namespace Portfolio5
             Configuration = configuration;
         }
 
-       
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            services.AddSession();
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<DatabaseContext>(option => option.UseLazyLoadingProxies().UseSqlServer(connectionString));
 
@@ -48,6 +48,8 @@ namespace Portfolio5
             services.AddScoped<SubtitleSessionPageService, SubtitleSessionPageServiceImpl>();
             services.AddScoped<UrlSessionPageService, UrlSessionPageServiceImpl>();
             services.AddScoped<SocialUserService, SocialUserServiceImpl>();
+            services.AddScoped<SigninService, SigninServiceImpl>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,7 +70,7 @@ namespace Portfolio5
             app.UseStaticFiles();
 
             app.UseRouting();
-           
+            app.UseSession();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

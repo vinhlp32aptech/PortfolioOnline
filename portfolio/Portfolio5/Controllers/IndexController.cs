@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,12 @@ namespace Portfolio5.Controllers
         [Route("~/")]
         public IActionResult Index()
         {
+            // truoc khi dung session nho dung cau nay
+            if (HttpContext.Session.GetString("idacc") != null)
+            {
+                //  HttpContext.Session.SetString("idacc", JsonConvert.SerializeObject(account.IdAcc));
+                ViewBag.loggedin = true;
+            }
             return View();
         }
     }
