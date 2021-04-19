@@ -47,7 +47,7 @@ namespace Portfolio5.Controllers
                     {
                         HttpContext.Session.SetString("idacc", JsonConvert.SerializeObject(account.IdAcc));
                     }
-                    return RedirectToAction("~/Views/Index/Index.cshtml");
+                    return View("~/Views/Index/Index.cshtml");
                 }
                 else
                 {
