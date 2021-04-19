@@ -1,0 +1,40 @@
+﻿@model Portfolio5.Models.ContentPage
+@{
+    ViewData["Title"] = "UpdateContentPage";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h1>Update Content Page</h1>
+<form method="post" asp-action="UpdateContentPage" asp-controller="page" enctype="multipart/form-data">
+    <table class="table table-hover">
+        <thead>
+
+            <tr>
+
+                <td> Id Content Page</td>
+                <td> <input type="text" asp-for="IdContentPage" class="form-control" id="IdView" placeholder="IdContentPage" /></td>
+            </tr>
+            <tr>
+                <td>Name Page</td>
+                <td> <input type="text" asp-for="NamePage" class="form-control" id="IdView" placeholder="NamePage" /></td>
+            </tr>
+          
+
+
+            <tr style="width: 10%">
+                <td>&nbsp;</td>
+                <td> <button type="submit" class="btn btn-success"> <i class="fas fa-plus">Update</i></button></td>
+
+            </tr>
+
+
+        </thead>
+
+    </table>
+    <input type="hidden" asp-for="IdContentPage" name="name" value="" />
+</form>

@@ -1,0 +1,46 @@
+﻿@model Portfolio5.Models.UrlSessionPage
+@{
+    ViewData["Title"] = "UpdateSliderPart";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h1>Update Url Session Page</h1>
+<form method="post" asp-action="updateurlsessionpage" asp-controller="page" enctype="multipart/form-data">
+    <table class="table table-hover">
+        <thead>
+
+            <tr>
+
+                <td> Id Url Sess</td>
+                <td> <input type="text" asp-for="IdUrlSess" class="form-control" id="IdView" placeholder="IdUrlSess"  /></td>
+            </tr>
+            <tr>
+
+                <td> Id Sess</td>
+                <td> <input type="text" asp-for="IdSess" class="form-control" id="IdView" placeholder="IdSess"  /></td>
+            </tr>
+            <tr>
+
+                <td>Url Sess</td>
+                <td> <input type="text" asp-for="UrlSess" class="form-control" id="IdView" placeholder="UrlSess" /></td>
+            </tr>
+      
+
+
+            <tr style="width: 10%">
+                <td>&nbsp;</td>
+                <td> <button type="submit" class="btn btn-success"> <i class="fas fa-plus">Update</i></button></td>
+
+            </tr>
+
+
+        </thead>
+
+    </table>
+    <input type="hidden" asp-for="IdUrlSess" name="name" value="" />
+</form>

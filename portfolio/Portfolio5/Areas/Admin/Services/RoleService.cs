@@ -8,13 +8,13 @@ namespace Portfolio5.Areas.Admin.Services
 {
     public interface RoleService
     {
-        List<Role> FindAll();
-        Role FindById(string idRole);
-         int CountId();
-        int CountIdById(string id);
-        Role Create(Role role);
-        void Delete(string idRole);
-        string GetNewestId(string keyword);
-        Role Update(Role role);
+        public List<Role> FindAll();
+        public Role FindById(string idRole);
+        public int CountId();
+        public int CountIdById(string id);
+        public Role Create(Role role);
+        public void Delete(string idRole);
+        public string GetNewestId(string keyword);
+        public Role Update(Role role);
     }
 }

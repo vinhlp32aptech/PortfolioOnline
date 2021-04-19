@@ -1,0 +1,48 @@
+﻿@model Portfolio5.Models.PhotoSessionPage
+    ViewData["Title"] = "UpdateSliderPart";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h1>Update PhotoSession Page</h1>
+<form method="post" asp-action="updatephotosessionpage" asp-controller="page" enctype="multipart/form-data">
+    <table class="table table-hover">
+        <thead>
+
+            <tr>
+
+                <td>Id Photo Sess</td>
+                <td> <input type="text" asp-for="IdPhotoSess" class="form-control" id="IdView" placeholder="IdPhotoSess"  /></td>
+            </tr>
+            <tr>
+
+                <td> IdSess</td>
+                <td> <input type="text" asp-for="IdSess" class="form-control" id="IdView" placeholder="IdSess"  /></td>
+            </tr>
+        
+            <tr>
+
+                <td> Photo</td>
+                <td>
+                    <input type="file" name="file" class="form-control" id="IdView" />
+                    <img src="~/Images/@Model.PhotoSess" alt="PhotoSess" height="100" width="100" />
+                </td>
+            </tr>
+
+
+            <tr style="width: 10%">
+                <td>&nbsp;</td>
+                <td> <button type="submit" class="btn btn-success"> <i class="fas fa-plus">Update</i></button></td>
+
+            </tr>
+
+
+        </thead>
+
+    </table>
+    <input type="hidden" asp-for="IdPhotoSess" name="name" value="" />
+</form>

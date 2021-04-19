@@ -16,7 +16,6 @@ namespace Portfolio5.Models
         public string IdSlider { get; set; }
         public DateTime? Datecreated { get; set; }
         public DateTime? Dateupdated { get; set; }
-
         public virtual Slider IdSliderNavigation { get; set; }
     }
 }
