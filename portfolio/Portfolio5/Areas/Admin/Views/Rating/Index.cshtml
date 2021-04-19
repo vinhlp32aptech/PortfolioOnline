@@ -10,7 +10,7 @@
 <br />
 <div class="container">
     <h2>RATING</h2>
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>
+    @*<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();"><i class="fas fa-plus">ADD</i></button>*@
 
     <table class="table table-hover">
         <thead>
@@ -36,7 +36,7 @@
                 <td>@rating.Datecreated</td>
                 <td>@rating.Dateupdated</td>
                 <td>
-                    <a asp-action="edit" asp-controller="rating" asp-route-id="@rating.IdRating" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                    @*<a asp-action="edit" asp-controller="rating" asp-route-id="@rating.IdRating" class="btn btn-success"><i class="fas fa-edit"></i></a>*@
                     <a asp-action="delete" asp-controller="rating" asp-route-id="@rating.IdRating" onclick="return confirm('Are u sure ?')" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
                 
 
@@ -47,8 +47,8 @@
     </table>
 </div>
 
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+@*Add*@
+@*<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -82,7 +82,11 @@
 
                     </div>
                 </form>
-            </div>
+            </div>*@
+
+@*The end Add*@
+
+
             <!--<div class="modal-footer">
                 <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
                 <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>-->

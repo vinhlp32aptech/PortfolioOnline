@@ -22,6 +22,7 @@
                 <th>Date Create</th>
                 <th>Date update</th>
                 <th>Action</th>
+               
             </tr>
         </thead>
         @foreach (var socialUser in ViewBag.socialUsers)
@@ -36,10 +37,12 @@
                 <td>@socialUser.Dateupdated</td>
                 <td>
                     <a asp-action="edit" asp-controller="socialUser" asp-route-id="@socialUser.IdSocialUser" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                </td>
+                <td>
                     <a asp-action="delete" asp-controller="socialUser" asp-route-id="@socialUser.IdSocialUser" onclick="return confirm('Are u sure ?')" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
-                  
 
                 </td>
+              
 
             </tr>
         }
@@ -57,26 +60,22 @@
             </div>
             <div class="modal-body">
                 <form method="post" asp-action="add" asp-controller="socialUser">
-                    <div class="form-group">
+                    @*<div class="form-group">
             <label for="IdSocialNetworkUser">Id SocialNetwork User</label>
             <input type="text" asp-for="IdSocialUser" class="form-control" id="IdSocialNetworkUser" placeholder="Id Social Network User"  />
-        </div>
+        </div>*@
 
-        <div class="form-group">
+        @*<div class="form-group">
             <label for="NameSocial">Name Social</label>
             <input type="text" asp-for="NameSoc" class="form-control" id="NameSocial" placeholder="Name Social" />
-        </div>
-                    @*<div class="form-group">
-                        <label>Chọn account cha</label>
-                        <select class="form-control" asp-for="NameSoc">
-                            <option value="Admin">Admin</option>
-                            <option value="Manager">Manager</option>
-                            <option value="User">User</option>
-                            <option value="Enterprise">Enterprise</option>
+        </div>*@
+                    <div class="form-group">
+                        <label for="NameSoc">NameSoc</label>
+                        <input type="text" class="form-control" id="NameSoc" placeholder="Role" asp-for="NameSoc" />
+                       
 
+                    </div>
 
-                        </select>
-                    </div>*@
                     <div class="form-group">
                         <label for="IconSocial">Icon Social</label>
                         <input type="text" asp-for="IconSoc" class="form-control" id="Icon Social" placeholder="Icon Social" />
@@ -86,22 +85,17 @@
                         <input type="text" asp-for="UrlSoc" class="form-control" id="URlSocial" placeholder="URl Social" />
                     </div>
                     <div class="form-group">
-            <label for="idaccount">id account</label>
-            <input type="text" asp-for="IdAcc" class="form-control" id="idaccount" placeholder="id account"  />
-        </div>
+                        <label for="IdAccount">Id Account</label>
+                        <input type="text" asp-for="IdAcc" class="form-control" id="IdAccount" placeholder="Id Account" />
+                    </div>
 
                     <div class="modal-footer">
                         <input type="submit" value="Add" class="btn btn-primary" id="btnAdd" />
-
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </form>
             </div>
-            <!--<div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
-                <button type="button" class="btn btn-primary" id="btnEDit" onclick="return Edit();">Edit</button>-->
-                @*<button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>*@
-                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>-->
+           
         </div>
     </div>
 </div>
