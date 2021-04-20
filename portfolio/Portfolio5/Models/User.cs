@@ -7,6 +7,8 @@ namespace Portfolio5.Models
 {
     public partial class User
     {
+     
+
         public string IdUser { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -22,5 +24,8 @@ namespace Portfolio5.Models
         public string IdAcc { get; set; }
 
         public virtual Account IdAccNavigation { get; set; }
+
+        
+
     }
 }

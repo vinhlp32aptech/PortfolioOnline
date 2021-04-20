@@ -75,7 +75,6 @@ namespace Portfolio5.Areas.Admin.Controllers
         {
             var currentSocialUser = socialUserService.Find(socialUser.IdSocialUser);
             currentSocialUser.Dateupdated = DateTime.Now;
-            currentSocialUser.NameSoc = socialUser.NameSoc;
             currentSocialUser.IconSoc = socialUser.IconSoc;
             currentSocialUser.UrlSoc = socialUser.UrlSoc;
             currentSocialUser.IdAcc = socialUser.IdAcc;
@@ -85,5 +84,6 @@ namespace Portfolio5.Areas.Admin.Controllers
 
             return RedirectToAction("index");
         }
+
     }
 }
