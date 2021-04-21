@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,11 @@ namespace Portfolio5
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+            services.AddAuthentication
+            (CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie();
+
             services.AddControllersWithViews();
             services.AddSession();
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
@@ -49,6 +55,7 @@ namespace Portfolio5
             services.AddScoped<UrlSessionPageService, UrlSessionPageServiceImpl>();
             services.AddScoped<SocialUserService, SocialUserServiceImpl>();
             services.AddScoped<SigninService, SigninServiceImpl>();
+            services.AddScoped<SignupService, SignupServiceImpl>();
             services.AddScoped<ProfieService, ProfieServiceImpl>();
         }
 
@@ -71,8 +78,12 @@ namespace Portfolio5
 
             app.UseRouting();
             app.UseSession();
-            app.UseAuthorization();
+            // who are you?  
+            app.UseAuthentication();
 
+            // are you allowed?  
+            app.UseAuthorization();
+            app.UseCookiePolicy();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

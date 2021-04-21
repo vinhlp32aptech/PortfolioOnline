@@ -9,13 +9,13 @@ namespace Portfolio5.Services
     public interface AccountService
     {
         public List<Account> FindAll();
-        List<Role> GetAllRole();
-        string GetNewestId(string keyword);
-        int CountIdById(string id);
-        Account CreateAccount(Account account);
-        User CreateUser(User user);
-        void CreateUserRole(UserRole userRole);
-        string GetIdRoleByNameRol(string nameRole);
-        void Delete(string idacc);
+        public List<Role> GetAllRole();
+        public string GetNewestId(string keyword);
+        public int CountIdById(string id);
+        public Account CreateAccount(Account account);
+        public User CreateUser(User user);
+        public void CreateUserRole(UserRole userRole);
+        public string GetIdRoleByNameRol(string nameRole);
+        public void Delete(string idacc);
     }
 }

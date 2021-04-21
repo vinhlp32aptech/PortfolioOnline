@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Portfolio5.Models;
 using Portfolio5.Services;
+using Portfolio5.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -34,31 +35,32 @@ namespace Portfolio5.Controllers
 
         [HttpPost]
         [Route("login")]
-        public IActionResult Login(string email, string pass)
+        public IActionResult Login(SigninViewModels signin)
         {
-            var account = signinService.GetAccount(email);
+            var account = signinService.GetAccount(signin.Username);
 
             if (account != null)
             {
-                if (account.Email == email && BCrypt.Net.BCrypt.Verify(pass, account.Pass))
+                if (account.Email == signin.Username && BCrypt.Net.BCrypt.Verify(signin.Password, account.Pass))
                 {
  
                     if (HttpContext.Session.GetString("idacc") == null)
                     {
                         HttpContext.Session.SetString("idacc", JsonConvert.SerializeObject(account.IdAcc));
                     }
-                    return View("~/Views/Index/Index.cshtml");
+                    //return View("~/Views/Index/Index.cshtml");
+                    return RedirectToAction("index", "Index", new { area = "" });
                 }
                 else
                 {
-                    ViewBag.error = "Your email or password is wrong!";
+                    ViewData["message"] = "Your email or password is wrong!";
                     return View("index");
                 }
                 return View("index");
             }
             else
             {
-                ViewBag.error = "User not found!";
+                ViewData["message"] = "User not found!";
                 return View("index");
             }
 
