@@ -1,4 +1,4 @@
-﻿
+﻿@model Portfolio5.ViewModels.SignupViewModels
 @{
     ViewData["Title"] = "SignUp";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -31,25 +31,41 @@
                         <div class="line"></div> <small class="or text-center">Or</small>
                         <div class="line"></div>
                     </div>
-                    <div class="row px-3">
-                        <label class="mb-1">
-                            <h6 class="mb-0 text-sm">Email Address</h6>
-                        </label> <input class="mb-4" type="text" name="email" placeholder="Enter a valid email address">
-                    </div>
-                    <div class="row px-3">
-                        <label class="mb-1">
-                            <h6 class="mb-0 text-sm">Password</h6>
-                        </label> <input type="password" name="password" placeholder="Enter password">
-                    </div>
-                    <br>
-                    <div class="row px-3">
-                        <label class="mb-1">
-                            <h6 class="mb-0 text-sm">Confirm Password</h6>
-                        </label> <input class="mb-4" type="text" name="email" placeholder="Enter Confirm Password">
-                    </div>
-                    <br>
-                    <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center">SignUp</button> </div>
-                    <div class="row mb-4 px-3"> <small class="font-weight-bold">Do you already have an account ? <a class="text-danger " asp-controller="signin" asp-action="index">SignIn Now!</a></small> </div>
+                    <form asp-controller="signup" asp-action="register" method="post">
+                        <div class="row px-3">
+                            <label class="mb-1">
+                                <h6 class="mb-0 text-sm">Email Address</h6>
+                            </label> <input class="mb-4" type="text" asp-for="Username" placeholder="Enter a valid email address">
+                        </div>
+                        <div class="row px-3">
+                            <label class="mb-1">
+                                <h6 class="mb-0 text-sm">Password</h6>
+                            </label> 
+                            <input type="password" asp-for="Password" placeholder="Enter password">
+                        </div>
+                        <br>
+                        <div class="row px-3">
+                            <label class="mb-1">
+                                <h6 class="mb-0 text-sm">Confirm Password</h6>
+                            </label>
+                            <input class="mb-4" type="password" asp-for="ConfirmPassword" placeholder="Enter Confirm Password">
+                        </div>
+
+                        <div class="row px-3">
+                            <label class="mb-1">
+                                <h6 class="mb-0 text-sm">Position</h6>
+                            </label>
+                            <select class="form-control" id="selectRole" asp-for="Role">
+                                <option value="Personal">Personal</option>
+                                <option value="Enterprise">Enterprise</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center">SignUp</button> </div>
+                        <div class="row mb-4 px-3"> <small class="font-weight-bold">Do you already have an account ? <a class="text-danger " asp-controller="signin" asp-action="index">SignIn Now!</a></small> </div>
+                        <div asp-validation-summary="All"></div>
+                        <div class="text-danger">@ViewData["message"]</div>
+                    </form>
                 </div>
             </div>
         </div>

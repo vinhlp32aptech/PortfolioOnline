@@ -38,12 +38,14 @@ namespace Portfolio5.Areas.Admin.Controllers
         [Route("add")]
         public IActionResult Add(Account account )
         {
+            // get idRole
             string nameRole = Request.Form["selectRole"];
             string idRole = AccountService.GetIdRoleByNameRol(nameRole);
             var numAlpha = new Regex("(?<Alpha>[a-zA-Z]*)(?<Numeric>[0-9]*)");
             int num = 0;
             if (AccountService.GetNewestId(nameRole) != null)
             {
+                // get newest id account
                 var match = numAlpha.Match(AccountService.GetNewestId(nameRole));
                 //var alpha = match.Groups["Alpha"].Value;
                 num = Int32.Parse(match.Groups["Numeric"].Value);
