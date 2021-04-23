@@ -8,18 +8,46 @@
             <span></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
-            <ul class="navbar-nav">
-                <li><a class="nav-link active" asp-controller="index" asp-action="index">Home</a></li>
-                <li><a class="nav-link" asp-controller="about" asp-action="index">About us</a></li>
-                <li><a class="nav-link" asp-controller="service" asp-action="index">Service</a></li>
-                <li><a class="nav-link" asp-controller="contact" asp-action="index">Contact Us</a></li>
-                <li>
-                    <a class="nav-link active" asp-controller="signin" asp-action="index">
-                        SignIn
-                        | SignUp
-                    </a>
-                </li>
-            </ul>
+            @if (ViewBag.loggedin == false)
+            {
+                <ul class="navbar-nav">
+                    <li><a class="nav-link active" asp-controller="index" asp-action="index">Home</a></li>
+                    <li><a class="nav-link" asp-controller="about" asp-action="index">About us</a></li>
+                    <li><a class="nav-link" asp-controller="service" asp-action="index">Service</a></li>
+                    <li><a class="nav-link" asp-controller="contact" asp-action="index">Contact Us</a></li>
+                    <li>
+                        <a class="nav-link active" asp-controller="signin" asp-action="index">
+                            SignIn
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" asp-controller="signup" asp-action="index">
+                            SignUp
+                        </a>
+                    </li>
+                </ul>
+
+            }
+            else
+            {
+        <ul class="navbar-nav">
+            <li><a class="nav-link active" asp-controller="index" asp-action="index">Home</a></li>
+            <li><a class="nav-link" asp-controller="about" asp-action="index">About us</a></li>
+            <li><a class="nav-link" asp-controller="service" asp-action="index">Service</a></li>
+            <li><a class="nav-link" asp-controller="contact" asp-action="index">Contact Us</a></li>
+            <li>
+                <a class="nav-link active" asp-controller="profie" asp-action="index">
+                    Profile
+                </a>
+            </li>
+            <li>
+                <a class="nav-link active" asp-controller="index" asp-action="logout">
+                    LogOut
+                </a>
+            </li>
+        </ul>
+
+            }
         </div>
         <div class="search-box">
             <input type="text" class="search-txt" placeholder="Search">

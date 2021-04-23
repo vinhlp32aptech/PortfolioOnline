@@ -36,7 +36,7 @@ namespace Portfolio5.Areas.Admin.Controllers
 
         [HttpPost]
         [Route("add")]
-        public IActionResult Add(Account account )
+        public IActionResult Add(Account account)
         {
             // get idRole
             string nameRole = Request.Form["selectRole"];
@@ -51,7 +51,7 @@ namespace Portfolio5.Areas.Admin.Controllers
                 num = Int32.Parse(match.Groups["Numeric"].Value);
 
             }
-
+            account.IdRole = idRole;
             account.Datecreated = DateTime.Now;
             account.Dateupdated = DateTime.Now;
             account.Pass = BCrypt.Net.BCrypt.HashString(account.Pass);
@@ -67,14 +67,7 @@ namespace Portfolio5.Areas.Admin.Controllers
                 user.Datecreated = DateTime.Now;
                 user.Dateupdated = DateTime.Now;
 
-                var userRole = new UserRole();
-                userRole.IdAcc = idAcc;
-                userRole.IdRole = idRole;
-                userRole.Datecreated = DateTime.Now;
-                userRole.Dateupdated = DateTime.Now;
-
                 AccountService.CreateUser(user);
-                AccountService.CreateUserRole(userRole);
 
             }
             else
@@ -87,14 +80,7 @@ namespace Portfolio5.Areas.Admin.Controllers
                 user.Datecreated = DateTime.Now;
                 user.Dateupdated = DateTime.Now;
 
-                var userRole = new UserRole();
-                userRole.IdAcc = idAcc;
-                userRole.IdRole = idRole;
-                userRole.Datecreated = DateTime.Now;
-                userRole.Dateupdated = DateTime.Now;
-
                 AccountService.CreateUser(user);
-                AccountService.CreateUserRole(userRole);
             }
 
             return RedirectToAction("index");

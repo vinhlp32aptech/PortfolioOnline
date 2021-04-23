@@ -7,7 +7,6 @@ namespace Portfolio5.Models
 {
     public partial class SocialUser
     {
-   
         public string IdSocialUser { get; set; }
         public string NameSoc { get; set; }
         public string IconSoc { get; set; }
@@ -17,7 +16,5 @@ namespace Portfolio5.Models
         public DateTime? Dateupdated { get; set; }
 
         public virtual Account IdAccNavigation { get; set; }
-
-
     }
 }

@@ -40,7 +40,7 @@
                         <div class="row px-3">
                             <label class="mb-1">
                                 <h6 class="mb-0 text-sm">Password</h6>
-                            </label> 
+                            </label>
                             <input type="password" asp-for="Password" placeholder="Enter password">
                         </div>
                         <br>
@@ -65,6 +65,8 @@
                         <div class="row mb-4 px-3"> <small class="font-weight-bold">Do you already have an account ? <a class="text-danger " asp-controller="signin" asp-action="index">SignIn Now!</a></small> </div>
                         <div asp-validation-summary="All"></div>
                         <div class="text-danger">@ViewData["message"]</div>
+                        <div class="text-info">@ViewData["success"]</div>
+
                     </form>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-create DATABASE portfolio
+drop DATABASE portfolio
 
 use portfolio
 
@@ -8,6 +8,7 @@ CREATE TABLE account(
 	username varchar(50),
 	pass varchar(200),
 	email varchar(70),
+	id_role varchar(20),
 	datecreated datetime,
 	dateupdated datetime,
 	stat bit
@@ -98,14 +99,7 @@ create table hashtag_user
 	primary key(id_hashtag, id_acc)
 );
 
-create table user_role
-(
-	id_role varchar(20),
-	id_acc varchar(20),
-	datecreated datetime,
-	dateupdated datetime,
-	primary key (id_role, id_acc) 
-);
+
 
 create table [role]
 (
@@ -312,11 +306,7 @@ ADD CONSTRAINT FK_url_session_page_session_page
 FOREIGN KEY (id_sess) REFERENCES session_page(id_sess);
 
 
-ALTER TABLE user_role
-ADD CONSTRAINT FK_user_role_role
+ALTER TABLE account
+ADD CONSTRAINT FK_account_role
 FOREIGN KEY (id_role) REFERENCES [role](id_role);
 
-
-ALTER TABLE user_role
-ADD CONSTRAINT FK_user_role_account
-FOREIGN KEY (id_acc) REFERENCES account(id_acc);

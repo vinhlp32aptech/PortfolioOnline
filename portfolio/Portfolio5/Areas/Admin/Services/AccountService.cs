@@ -14,7 +14,6 @@ namespace Portfolio5.Services
         public int CountIdById(string id);
         public Account CreateAccount(Account account);
         public User CreateUser(User user);
-        public void CreateUserRole(UserRole userRole);
         public string GetIdRoleByNameRol(string nameRole);
         public void Delete(string idacc);
     }

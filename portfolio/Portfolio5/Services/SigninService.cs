@@ -9,5 +9,6 @@ namespace Portfolio5.Services
     public interface SigninService
     {
         public Account GetAccount(string email);
+        public string GetRole(string idRole);
     }
 }

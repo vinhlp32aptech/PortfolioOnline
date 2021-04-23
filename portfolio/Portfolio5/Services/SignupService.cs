@@ -10,7 +10,6 @@ namespace Portfolio5.Services
     {
         public Account CreateAccount(Account account);
         public User CreateUser(User user);
-        public void CreateUserRole(UserRole userrole);
         public Account GetAccount(string email);
         string GetIdRoleByNameRol(string nameRole);
         string GetNewestId(string keyword);

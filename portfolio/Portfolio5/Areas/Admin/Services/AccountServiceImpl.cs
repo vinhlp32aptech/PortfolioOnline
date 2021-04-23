@@ -34,12 +34,7 @@ namespace Portfolio5.Services
             return user;
         }
 
-        public void CreateUserRole(UserRole userRole)
-        {
-            db.UserRoles.Add(userRole);
-            db.SaveChanges();
-            
-        }
+    
 
         public void Delete(string idacc)
         {

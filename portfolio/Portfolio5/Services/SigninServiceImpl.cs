@@ -19,5 +19,15 @@ namespace Portfolio5.Services
         {
             return db.Accounts.SingleOrDefault(p => p.Email == email);
         }
+
+        public string GetRole(string idRole)
+        {
+            return (from roles in db.Roles
+                   where
+                     roles.IdRole == idRole
+                   select 
+                       roles.NameRole
+                   ).Take(1).SingleOrDefault();
+        }
     }
 }

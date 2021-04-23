@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -9,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Portfolio5.Controllers
@@ -36,34 +39,67 @@ namespace Portfolio5.Controllers
         [Route("login")]
         public IActionResult Login(SigninViewModels signin)
         {
-            var account = signinService.GetAccount(signin.Username);
+            bool isUserValid = false;
+            bool isUserRoleValid = false;
 
-            if (account != null)
+            var account = signinService.GetAccount(signin.Username);
+            var userrole = signinService.GetRole(account.IdRole);
+            if (account != null && BCrypt.Net.BCrypt.Verify(signin.Password, account.Pass))
             {
-                if (account.Email == signin.Username && BCrypt.Net.BCrypt.Verify(signin.Password, account.Pass))
+
+                isUserValid = true;
+                isUserRoleValid = true;
+            }
+
+
+            if (ModelState.IsValid && isUserValid && isUserRoleValid)
+            {
+                //if (HttpContext.Session.GetString("idacc") == null)
+                //{
+                //    HttpContext.Session.SetString("idacc", JsonConvert.SerializeObject(account.IdAcc));
+                //}
+                //return View("~/Views/Index/Index.cshtml");
+
+                string key = "Idacc";
+                string value = account.IdAcc;
+                CookieOptions cookieOptions = new CookieOptions();
+                cookieOptions.Expires = DateTime.Now.AddDays(30);
+                Response.Cookies.Append(key, value, cookieOptions);
+
+                var claims = new List<Claim>
                 {
- 
-                    if (HttpContext.Session.GetString("idacc") == null)
-                    {
-                        HttpContext.Session.SetString("idacc", JsonConvert.SerializeObject(account.IdAcc));
-                    }
-                    //return View("~/Views/Index/Index.cshtml");
-                    return RedirectToAction("index", "Index", new { area = "" });
-                }
-                else
-                {
-                    ViewData["message"] = "Your email or password is wrong!";
-                    return View("index");
-                }
-                return View("index");
+                    new Claim(ClaimTypes.Name, account.Email),
+                    new Claim(ClaimTypes.Role, userrole),
+
+
+                };
+
+
+                var identity = new ClaimsIdentity(
+                    claims, CookieAuthenticationDefaults.
+        AuthenticationScheme);
+
+                var principal = new ClaimsPrincipal(identity);
+
+                var props = new AuthenticationProperties();
+                props.IsPersistent = signin.Rememberme;
+
+                HttpContext.SignInAsync(
+                    CookieAuthenticationDefaults.
+        AuthenticationScheme,
+                    principal, props).Wait();
+
+                return RedirectToAction("index", "Index", new { area = "" });
             }
             else
             {
-                ViewData["message"] = "User not found!";
+                ViewData["message"] = "Your email or password is wrong!";
                 return View("index");
             }
+            return View("index");
 
         }
+
 
     }
 }

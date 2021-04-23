@@ -40,11 +40,7 @@ namespace Portfolio5.Services
             return user;
         }
 
-        public void CreateUserRole(UserRole userrole)
-        {
-            db.UserRoles.Add(userrole);
-            db.SaveChanges();
-        }
+     
 
         public string GetIdRoleByNameRol(string nameRole)
         {

@@ -9,7 +9,7 @@ namespace Portfolio5.Models
     {
         public Role()
         {
-            UserRoles = new HashSet<UserRole>();
+            Accounts = new HashSet<Account>();
         }
 
         public string IdRole { get; set; }
@@ -18,6 +18,6 @@ namespace Portfolio5.Models
         public DateTime? Datecreated { get; set; }
         public DateTime? Dateupdated { get; set; }
 
-        public virtual ICollection<UserRole> UserRoles { get; set; }
+        public virtual ICollection<Account> Accounts { get; set; }
     }
 }

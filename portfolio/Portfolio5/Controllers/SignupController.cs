@@ -56,6 +56,7 @@ namespace Portfolio5.Controllers
                     }
                     account.Username = "Anonymous";
                     account.Email = signup.Username;
+                    account.IdRole = idRole;
                     account.Datecreated = DateTime.Now;
                     account.Dateupdated = DateTime.Now;
                     account.Pass = BCrypt.Net.BCrypt.HashString(signup.Password);
@@ -71,14 +72,7 @@ namespace Portfolio5.Controllers
                         user.Datecreated = DateTime.Now;
                         user.Dateupdated = DateTime.Now;
 
-                        var userRole = new UserRole();
-                        userRole.IdAcc = idAcc;
-                        userRole.IdRole = idRole;
-                        userRole.Datecreated = DateTime.Now;
-                        userRole.Dateupdated = DateTime.Now;
-
                         signupService.CreateUser(user);
-                        signupService.CreateUserRole(userRole);
 
                     }
                     else
@@ -89,18 +83,11 @@ namespace Portfolio5.Controllers
                         user.IdUser = idAcc;
                         user.IdAcc = idAcc;
                         user.Datecreated = DateTime.Now;
-                        user.Dateupdated = DateTime.Now;
-
-                        var userRole = new UserRole();
-                        userRole.IdAcc = idAcc;
-                        userRole.IdRole = idRole;
-                        userRole.Datecreated = DateTime.Now;
-                        userRole.Dateupdated = DateTime.Now;
+                        user.Dateupdated = DateTime.Now; 
 
                         signupService.CreateUser(user);
-                        signupService.CreateUserRole(userRole);
                     }
-                    ViewData["message"] = "Account created successfully!";
+                    ViewData["success"] = "Account created successfully!";
 
                     return View("index");
                 }
