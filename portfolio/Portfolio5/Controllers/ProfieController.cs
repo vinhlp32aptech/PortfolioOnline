@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Portfolio5.Controllers
 {
+   
     [Route("profie")]
     public class ProfieController : Controller
     {
@@ -26,9 +27,15 @@ namespace Portfolio5.Controllers
         [Route("")]
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetString("idacc") != null)
+            {
+                HttpContext.Session.GetString("idacc")
+
+            }
             return View();
         }
         [Route("edit/{id}")]
+
         [HttpPost]
         public IActionResult Edit(Account account, IFormFile file , User user)
         {

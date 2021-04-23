@@ -8,8 +8,8 @@ namespace Portfolio5.Services
 {
     public interface ProfieService
     {
-
-
+        List<Account> FindAccount();
+        List<User> FindUser();
         User Update(User user);
 
         Account Update(Account account);

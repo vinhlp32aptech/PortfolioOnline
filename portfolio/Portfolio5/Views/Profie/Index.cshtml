@@ -12,8 +12,10 @@
                         <div class="card-body text-center bg-primary rounded-top">
                             <div class="user-box">
                                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user avatar">
+                                @*<img src="~/Images/@Model.User.Avatar" alt="Alternate Text" />*@
                             </div>
                             <h5 class="mb-1 text-white">Jhon Doe</h5>
+                            @*<h5 class="mb-1 text-white"></h5>*@
                             <h6 class="text-light">UI/UX Engineer</h6>
                         </div>
                         <div class="card-body">
@@ -81,7 +83,7 @@
                                 <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><i class="icon-envelope-open"></i> <span class="hidden-xs">Messages</span></a>
                             </li>
                             <li class="nav-item">
-                                <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">Edit</span></a>
+                                <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link" ><i class="icon-note"></i> <span class="hidden-xs">Edit</span></a>
                             </li>
                         </ul>
                         <div class="tab-content p-3">
@@ -189,7 +191,7 @@
                                 </table>
                             </div>
                             <div class="tab-pane" id="edit">
-                                <form method="post" asp-action="index" asp-controller="profie">
+                                <form method="post" asp-action="edit" asp-controller="profie">
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">First name</label>
                                         <div class="col-lg-9">

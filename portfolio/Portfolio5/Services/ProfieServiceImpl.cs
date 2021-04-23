@@ -20,9 +20,19 @@ namespace Portfolio5.Services
             return db.Accounts.SingleOrDefault(p => p.IdAcc == idAcc);
         }
 
+        public List<Account> FindAccount()
+        {
+            return db.Accounts.ToList();
+        }
+
         public User FindUser(string idUser)
         {
             return db.Users.SingleOrDefault(p => p.IdUser == idUser);
+        }
+
+        public List<User> FindUser()
+        {
+            return db.Users.ToList();
         }
 
         public User Update(User user)

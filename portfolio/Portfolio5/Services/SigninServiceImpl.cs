@@ -15,7 +15,8 @@ namespace Portfolio5.Services
             this.db = db;
         }
 
-        public Account GetAccount(string email)
+        public 
+            Account GetAccount(string email)
         {
             return db.Accounts.SingleOrDefault(p => p.Email == email);
         }

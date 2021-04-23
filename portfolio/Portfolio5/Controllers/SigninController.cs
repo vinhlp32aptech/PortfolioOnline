@@ -31,7 +31,6 @@ namespace Portfolio5.Controllers
         {
             return View();
         }
-
         [HttpPost]
         [Route("login")]
         public IActionResult Login(string email, string pass)
