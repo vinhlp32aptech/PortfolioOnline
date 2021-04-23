@@ -5,6 +5,7 @@ using Portfolio5.Models;
 using Portfolio5.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,10 +30,19 @@ namespace Portfolio5.Controllers
         {
             if (HttpContext.Session.GetString("idacc") != null)
             {
-                HttpContext.Session.GetString("idacc")
+               
+                var userinfo = profieService.GetAllUserInfo(HttpContext.Session.GetString("idacc"));
+
+                Debug.WriteLine("idacc : " + HttpContext.Session.GetString("idacc"));
+                ViewBag.acc = userinfo.Account;
+                ViewBag.user = userinfo.User;
+                ViewBag.rating = userinfo.Rating;
+                ViewBag.social = userinfo.SocialUser;
 
             }
+
             return View();
+
         }
         [Route("edit/{id}")]
 

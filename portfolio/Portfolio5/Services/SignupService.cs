@@ -15,6 +15,5 @@ namespace Portfolio5.Services
         string GetIdRoleByNameRol(string nameRole);
         string GetNewestId(string keyword);
         int CountIdById(string id);
-
     }
 }

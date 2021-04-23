@@ -35,6 +35,17 @@ namespace Portfolio5.Services
             return db.Users.ToList();
         }
 
+        public AllUserAcc GetAllUserInfo(string id)
+        {
+            var acc =  db.Accounts.SingleOrDefault(p => p.IdAcc == id);
+            var user = db.Users.SingleOrDefault(p => p.IdAcc == id);
+            var rating = db.Ratings.SingleOrDefault(p => p.IdAcc == id);
+            var soc = db.SocialUsers.SingleOrDefault(p => p.IdAcc == id);
+
+            return new AllUserAcc { Account = acc, User = user, Rating = rating, SocialUser = soc};
+
+        }
+
         public User Update(User user)
         {
             db.Entry(user).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
