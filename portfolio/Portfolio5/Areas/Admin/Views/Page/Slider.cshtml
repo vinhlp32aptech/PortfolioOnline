@@ -86,8 +86,8 @@
                             <th>Id Slider Part</th>
                             <th>Id Slider</th>
                             <th>Title Part</th>
-                            <th>Url Slider</th>
                             <th>Name Url</th>
+                            <th>Url Slider</th>
                             <th>Photo</th>
 
                             <th>Date created</th>
@@ -101,21 +101,21 @@
                     <tbody>
                         @foreach (var sliderPart in ViewBag.sliderParts)
                         {
-                            <tr>
-                                <td>@sliderPart.IdSliderPart</td>
-                                <td>@sliderPart.IdSlider</td>
-                                <td>@sliderPart.TitlePart</td>
-                                <td>@sliderPart.UrlSlider</td>
-                                <td>@sliderPart.NameUrl</td>
-                                <td><img src="~/Images/@sliderPart.Photo" alt="Alternate Text" height="100" width="100" /></td>
-                                <td>@sliderPart.Datecreated</td>
-                                <td>@sliderPart.Dateupdated</td>
-                                <td>
+                        <tr>
+                            <td>@sliderPart.IdSliderPart</td>
+                            <td>@sliderPart.IdSlider</td>
+                            <td>@sliderPart.TitlePart</td>
+                            <td>@sliderPart.NameUrl</td>
+                            <td>@sliderPart.UrlSlider</td>
+                            <td><img src="~/Images/@sliderPart.Photo" alt="Alternate Text" height="100" width="100" /></td>
+                            <td>@sliderPart.Datecreated</td>
+                            <td>@sliderPart.Dateupdated</td>
+                            <td>
 
-                                    <a type="button" class="btn btn-success" asp-controller="page" asp-action="UpdateSliderPart" asp-route-id="@sliderPart.IdSliderPart"><i class="fas fa-edit"></i></a>
-                                    <a type="button" class="btn btn-danger" asp-controller="page" asp-action="deletePart" asp-route-id="@sliderPart.IdSliderPart" onclick="return confirm('Are you sure delete @sliderPart.IdSliderPart ? ')"><i class="far fa-trash-alt"></i></a>
-                                </td>
-                            </tr>
+                                <a type="button" class="btn btn-success" asp-controller="page" asp-action="UpdateSliderPart" asp-route-id="@sliderPart.IdSliderPart"><i class="fas fa-edit"></i></a>
+                                <a type="button" class="btn btn-danger" asp-controller="page" asp-action="deletePart" asp-route-id="@sliderPart.IdSliderPart" onclick="return confirm('Are you sure delete @sliderPart.IdSliderPart ? ')"><i class="far fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
                         }
                     </tbody>
                 </table>
@@ -161,7 +161,7 @@
 
                     <div class="form-group">
                         <label for="IdView">IdSliderPart</label>
-                        <input type="text" asp-for="SliderPart.IdSliderPart" class="form-control" id="IdView" placeholder="Id View"  />
+                        <input type="text" asp-for="SliderPart.IdSliderPart" class="form-control" id="IdView" placeholder="Id View" />
                     </div>
                     <div class="form-group">
                         <label for="IdView">IdSlider</label>
@@ -169,17 +169,21 @@
                     </div>
                     <div class="form-group">
                         <label for="IdView">TitlePart</label>
-                        <input type="text" asp-for="SliderPart.TitlePart" class="form-control" id="IdView" placeholder="Id View"  />
+                        <input type="text" asp-for="SliderPart.TitlePart" class="form-control" id="IdView" placeholder="Id View" />
                     </div>
                     <div class="form-group">
                         <label for="IdView">ContentPart</label>
-                        <input type="text" asp-for="SliderPart.ContentPart" class="form-control" id="IdView" placeholder="Id View"  />
+                        <input type="text" asp-for="SliderPart.ContentPart" class="form-control" id="IdView" placeholder="Id View" />
                     </div>
                     <div class="form-group">
                         <label for="IdView">NameUrl</label>
-                        <input type="text" asp-for="SliderPart.NameUrl" class="form-control" id="IdView" placeholder="Id View"  />
+                        <input type="text" asp-for="SliderPart.NameUrl" class="form-control" id="IdView" placeholder="Id View" />
                     </div>
-                   
+                    <div class="form-group">
+                        <label for="IdView">UrlSlider</label>
+                        <input type="text" asp-for="SliderPart.UrlSlider" class="form-control" id="IdView" placeholder="Id View" />
+                    </div>
+
 
                     <div class="form-group">
                         <label for="IdView">Photo</label>

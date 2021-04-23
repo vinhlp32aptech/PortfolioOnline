@@ -57,6 +57,8 @@ namespace Portfolio5
             services.AddScoped<SigninService, SigninServiceImpl>();
             services.AddScoped<SignupService, SignupServiceImpl>();
             services.AddScoped<ProfieService, ProfieServiceImpl>();
+            services.AddScoped<IndexService, IndexServiceImpl>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

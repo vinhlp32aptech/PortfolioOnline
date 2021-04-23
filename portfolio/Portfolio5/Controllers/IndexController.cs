@@ -1,8 +1,10 @@
 ﻿using DocumentFormat.OpenXml.InkML;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Portfolio5.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,6 +17,15 @@ namespace Portfolio5.Controllers
     [Route("index")]   
     public class IndexController : Controller
     {
+        private IndexService indexService;
+        private IWebHostEnvironment webHostEnvironment;
+
+        public IndexController(IndexService indexService, IWebHostEnvironment webHostEnvironment)
+        {
+            this.indexService = indexService;
+            this.webHostEnvironment = webHostEnvironment;
+        }
+
         [Route("index")]
         [Route("")]
         [Route("~/")]
@@ -35,6 +46,9 @@ namespace Portfolio5.Controllers
             {
                 ViewBag.role = "Enterprise";
             }
+
+            ViewBag.sliderBanners = indexService.GetSliderHome();
+
             return View();
         }
 
