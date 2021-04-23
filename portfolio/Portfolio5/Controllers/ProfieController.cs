@@ -31,7 +31,7 @@ namespace Portfolio5.Controllers
             if (HttpContext.Session.GetString("idacc") != null)
             {
                
-                var userinfo = profieService.GetAllUserInfo(HttpContext.Session.GetString("idacc"));
+                var userinfo = profieService.GetAllUserInfo("idacc");
 
                 Debug.WriteLine("idacc : " + HttpContext.Session.GetString("idacc"));
                 ViewBag.acc = userinfo.Account;
