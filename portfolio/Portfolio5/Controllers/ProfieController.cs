@@ -28,33 +28,54 @@ namespace Portfolio5.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            if (HttpContext.Session.GetString("idacc") != null)
-            {
-               
-                var userinfo = profieService.GetAllUserInfo("idacc");
+            //if (HttpContext.Session.GetString("idacc") != null)
+            //{
 
-                Debug.WriteLine("idacc : " + HttpContext.Session.GetString("idacc"));
-                ViewBag.acc = userinfo.Account;
-                ViewBag.user = userinfo.User;
-                ViewBag.rating = userinfo.Rating;
-                ViewBag.social = userinfo.SocialUser;
+            //    var userinfo = profieService.GetAllUserInfo("idacc");
 
-            }
+            //    Debug.WriteLine("idacc : " + HttpContext.Session.GetString("idacc"));
+            //    ViewBag.acc = userinfo.Account;
+            //    ViewBag.user = userinfo.User;
+            //    ViewBag.rating = userinfo.Rating;
+            //    ViewBag.social = userinfo.SocialUser;
 
+            //}
+
+            //return View();
+            string cookieIdacc = Request.Cookies["Idacc"];
+
+            ViewBag.alluseracc = profieService.GetAllUserInfo(cookieIdacc);
+
+            AllUserAcc aaa = profieService.GetAllUserInfo(cookieIdacc);
+
+                Debug.WriteLine("Email" + aaa.Account.Email);
+            
             return View();
-
         }
-        [Route("edit/{id}")]
+        [Route("edit")]
 
         [HttpPost]
         public IActionResult Edit(Account account, IFormFile file , User user)
         {
-            var currentAccount = profieService.FindAcc(account.IdAcc);
-            var currentUser = profieService.FindUser(user.IdUser);
-            if (!string.IsNullOrEmpty(account.Pass))
-            {
-                currentAccount.Pass = BCrypt.Net.BCrypt.HashString(account.Pass);
-            }
+            string cookieIdacc = Request.Cookies["Idacc"];
+            var currentAccount = profieService.FindAcc(cookieIdacc);
+            var currentUser = profieService.FindUser(cookieIdacc);
+            //if (!string.IsNullOrEmpty(account.Pass))
+            //{
+            //    currentAccount.Pass = BCrypt.Net.BCrypt.HashString(account.Pass);
+            //}
+            //if (file != null)
+            //{
+            //    string fileName = Guid.NewGuid().ToString();
+            //    var ext = file.ContentType.Split(new char[] { '/' })[1];
+            //    var path = Path.Combine(webHostEnvironment.WebRootPath, "images", fileName + "." + ext);
+            //    using (var fileStream = new FileStream(path, FileMode.Create))
+            //    {
+            //        file.CopyTo(fileStream);
+            //    }
+            //    currentUser.Avatar = fileName + "." + ext;
+
+            //}
             if (file != null)
             {
                 string fileName = Guid.NewGuid().ToString();
@@ -67,10 +88,16 @@ namespace Portfolio5.Controllers
                 currentUser.Avatar = fileName + "." + ext;
 
             }
+            else
+            {
+                currentUser.Avatar = "";
+            }
             currentUser.FirstName = user.FirstName;
             currentUser.LastName = user.LastName;
             currentUser.Website = user.Website;
             currentUser.Addr = user.Addr;
+            currentUser.PhoneNumber = user.PhoneNumber;
+            profieService.Update(currentUser);
 
             currentAccount.Email = account.Email;
             currentAccount.Username = account.Username;
@@ -78,6 +105,8 @@ namespace Portfolio5.Controllers
 
             profieService.Update(currentUser);
             profieService.Update(currentAccount);
+
+
             return RedirectToAction("index");
         }
     }

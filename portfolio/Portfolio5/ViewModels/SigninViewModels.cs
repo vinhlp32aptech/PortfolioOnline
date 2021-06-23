@@ -8,11 +8,11 @@ namespace Portfolio5.ViewModels
 {
     public class SigninViewModels
     {
-        [Required]
-        public string Username { get; set; }
-        [Required]
-        public string Password { get; set; }
-        [Required]
-        public bool Rememberme { get; set; }
+            [Required]
+            public string Username { get; set; }
+            [Required]
+            public string Password { get; set; }
+            [Required]
+            public bool Rememberme { get; set; }
     }
 }

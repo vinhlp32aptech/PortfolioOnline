@@ -19,5 +19,6 @@ namespace Portfolio5.Services
         Account FindAcc(string id);
         public AllUserAcc GetAllUserInfo(string id);
 
+        
     }
 }

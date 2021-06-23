@@ -15,19 +15,19 @@ namespace Portfolio5.Services
             this.db = db;
         }
 
-        public Account GetAccount(string email)
-        {
-            return db.Accounts.SingleOrDefault(p => p.Email == email);
-        }
+            public Account GetAccount(string email)
+            {
+                return db.Accounts.SingleOrDefault(p => p.Email == email);
+            }
 
-        public string GetRole(string idRole)
-        {
-            return (from roles in db.Roles
-                   where
-                     roles.IdRole == idRole
-                   select 
-                       roles.NameRole
-                   ).Take(1).SingleOrDefault();
-        }
+            public string GetRole(string idRole)
+            {
+                return (from roles in db.Roles
+                       where
+                         roles.IdRole == idRole
+                       select 
+                           roles.NameRole
+                       ).Take(1).SingleOrDefault();
+            }
     }
 }

@@ -32,7 +32,7 @@ namespace Portfolio5.Controllers
         public IActionResult Index()
         {
             string email = HttpContext.User.Identity.Name;
-            string cookieIdacc = Request.Cookies["Idacc"];
+            string cookieIdacc = Request.Cookies["Idacc"]; // cai nay == idacc di qua page nao xai cung dc het cu goi no nhu vay la xai duoc  con gi nua hok khong ok
             if (cookieIdacc == null)
             {
                 ViewBag.loggedin = false;
